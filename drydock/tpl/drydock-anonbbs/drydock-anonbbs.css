@@ -91,3 +91,9 @@ blockquote p { margin: 0; padding: 0; }
     }
 
 .ban { color:red; font-weight: bold; }
+
+.centered
+{
+    width: 100%;
+    text-align: center;
+}

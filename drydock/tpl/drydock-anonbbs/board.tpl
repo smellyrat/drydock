@@ -5,9 +5,9 @@
 {* include_php file="linkbar.php" *} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
 {include file=pages.tpl}
 <br style="clear: both;" />
-		<div style="width: 100%; text-align: center;">{include_php file="banners.php"}
+		<div class="centered">{include_php file="banners.php"}
 		<div class="pgtitle">
-			{$binfo.name}<br />
+			{$binfo.name}
 		</div>
 		</div>
 <br />{if $binfo.tlock}Only moderators and administrators are allowed to create new threads.<br />{/if}

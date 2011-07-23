@@ -67,3 +67,8 @@ form { margin-bottom: 0px }
 .bline { font-family:sans-serif; font-size:xx-small; text-align:center; }
 .bottomAdTitle { font-family: arial,helvetica, sans-serif; background: #EEEEEE; color: #333333; }
 .ban { color:red; font-weight: bold; }
+.centered
+{
+    width: 100%;
+    text-align: center;
+}

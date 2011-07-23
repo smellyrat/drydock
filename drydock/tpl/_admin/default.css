@@ -77,3 +77,9 @@ left:8px; top:50px; width:155px; }
 #photobox img { border:0; }
 
 .indent { margin:15px; }
+
+.centered
+{
+    width: 100%;
+    text-align: center;
+}

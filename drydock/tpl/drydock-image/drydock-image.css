@@ -68,3 +68,8 @@ form { margin-bottom: 0px }
 .bottomAdTitle { font-family: arial,helvetica, sans-serif; background: #EEEEEE; color: #333333; }
 .plus { color: #0066FF; cursor: hand; cursor: pointer }
 .ban { color:red; font-weight: bold; }
+.centered
+{
+    width: 100%;
+    text-align: center;
+}
