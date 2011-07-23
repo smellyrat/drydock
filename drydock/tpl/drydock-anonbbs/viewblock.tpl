@@ -48,7 +48,7 @@ No Subject
 		<span class="timedate">{$thread.time|date_format:$THdatetimestring}</span>
 {			if $thread.link}</a>{/if}
 
-[<a href="misc.php?action=report&board={$binfo.folder}&postid={$thread.globalid}" target="_blank">Report</a>]
+[<a href="misc.php?action=report&amp;board={$binfo.folder}&amp;postid={$thread.globalid}" target="_blank">Report</a>]
 
 <a class="jsmod" style="display:none;">{$binfo.folder},{$thread.globalid}</a>
 
