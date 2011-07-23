@@ -133,7 +133,7 @@
 			{* Show quick-moderation panel *}
 
 			<form target="_blank" action="misc.php" method="POST">
-			[<a onclick="javascript:ToggItem(document.getElementById('quickmod{$post.id}'))">Quickmod</a>]
+			[<a onclick="$('#quickmod{$post.id}').toggle();">Quickmod</a>]
 			<span id="quickmod{$post.id}" style="display: none;" class="modblock">
 					<input type="hidden" name="board" value="{$boardz}" />
 					<input type="hidden" name="post" value="{$post.globalid}" />

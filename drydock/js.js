@@ -74,14 +74,16 @@ function getit() {
     
 function oldtoggmenu()
 {
-	if (document.getElementById("idxmenuitem").style.display=="none")
-	{
-		document.getElementById("idxmenuitem").style.display="block";
-		document.getElementById("main").style.marginRight="154px";
-	} else {
-		document.getElementById("idxmenuitem").style.display="none";
-		document.getElementById("main").style.marginRight="0px";
-	}
+    $("#idxmenuitem").toggle();
+    
+    if( $("#idxmenuitem").is(':visible'))
+    {
+        $("#main").css("margin-right", "154px");
+    }
+    else
+    {
+        $("#main").css("margin-right", "0px");
+    }
 }
 
 
@@ -105,26 +107,17 @@ function ToggleMenu(name, duration, path)
 	{
 		date.setTime(date.getTime()+(-1*24*60*60*1000)); // setting the cookie's expiry date to the past means it gets removed
 		var expires = "; expires="+date.toGMTString();
-		document.cookie = name+"-menu="+value+expires+"; path="+path;
-		document.getElementById("idxmenuitem").style.display="block";
-		document.getElementById("main").style.marginRight="154px";
+		document.cookie = name+"-menu="+value+expires+"; path="+path
+                
+                $("#idxmenuitem").show();
+		$("#main").css("margin-right", "154px");
+                
 	} else { // Add the cookie, hide the menu.
 		date.setTime(date.getTime()+duration);
 		var expires = "; expires="+date.toGMTString();
 		document.cookie = name+"-menu="+value+expires+"; path="+path;
-		document.getElementById("idxmenuitem").style.display="none";
-		document.getElementById("main").style.marginRight="0px";
-	}
-}
-
-function ToggItem(item)
-{
-	if( item.style.display == "block" )
-	{
-		item.style.display = "none";
-	}
-	else
-	{
-		item.style.display = "block";
+                
+                $("#idxmenuitem").hide();
+                $("#main").css("margin-right", "0px");
 	}
 }

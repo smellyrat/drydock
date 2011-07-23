@@ -75,7 +75,7 @@ Filter by board: <select name="board">
 					{/if}
 										
 					{* Show quick-moderation panel *}
-					[<a onclick="javascript:ToggItem(document.getElementById('quickmod{$thisimage.reply_id}'))'">Quickmod</a>]
+					[<a onclick="$('#quickmod{$thisimage.reply_id}').toggle();">Quickmod</a>]
 					<form target="_blank" action="misc.php" method="POST">
 					<span id="quickmod{$thisimage.reply_id}" style="display: none;" class="modblock">
 							<input type="hidden" name="board" value="{$boardz}" />
@@ -114,7 +114,7 @@ Filter by board: <select name="board">
 					
 					{* Show quick-moderation panel *}
 					<form target="_blank" action="misc.php" method="POST">
-					[<a onclick="javascript:ToggItem(document.getElementById('quickmod{$thisimage.thread_id}'))">Quickmod</a>]
+					[<a onclick="$('#quickmod{$thisimage.thread_id}').toggle();">Quickmod</a>]
 					<span id="quickmod{$thisimage.thread_id}" style="display: none;" class="modblock">
 							<input type="hidden" name="board" value="{$boardz}" />
 							<input type="hidden" name="post" value="{$thisimage.thread_globalid}" />

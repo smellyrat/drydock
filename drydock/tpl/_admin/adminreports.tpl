@@ -72,7 +72,7 @@ Filter by board:
 			{* Show quick-moderation panel *}
 
 			<form target="_blank" action="misc.php" method="post">
-			[<a onclick="javascript:ToggItem(document.getElementById('quickmod{$report.post.id}'))">Quickmod</a>]
+			[<a onclick="$('#quickmod{$report.post.id}').toggle();">Quickmod</a>]
 			<span id="quickmod{$report.post.id}" class="modblock">
 					<input type="hidden" name="board" value="{$boardz}" />
 					<input type="hidden" name="post" value="{$report.post.globalid}" />
