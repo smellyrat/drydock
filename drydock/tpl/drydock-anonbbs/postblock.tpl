@@ -20,7 +20,7 @@
                     Name: <input type="text" name="nombre" size="20" /> Link: <input type="text" name="link" size="20" /><br />
                     {if $THvc==1}
 						Verification Code:
-						<script type="text/javascript">var RecaptchaOptions = { theme : 'clean' };</script>
+						{literal}<script type="text/javascript">var RecaptchaOptions = { theme : 'clean' };</script>{/literal}
 						{$captcha}
                     {elseif $THvc==2}
 						LEAVE BLANK IF HUMAN: <input type=text" name="email" />
