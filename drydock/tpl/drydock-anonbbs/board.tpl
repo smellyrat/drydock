@@ -7,11 +7,11 @@
 <br style="clear: both;" />
 		<div style="width: 100%; text-align: center;">{include_php file="banners.php"}
 		<div class="pgtitle">
-			{$binfo.name}<br \>
+			{$binfo.name}<br />
 		</div>
 		</div>
 <br />{if $binfo.tlock}Only moderators and administrators are allowed to create new threads.<br />{/if}
-<a name="tlist"></a>
+<a name="tlist" />
 Threads on this page:
     <div class="medtitle">
 {it->getsthreads assign="bthreads"}

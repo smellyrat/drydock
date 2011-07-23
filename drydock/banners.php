@@ -38,5 +38,5 @@
 	closedir($handle); // We're not using it anymore
 	mt_srand((double)microtime()*1000000); // seed for PHP < 4.2
 	$rand = mt_rand(0, $i); // $i was incremented as we went along
-	echo "<img src=\"".THurl."$folder$files[$rand]\" alt=\"a hip and trendy banner image=\">"; // Voila!
+	echo "<img src=\"".THurl."$folder$files[$rand]\" alt=\"a hip and trendy banner image=\" />"; // Voila!
 ?>

@@ -613,7 +613,7 @@ else
 					echo '</td></tr><tr><td width=50%>';
 					if ($user['pic_pending'])
 					{
-						echo "<img src=" . THurl . "static/time.png>" . $username . " has a picture awating admin approval.<br \>\n";
+						echo "<img src=\"" . THurl . "static/time.png\" alt=\"Picture pending\">" . $username . " has a picture awating admin approval.<br />\n";
 					}
 					else
 					{
@@ -682,7 +682,7 @@ else
 					}
 
 					echo '</td></tr></table>';
-					echo "<input type=\"submit\" value=\"Submit\" id=\"subbtn\" /><br \>\n";
+					echo "<input type=\"submit\" value=\"Submit\" id=\"subbtn\" /><br />\n";
 					echo "<a href=\"" . THurl . "profiles.php?action=viewprofile&user=" . $username . "\">Return to member profile</a>";
 					//echo "</div></div>\n";
 
@@ -1110,7 +1110,7 @@ elseif ($_GET['action'] == "permissions")
 	echo "<input type=\"checkbox\" name=\"remove_capcode\" value=\"1\"> Remove";
 
 	echo "<input type=\"hidden\" name=\"permsub\" value=\"1\">\n";
-	echo "<br \><input type=\"submit\" value=\"Submit\">\n";
+	echo "<br /><input type=\"submit\" value=\"Submit\">\n";
 	echo "</form>"; //</div>\n";
 	echo "<a href=\"" . THurl . "profiles.php?action=viewprofile&user=" . $username . "\">Return to member profile</a>";
 }

@@ -72,7 +72,7 @@
 					elseif($file=="SQLite")
 					{
 						$result = sqlite_query($link, $query);
-						//echo $query."<br \>";
+						//echo $query."<br />";
 					}
 					$query = "";
 				}
