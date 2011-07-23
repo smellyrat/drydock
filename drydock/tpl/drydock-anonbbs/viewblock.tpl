@@ -71,7 +71,7 @@ No Subject
 	</tr>
 </table>
 {/if}
-    <div class="postbody"><blockquote>
+    <div class="postbody"><blockquote><p>
         {assign value=$thread.body|THtrunc:2000 var=bodey}
 {	if $binfo.id == THnewsboard or $binfo.id == THmodboard or $binfo.filter!=1}
 {		$bodey.text|nl2br|wrapper|quotereply:"$binfo":"$post":"$thread"}
@@ -79,7 +79,7 @@ No Subject
 {		$bodey.text|filters_new|wrapper|quotereply:"$binfo":"$post":"$thread"}
 {	/if}
 {if $bodey.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
-</blockquote>
+</p></blockquote>
     </div>
 {	if $comingfrom=="board"}
 {	if $thread.rcount>$binfo.perth}
@@ -124,7 +124,7 @@ No Subject
 
     </div>
     <div class="postbody">
-	<blockquote>
+	<blockquote><p>
         {assign value=$post.body|THtrunc:2000 var=bodey}
 
 {	if $binfo.id == THnewsboard or $binfo.id == THmodboard or $binfo.filter!=1}
@@ -133,7 +133,7 @@ No Subject
 {		$bodey.text|filters_new|wrapper|quotereply:"$binfo":"$post":"$thread"}
 {	/if}
 {if $bodey.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
-</blockquote>
+</p></blockquote>
         </div>
 
 {/foreach}{*For each reply*}

@@ -101,12 +101,12 @@
 	</tr>
 </table>
 {/if}
-<blockquote>
+<blockquote><p>
 {if not $thread.body}
 {	$THdefaulttext}
 {else}
 {if $comingfrom=="board"}{assign value=$thread.body|THtrunc:2000 var=bodeycheck}
-<blockquote>
+<blockquote><p>
 {assign value=$bodeycheck.text var=bodey}{else}{assign value=$thread.body var=bodey}{/if}
 {	if $binfo.id == THnewsboard or $binfo.id == THmodboard or $binfo.filter!="1"}
 {		if $binfo.allowvids == 1} 
@@ -123,7 +123,7 @@
 {	/if}
 {if $comingfrom=="board" and $bodeycheck.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
 {/if}
-</blockquote>
+</p></blockquote>
 {/if}{*board preview*}
 {if $comingfrom=="board"}
 {	assign value=$thread.rcount-$thread.scount var="count"}
@@ -187,7 +187,7 @@
 				</table>
 {/if}
 {* replies *}
-				<blockquote>
+				<blockquote><p>
 {if not $post.body}  {* no text,admin configable, THdefaulttext *}
 {	$THdefaulttext}
 {else}
@@ -208,7 +208,7 @@
 {	/if}
 {if $comingfrom=="board" and $bodeycheck.wastruncated} <em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}#{$post.globalid}" title="Read the rest of this post" class="ssmed">[more...]</a></em>{/if}
 {/if}
-				</blockquote>
+				</p></blockquote>
 			</td>
 		</tr>
 	</tbody>

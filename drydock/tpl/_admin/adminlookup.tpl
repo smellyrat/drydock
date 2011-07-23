@@ -128,9 +128,9 @@ IP:
 			{/if}
 			</td></tr>
 			<tr><td> {* Split rest of post from post body *}
-				<blockquote>
+				<blockquote><p>
 					{$post.body|nl2br}
-				</blockquote>
+				</p></blockquote>
 			</td></tr>
 			</table><hr>
 		{/foreach}

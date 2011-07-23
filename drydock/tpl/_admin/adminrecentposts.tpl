@@ -215,9 +215,9 @@
 			
 			{* Split rest of post from post body *}
 			<div>
-				<blockquote>
+				<blockquote><p>
 					{$post.body|nl2br}
-				</blockquote>
+				</p></blockquote>
 			</div>
 						
 		{/foreach}

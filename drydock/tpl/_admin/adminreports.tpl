@@ -165,9 +165,9 @@ Filter by board:
 			
 			{* Split rest of post from post body *}
 			<div> 
-				<blockquote>
+				<blockquote><p>
 					{$report.post.body|nl2br}
-				</blockquote>
+				</p></blockquote>
 			</div>
 			
 			{* Show report handling links *}
