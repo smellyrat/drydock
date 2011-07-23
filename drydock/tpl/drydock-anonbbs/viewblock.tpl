@@ -141,6 +141,6 @@ No Subject
 {include file="postblock.tpl" comingfrom="thread"}
 {if $comingfrom=="board"}
 &nbsp;&bull;&nbsp;<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">View thread</a>&nbsp;&bull;&nbsp;
-{$thread.rcount+1}</span> total post{if $thread.rcount==1}{else}s{/if}.{if $thread.scount>0} Last <span class="name">{$thread.scount}</span> {if $thread.scount==1}reply{else}replies{/if} shown.{/if}
+{$thread.rcount+1} total post{if $thread.rcount==1}{else}s{/if}.{if $thread.scount>0} Last <span class="name">{$thread.scount}</span> {if $thread.scount==1}reply{else}replies{/if} shown.{/if}
 {/if}
 </div>
