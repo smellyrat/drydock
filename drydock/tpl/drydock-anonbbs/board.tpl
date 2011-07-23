@@ -25,7 +25,7 @@ Threads on this page:
 	</div>
 	<div style="text-align: right;">
 		<a href="#newthread">New thread</a>&nbsp;&nbsp;
-		<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/tlist{else}drydock.php?b={$binfo.folder}&tlist{/if}">All threads</a>
+		<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/tlist{else}drydock.php?b={$binfo.folder}&amp;tlist{/if}">All threads</a>
 	</div>
 </div>
 

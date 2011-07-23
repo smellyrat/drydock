@@ -73,7 +73,7 @@
 		$_POST['chkpost'.$_GET['postid']] = true;
 	}
 	
-	if ($_GET['action'] == "handlereport")
+	if (strtolower($_GET['action']) == "handlereport")
 	{
 		// First check if we even have the params we need
 		if (!isset ($_GET['post']) || !isset ($_GET['board']))
@@ -129,7 +129,7 @@
 		$sm->display("popup.tpl");
 		die();	
 	}
-	elseif ($_GET['action'] == "getpage") // View a static page
+	elseif (strtolower($_GET['action']) == "getpage") // View a static page
 	{
 		if(!isset($_GET['page']) || trim($_GET['page']) == "")
 		{
@@ -189,7 +189,7 @@
 			}
 		}
 	}
-	elseif ($_POST['delete'] == "Delete" ) // Delete a post/posts
+	elseif (strtolower($_POST['delete']) == "delete" ) // Delete a post/posts
 	{
 		$message = "what";
 		
@@ -247,7 +247,7 @@
 		$sm->display("popup.tpl");
 		die();
 	}
-	elseif($_POST['report'] == "Report" ) // Report a post
+	elseif(strtolower($_POST['report']) == "report" ) // Report a post
 	{
 		$message = "what";
 		$timeout = 5; // we'll change it to something else if the report is ok so far
@@ -336,7 +336,7 @@
 		$sm->display("popup.tpl");
 		die();
 	}
-	elseif( $_POST['report'] == "report2") // Second stage, with category submission
+	elseif(strtolower($_POST['report']) == "report2") // Second stage, with category submission
 	{
 		$message = "what";
 		
@@ -403,7 +403,7 @@
 		$sm->display("popup.tpl");
 		die();	
 	}
-	elseif( $_POST['quickmod'] == "quickmod")
+	elseif(strtolower($_POST['quickmod']) == "quickmod")
 	{
 		// First check if we even have the params we need
 		if (!isset ($_POST['post']) || !isset ($_POST['board']))
