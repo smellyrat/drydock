@@ -46,7 +46,10 @@ Password: <input type="password" name="password" value=""><br />
 {literal}
 <script type="text/javascript">
 	<!--
-
+		var n=readCookie("{/literal}{$THcookieid}{literal}-name");
+		var t=readCookie("{/literal}{$THcookieid}{literal}-tpass");
+		var l=readCookie("{/literal}{$THcookieid}{literal}-link");
+		var p=readCookie("{/literal}{$THcookieid}{literal}-password");
 		
 		if (n!=null)
 		{
@@ -55,10 +58,6 @@ Password: <input type="password" name="password" value=""><br />
 		if (t!=null)
 		{
 			document.forms['postform'].elements['tpass'].value=unescape(t).replace(/\+/g," ");
-        }
-		if (d!=null)
-		{
-			document.forms['postform'].elements['todo'].value=d;
         }
 		if (l!=null)
 		{

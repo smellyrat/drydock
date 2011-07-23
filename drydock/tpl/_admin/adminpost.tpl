@@ -43,10 +43,6 @@
 {/section}
 {*				</noscript>     *}
 				</td></tr>
-			<tr><td class="postblock">Then</td><td colspan="2"><select name="todo">
-				<option value="thread">Go to the new thread</option>
-				<option value="board" selected="selected">Return to board</option>
-			</select></td></tr>
 		<tr>
 			<td class="postblock">
 				<input type="checkbox" name="pin" checked="checked" value="on"/>Pin 
