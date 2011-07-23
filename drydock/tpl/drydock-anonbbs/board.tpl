@@ -31,16 +31,16 @@ Threads on this page:
 
 {it->getsthreads assign="sthreads"}
 {foreach from=$sthreads item=thread}
-</div><div class="box">
-{include file="viewblock.tpl" comingfrom=$comingfrom}
+<div class="box">
+    {include file="viewblock.tpl" comingfrom=$comingfrom}
+</div>
 {foreachelse}
-<div class="medtitle">(No threads on this board)</div></div>
+<div class="medtitle">(No threads on this board)</div>  
 {/foreach}{*For each thread*}
 </div>
 <div class="box">
 <a name="newthread" />
 {include file=postblock.tpl comingfrom=$comingfrom}
- </div>
 </div>
 {literal}
 <script type="text/javascript" defer="defer">

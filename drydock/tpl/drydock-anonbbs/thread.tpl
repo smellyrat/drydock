@@ -2,11 +2,8 @@
 {it->binfo assign="binfo"}
 {it->head assign="thread"}{* Workaround *}
 {it->getreplies assign="posts"}
-<div id="main">
 [<a href="{$THurl}{if !$THuserewrite}drydock.php?b={/if}{$binfo.folder}">Return</a>]
 {include file="viewblock.tpl"}
-    </div>
-</div>
 {literal}
 <script type="text/javascript" defer="defer">
 	<!--

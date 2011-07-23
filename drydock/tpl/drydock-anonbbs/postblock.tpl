@@ -71,4 +71,4 @@
 </div>
 <div class="ssmed">
     <a href="{$THurl}{if $THuserewrite}{$binfo.folder}{else}drydock.php?b={$binfo.folder}{/if}#tlist">Thread List</a>
-
+</div>
