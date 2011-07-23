@@ -86,13 +86,18 @@
 		{
 			THdie("POboardreplocked");
 		}
-		
+                
 		// Prevent people from posting to boards that require registration
 		// when they're not logged in
-		if( $binfo['requireregistration'] == true && $_SESSION['username'] == false)
-		{
-			THdie("POboardreplocked");
-		}
+		if( $binfo['requireregistration'] == true)
+                {
+                    if($_SESSION['username'] == false)
+                    {
+                            THdie("POboardreplocked");
+                    }
+                    // Set the posting username to be the user stored in our session info
+                    $_POST['nombre'] = $_SESSION['username'];
+                }		
 	}
 
 	if ($thread['lawk']==1 && $mod==false)
