@@ -79,22 +79,22 @@ if( $beginning < 0 ){
 if($bail==1) { echo "No images on record."; } else {
         if($count > $orpha)
         {
-                echo '<table width=100%><tr>';
+                echo '<table style="width: 100%;"><tr>';
                 if($offset > 0){
                         $offsetback = $offset - $orpha;
                         if($offsetback < 0){
                         $offsetback = 0;
                         }
-                        echo '<td align=left width=50%><a href="orpha.php?offset='.$offsetback.'">&lt;&lt;</a></td>';
+                        echo '<td class="lefthalf"><a href="orpha.php?offset='.$offsetback.'">&lt;&lt;</a></td>';
                 } else {
-                        echo '<td align=left width=50%>&lt;&lt;</td>';
+                        echo '<td class="lefthalf">&lt;&lt;</td>';
                         }
 
                 if($beginning > 0){
                         $offsetfwd = $offset += $orpha;
-                        echo '<td align=right width=50%><a href="orpha.php?offset='.$offsetfwd.'">&gt;&gt;</a></td>';
+                        echo '<td class="righthalf"><a href="orpha.php?offset='.$offsetfwd.'">&gt;&gt;</a></td>';
                 } else {
-                        echo '<td align=right width=50%>&gt;&gt;</td>';
+                        echo '<td class="righthalf">&gt;&gt;</td>';
                         }
                 echo '</tr></table>';
         }
@@ -102,7 +102,7 @@ $wrapper=0;
 //echo "<table><tr>";
 $rmstring="";
 $deletestring="";
-echo '<div align="center"><table BORDER="0" CELLPADDING="5" WIDTH=90%>';
+echo '<div style="text-align: center;"><table BORDER="0" CELLPADDING="5" style="width: 90%;">';
 while($nomoreimages == 0 && $row < 8)
 {
 	for($column=0;$column<4;$column++)
@@ -208,20 +208,20 @@ if( $beginning < 0 ){
 	
        if($count > $orpha)
         {
-                echo '<table width=100%><tr>';
+                echo '<table style="width: 100%;"><tr>';
                 if($offset > 0){
                         if($offsetback < 0){
                         $offsetback = 0;
                         }
-                        echo '<td align=left width=50%><a href="orpha.php?offset='.$offsetback.'">&lt;&lt;</a></td>';
+                        echo '<td class="lefthalf"><a href="orpha.php?offset='.$offsetback.'">&lt;&lt;</a></td>';
                 } else {
-                        echo '<td align=left width=50%>&lt;&lt;</td>';
+                        echo '<td class="lefthalf">&lt;&lt;</td>';
                         }
 
                 if($beginning > 0){
-                        echo '<td align=right width=50%><a href="orpha.php?offset='.$offsetfwd.'">&gt;&gt;</a></td>';
+                        echo '<td class="righthalf"><a href="orpha.php?offset='.$offsetfwd.'">&gt;&gt;</a></td>';
                 } else {
-                        echo '<td align=right width=50%>&gt;&gt;</td>';
+                        echo '<td class="righthalf">&gt;&gt;</td>';
                         }
                 echo '</tr></table>';
         }

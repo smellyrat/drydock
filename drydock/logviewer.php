@@ -88,7 +88,7 @@
 			// Add navigation arrows, if the logs are big enough
 			if($count > 40)
 			{
-					echo '<table width=100%><tr>';
+					echo '<table style="width: 100%;"><tr>';
 					if($offset > 0)
 					{
 						$offsetback = $offset - 40;
@@ -96,28 +96,28 @@
 						{
 							$offsetback = 0;
 						}
-						echo '<td align=left width=50%><a href="logviewer.php?log='.$_GET['log'].'&offset='.$offsetback.'">&lt;&lt;</a></td>';
+						echo '<td class="lefthalf"><a href="logviewer.php?log='.$_GET['log'].'&offset='.$offsetback.'">&lt;&lt;</a></td>';
 					} 
 					else 
 					{
-						echo '<td align=left width=30%>&lt;&lt;</td>';
+						echo '<td style="text-align: left; width: 30%;">&lt;&lt;</td>';
 					}
 
-					echo '<td align=center width=40%>Viewing '.trim($_GET['log']).' log</td>';
+					echo '<td style="text-align: right; width: 40%;">Viewing '.trim($_GET['log']).' log</td>';
 					
 					if($beginning > 0)
 					{
 						$offsetfwd = $offset += 40;
-						echo '<td align=right width=30%><a href="logviewer.php?log='.$_GET['log'].'offset='.$offsetfwd.'">&gt;&gt;</a></td>';
+						echo '<td style="text-align: right; width: 30%;"><a href="logviewer.php?log='.$_GET['log'].'offset='.$offsetfwd.'">&gt;&gt;</a></td>';
 					} 
 					else 
 					{
-						echo '<td align=right width=50%>&gt;&gt;</td>';
+						echo '<td class="righthalf">&gt;&gt;</td>';
 					}
 					echo '</tr></table>';
 			}
 			
-			echo '<div align="left"><pre>';
+			echo '<div style="text-align: left;"><pre>';
 			
 			if( sizeof($logentries[$chunk_to_use]) == 0 )
 			{

@@ -65,7 +65,7 @@
 <?php include("menu.php"); ?>
 </div></div>
 <?php if($archivelink) {
-		echo '<div align="center" style="font-family:verdana,century;font-size:10px;padding-bottom: 10px;">- '.$archivelink." -</div>\n";
+		echo '<div style="text-align: center;" style="font-family:verdana,century;font-size:10px;padding-bottom: 10px;">- '.$archivelink." -</div>\n";
 }
 	//Otherwise, we'll use static pages
 	} else {

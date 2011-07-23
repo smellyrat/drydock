@@ -50,7 +50,7 @@
 	<tr>
 {counter name="imgcount" assign="imgcount" start="0"} {* tyam - let's avoid more template breaking *}
 {	foreach from=$thread.images item=it}
-		<td align=center>
+		<td style="text-align: center;">
 			<div class="filesize">File: <a href="{$THurl}images/{$thread.imgidx}/{$it.name}" target="_blank">{$it.name|filetrunc}</a></div>
 			<a class="info" href="{$THurl}images/{$thread.imgidx}/{$it.name}" target="_blank">
 				<img src="{$THurl}images/{$thread.imgidx}/{$it.tname}" width="{$it.twidth}" height="{$it.theight}" alt="{$it.name}" class="thumb" />
@@ -135,7 +135,7 @@
 					<tr>
 {counter name="imgcount" assign="imgcount" start="0"}
 {foreach from=$post.images item=it} {* each image *}
-						<td align=center>
+						<td style="text-align: center;">
 							<div class="filesize">File: <a href="{$THurl}images/{$post.imgidx}/{$it.name}" target="_blank">{$it.name|filetrunc}</a><br /></div>
 							<a class="info" href="{$THurl}images/{$post.imgidx}/{$it.name}" target="_blank">
 								<img src="{$THurl}images/{$post.imgidx}/{$it.tname}" width="{$it.twidth}" height="{$it.theight}" alt="{$it.name}" class="thumb" />

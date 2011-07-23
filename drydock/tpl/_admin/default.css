@@ -83,3 +83,15 @@ left:8px; top:50px; width:155px; }
     width: 100%;
     text-align: center;
 }
+
+.lefthalf
+{
+    width: 50%;
+    text-align: left;
+}
+
+.righthalf
+{
+    width: 50%;
+    text-align: right; 
+}

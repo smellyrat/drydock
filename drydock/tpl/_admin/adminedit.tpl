@@ -14,7 +14,7 @@
         </div>
         
     <form action="{$THurl}editpost.php?board={$boardname}&post={$postid}" method="POST">
-	<table width="80%"><tbody>
+	<table style="width: 80%;"><tbody>
 	
 		<tr>
 			<td><b>Public ID:</b>{$postid}</td>
@@ -49,7 +49,7 @@
 	
 	</tbody></table>
 
-	<table width="90%"><tbody>
+	<table style="width: 90%;"><tbody>
 		<tr>
 			<td><b>Post body:</b></td>
 			<td><textarea
@@ -58,7 +58,7 @@
 		</tr>
 	</tbody></table>
 	
-	<table width="90%"><tbody>
+	<table style="width: 90%;"><tbody>
 		<tr>
 			<td>
 				<table><tbody>

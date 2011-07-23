@@ -77,7 +77,7 @@
             Add Static Page
         </div><br />
 	<form method="post" enctype="multipart/form-data" action="admin.php?t=spa">
-		<table width=100%>
+		<table style="width: 100%;">
 			<tr>
 				<td>Name:<input type="text" name="name" maxlength="50"></td>
 				<td>Title:<input type="text" name="title"></td>

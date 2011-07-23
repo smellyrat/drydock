@@ -74,7 +74,7 @@
 			echo '<title>b&</title>';
 			echo '</head>';
 			echo '<body>';
-			echo '<div align="center">You have been banned.<br /></div>';
+			echo '<div style="text-align: center;">You have been banned.<br /></div>';
 
 			foreach( $bans as $singleban )
 			{
@@ -146,7 +146,7 @@
 	
 			if($unbanned == 1)
 			{
-				echo '<div align="center"><a href="'.THurl.'">Continue to the main index</a></div>';
+				echo '<div style="text-align: center;"><a href="'.THurl.'">Continue to the main index</a></div>';
 			} 
 			else 
 			{

@@ -32,8 +32,8 @@
 		<span class="postername">{$thread.name|escape:'html':'UTF-8'|default:""}</span><span class="postertrip">!{$thread.trip}</span>
 {				/if} {* trip used? *}
 {		/if} {* end forced_anon *}
-		{*</a>*}</td><td align=center><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}"><span class="timedate">{$thread.time|date_format:$THdatetimestring}</span></a></td>
-<td align=center><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">
+		{*</a>*}</td><td style="text-align: center;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}"><span class="timedate">{$thread.time|date_format:$THdatetimestring}</span></a></td>
+<td style="text-align: center;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">
 {	assign value=$thread.rcount-$thread.scount var="count"}
 		<span class="omittedposts">{$count+1}</span></a></td>
 </tr>
@@ -88,7 +88,7 @@
 	<tr>
 {counter name="imgcount" assign="imgcount" start="0"} {* tyam - let's avoid more template breaking *}
 {	foreach from=$thread.images item=it}
-		<td align=center>
+		<td style="text-align: center;">
 			<div class="filesize">File: <a href="{$THurl}images/{$thread.imgidx}/{$it.name}" target="_blank">{$it.name|filetrunc}</a></div>
 			<a class="info" href="{$THurl}images/{$thread.imgidx}/{$it.name}" target="_blank">
 				<img src="{$THurl}images/{$thread.imgidx}/{$it.tname}" width="{$it.twidth}" height="{$it.theight}" alt="{$it.name}" class="thumb" />
@@ -173,7 +173,7 @@
 					<tr>
 {counter name="imgcount" assign="imgcount" start="0"}
 {foreach from=$post.images item=it} {* each image *}
-						<td align=center>
+						<td style="text-align: center;">
 							<div class="filesize">File: <a href="{$THurl}images/{$post.imgidx}/{$it.name}" target="_blank">{$it.name|filetrunc}</a><br /></div>
 							<a class="info" href="{$THurl}images/{$post.imgidx}/{$it.name}" target="_blank">
 								<img src="{$THurl}images/{$post.imgidx}/{$it.tname}" width="{$it.twidth}" height="{$it.theight}" alt="{$it.name}" class="thumb" />

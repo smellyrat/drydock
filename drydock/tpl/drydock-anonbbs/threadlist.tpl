@@ -28,12 +28,12 @@
 		<div>
 
 [<a href="{$THurl}{if !$THuserewrite}drydock.php?b={/if}{$binfo.folder}">Return</a>]<br/>
-<table width=50%>
+<table style="width: 50%;">
 <thead>
 <tr>
-<th align=right>Num</th>
+<th style="text-align: right;">Num</th>
 <th>Title</th>
-<th align=right>Posts</th>
+<th style="text-align: right;">Posts</th>
 <th>Last post</th>
 </tr>
 </thead>
@@ -44,10 +44,10 @@
 {foreach from=$bthreads item=th}
 {counter name="upto"}
 <tr>
-<td align=right>{$th.globalid}:</td>
+<td style="text-align: right;">{$th.globalid}:</td>
 <td><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$th.globalid}">{if $th.title}{$th.title|escape:'html':'UTF-8'}{else}No Subject{/if}</a></td>
-<td align=right><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$th.globalid}">{$th.rcount+1}</a></td>
-<td align=right>
+<td style="text-align: right;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$th.globalid}">{$th.rcount+1}</a></td>
+<td style="text-align: right;">
 <a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$th.globalid}">
 {if $th.rcount>0}
 {$th.lastrep|date_format:$THdatetimestring}

@@ -355,7 +355,7 @@ function rebuild_linkbars()
 	$showcount = count($boards);
 
 	$sidelinks = fopen("linkbar.php", "w") or die("Could not open linkbar.php for writing.");
-	fwrite($sidelinks, '<table width=100%><tr><td align=left>[');
+	fwrite($sidelinks, '<table style="width: 100%;"><tr><td style="text-align: left;">[');
 	foreach ($boards as $boardentry)
 	{
 		if (THuserewrite) //compatibility~~~
@@ -374,7 +374,7 @@ function rebuild_linkbars()
 		};
 		$looper++;
 	}
-	fwrite($sidelinks, ']</td><td align=right>[');
+	fwrite($sidelinks, ']</td><td style="text-align: right;">[');
 	if (THnewsboard > 0)
 	{
 		if (THuserewrite) //compatibility~~~

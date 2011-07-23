@@ -87,7 +87,7 @@ if ($_GET['action'] == "login")
 		//This checks to see if end user has even bothered to change the default email.  No use giving a link to something that won't work.  ~tyamzzz
 		if (THprofile_emailaddr != "THIS IS NOT AN EMAIL")
 		{
-			echo "<td align=right><a href=\"" . THurl . "profiles.php?action=forgotpass\"><font size=\"2\">Forgot password?</a></td></tr>\n";
+			echo "<td style=\"text-alignt: right;\"><a href=\"" . THurl . "profiles.php?action=forgotpass\"><font size=\"2\">Forgot password?</a></td></tr>\n";
 		}
 		echo "<tr><td><input type=\"submit\" value=\"Login\"></td></tr>\n";
 		echo "</form></table>\n";
@@ -237,7 +237,6 @@ else
 						echo "<br />\n";
 					}
 
-					//echo "        </div><br />\n<div align=\"right\ style=\"right: 10px;\">";
 					if ($user['has_picture'])
 					{
 						echo "<img src=\"" . THurl . "images/profiles/" . $user['username'] . "." .
@@ -594,12 +593,11 @@ else
 						echo "<font color=\"#ff0000\">" . $passErrString . "</font>";
 					}
 
-					//echo "<div align=\"right\" style=\"position: fixed; right: 10px;\">\n";
 					echo "<form id=\"profileedit\" action=\"" . THurl . "profiles.php?action=edit&user=" .
 					$username . "\" method=\"post\" enctype=\"multipart/form-data\">";
 					echo '<input type="hidden" name="edit_update" value="1">';
-					echo "<p align=\"left\">\n"; // This is for picture manipulation stuff
-					echo '<table width=100% align=center><tr><td width=50%>';
+					echo "<p style=\"text-align: left;\">\n"; // This is for picture manipulation stuff
+					echo '<table class="centered"><tr><td style="width: 50%;">';
 					if ($user['has_picture'])
 					{
 						echo "<img src=\"" . THurl . "images/profiles/" . $user['username'] . "." .
@@ -610,7 +608,7 @@ else
 					{
 						echo "<img src=\"" . THurl . "static/nopicture.png\" align=\"left\" />\n";
 					}
-					echo '</td></tr><tr><td width=50%>';
+					echo '</td></tr><tr><td style="width: 50%;">';
 					if ($user['pic_pending'])
 					{
 						echo "<img src=\"" . THurl . "static/time.png\" alt=\"Picture pending\">" . $username . " has a picture awating admin approval.<br />\n";

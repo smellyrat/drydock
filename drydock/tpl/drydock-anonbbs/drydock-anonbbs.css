@@ -97,3 +97,15 @@ blockquote p { margin: 0; padding: 0; }
     width: 100%;
     text-align: center;
 }
+
+.lefthalf
+{
+    width: 50%;
+    text-align: left;
+}
+
+.righthalf
+{
+    width: 50%;
+    text-align: right; 
+}

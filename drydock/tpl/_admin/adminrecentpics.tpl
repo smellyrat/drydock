@@ -13,17 +13,17 @@
 	
 {* Show links to forward/back pages if necessary *}
 {if $total_count > 40}
-	<table width=100%><tr>
+	<table style="width: 100%;"><tr>
 		{if $offset > 0}
-			<td align=left width=50%><a href="recentpics.php?offset={$offsetback}{$boardlink}">&lt;&lt;</a></td>
+			<td class="lefthalf"><a href="recentpics.php?offset={$offsetback}{$boardlink}">&lt;&lt;</a></td>
 		{else} 
-			<td align=left width=50%>&lt;&lt;</td>
+			<td class="lefthalf">&lt;&lt;</td>
 		{/if}
 	
 		{if $beginning > 0}
-			<td align=right width=50%><a href="recentpics.php?offset={$offsetfwd}{$boardlink}">&gt;&gt;</a></td>
+			<td class="righthalf"><a href="recentpics.php?offset={$offsetfwd}{$boardlink}">&gt;&gt;</a></td>
 		{else} 
-			<td align=right width=50%>&gt;&gt;</td>
+			<td class="righthalf">&gt;&gt;</td>
 		{/if}
 	</tr></table><hr>
 {/if}
@@ -151,17 +151,17 @@ No images found!<br />
 
 {* Show links to forward/back pages if necessary (again) *}
 {if $total_count > 40}
-	<table width=100%><tr>
+	<table style="width: 100%;"><tr>
 		{if $offset > 0}
-			<td align=left width=50%><a href="recentpics.php?offset={$offsetback}{$boardlink}">&lt;&lt;</a></td>
+			<td class="lefthalf"><a href="recentpics.php?offset={$offsetback}{$boardlink}">&lt;&lt;</a></td>
 		{else} 
-			<td align=left width=50%>&lt;&lt;</td>
+			<td class="lefthalf">&lt;&lt;</td>
 		{/if}
 	
 		{if $beginning > 0}
-			<td align=right width=50%><a href="recentpics.php?offset={$offsetfwd}{$boardlink}">&gt;&gt;</a></td>
+			<td class="righthalf"><a href="recentpics.php?offset={$offsetfwd}{$boardlink}">&gt;&gt;</a></td>
 		{else} 
-			<td align=right width=50%>&gt;&gt;</td>
+			<td class="righthalf">&gt;&gt;</td>
 		{/if}
 	</tr></table><hr>
 {/if}

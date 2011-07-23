@@ -15,11 +15,11 @@
 <form target="_blank" action="misc.php" method="POST" id="delform">
 <input type="hidden" name="board" value="{$binfo.folder}" />
 
-<table width="100%">
+<table style="width: 100%;">
 {*		we don't need to get each thread here so we don't need a 
 		for each for it here, but here is a place keeper for numbering *}
 {include file=viewblock.tpl comingfrom=$comingfrom}
-</table><br clear=all><hr>
+</table><br style="clear: both;"><hr>
 {* we're out on this out, so let's clean it
 	we don't need the loop for multithread	*}
 {literal}

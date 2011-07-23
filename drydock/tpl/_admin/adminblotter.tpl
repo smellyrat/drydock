@@ -64,7 +64,7 @@
             Add Blotter Post
         </div><br />
 <form method="post" enctype="multipart/form-data" action="admin.php?t=bl">
-	<table width=100%>
+	<table style="width: 100%;">
 		<tr>
 			<td>
 				Post to:

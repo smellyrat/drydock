@@ -11,9 +11,12 @@
 {include file=postblock.tpl comingfrom=$comingfrom}
 <hr />
 
-<table width="100%">
-<tr width="100%">
-<th width=55% align=left>Subject</th><th with=20% align=left>Poster</th><th width=15% align=center>Timestamp</th><th width=10% align=center>Posts</th>
+<table style="width: 100%;">
+<tr style="width: 100%;">
+<th style="width: 55%; text-align: left;">Subject</th>
+<th style="width: 20%; text-align: left;">Poster</th>
+<th style="width: 15%; text-align: center;">Timestamp</th>
+<th style="width: 10%; text-align: center;">Posts</th>
 </tr>
 {it->getsthreads assign="sthreads"}
 {foreach from=$sthreads item=thread}

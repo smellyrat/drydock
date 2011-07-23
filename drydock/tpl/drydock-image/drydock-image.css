@@ -73,3 +73,14 @@ form { margin-bottom: 0px }
     width: 100%;
     text-align: center;
 }
+.lefthalf
+{
+    width: 50%;
+    text-align: left;
+}
+
+.righthalf
+{
+    width: 50%;
+    text-align: right; 
+}

@@ -23,7 +23,7 @@ Threads on this page:
 (no threads)
 {/foreach}
 	</div>
-	<div align=right>
+	<div style="text-align: right;">
 		<a href="#newthread">New thread</a>&nbsp;&nbsp;
 		<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/tlist{else}drydock.php?b={$binfo.folder}&tlist{/if}">All threads</a>
 	</div>
