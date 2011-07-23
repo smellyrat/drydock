@@ -1,5 +1,5 @@
 
-        <a name="{$thread.globalid}">
+        <a name="{$thread.globalid}" />
     <div class="medtitle">
 {if $thread.pin}
 		<img src="{$THurl}static/sticky.png" alt="HOLY CRAP STICKY">
@@ -50,7 +50,7 @@ No Subject
 
 [<a href="misc.php?action=report&board={$binfo.folder}&postid={$thread.globalid}" target="_blank">Report</a>]
 
-<a name="jsmod" style="display:none;">{$binfo.folder},{$thread.globalid}</a>
+<a class="jsmod" style="display:none;">{$binfo.folder},{$thread.globalid}</a>
 
     </div>
 {if $thread.images}
@@ -120,7 +120,7 @@ No Subject
 
 [<a href="misc.php?action=report&board={$binfo.folder}&postid={$post.globalid}" target="_blank">Report</a>]
 
-<a name="jsmod" style="display:none;">{$binfo.folder},{$post.globalid}</a>
+<a class="jsmod" style="display:none;">{$binfo.folder},{$post.globalid}</a>
 
     </div>
     <div class="postbody">

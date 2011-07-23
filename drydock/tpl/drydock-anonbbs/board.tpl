@@ -38,7 +38,7 @@ Threads on this page:
 {/foreach}{*For each thread*}
 </div>
 <div class="box">
-<a name=newthread></a>
+<a name=newthread />
 {include file=postblock.tpl comingfrom=$comingfrom}
  </div>
 </div>

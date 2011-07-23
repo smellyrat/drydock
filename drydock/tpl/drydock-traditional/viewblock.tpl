@@ -39,7 +39,7 @@
 </tr>
 {else}
 <div class="damnopera">
-	<a name="{$thread.globalid}"></a>
+	<a name="{$thread.globalid}" />
 	<label>
 {		if $binfo.forced_anon != "1"} {* begin forced_anon *}
 {			if !$thread.title}
@@ -70,7 +70,7 @@
 {			if $thread.link}</a>{/if}
 		<span class="reflink"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">No.{$thread.globalid}</a></span>
 {if $comingfrom=="board"}&nbsp;[<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">Reply</a>]{/if}
-<a name="jsmod" style="display:none;">{$binfo.folder},{$thread.globalid}</a>
+<a class="jsmod" style="display:none;">{$binfo.folder},{$thread.globalid}</a>
 
 {if $thread.pin}
 		<img src="{$THurl}static/sticky.png" alt="HOLY CRAP STICKY">
@@ -144,7 +144,7 @@
 		<tr>
 			<td class="doubledash">&gt;&gt;</td>
 			<td class="reply" id="{$post.globalid}">
-				<a name="{$post.globalid}"></a>
+				<a name="{$post.globalid}" />
 				<label>&nbsp;&nbsp;
 	
 <input type="checkbox" name="chkpost{$post.globalid}" value="1"> {* Deletion/reporting checkbox *}
@@ -167,7 +167,7 @@
 				<span class="timedate">{$post.time|date_format:$THdatetimestring}</label></span>
 {	if $post.link}</a>{/if}
 				<span class="reflink">No.{$post.globalid}</span>
-<a name="jsmod" style="display:none;">{$binfo.folder},{$post.globalid}</a><br />
+<a class="jsmod" style="display:none;">{$binfo.folder},{$post.globalid}</a><br />
 {if $post.images}
 				<table>
 					<tr>
