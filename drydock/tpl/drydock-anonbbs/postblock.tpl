@@ -28,7 +28,6 @@ Subject: <input type="text" name="subj" size="45" /><br />
                     {elseif $THvc==2}
 						LEAVE BLANK IF HUMAN: <input type=text" name="email" /><br />
                     {/if}
-               	    <input type="submit" value="Post" />
                     <textarea name="body" cols="51" rows="8" id="cont"></textarea><br />
 {			if (($binfo.tpix > 0 and $comingfrom == "board") or ($binfo.rpix > 0 and $comingfrom == "thread"))} {* are there images? *}
 <table><tr><td class="postblock">File</td><td>
@@ -47,7 +46,10 @@ Subject: <input type="text" name="subj" size="45" /><br />
 				</noscript>
 </td></tr></table>        
 			{/if} {* if pix>0*}
-Password: <input type="password" name="password" size="8" /><br> {* New password field for deletion *}
+Password: <input type="password" name="password" size="8" /> {* New password field for deletion *} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<input type="submit" value="Post" /><br> 
 <input type="hidden" name="board" value="{$binfo.folder}" />
 {if $comingfrom == "thread"}<input type="hidden" name="thread" value="{$thread.id}" />{/if}
                 </div>

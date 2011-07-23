@@ -14,7 +14,7 @@
 {* tyam - load per-board stylesheets *}
 {if $binfo.customcss}
 <style type="text/css">@import  url('{$THtplurl}futaba.css');</style>
-<link rel="stylesheet" type="text/css" href="{$THpath}tpl/{$binfo.folder}.css" title="{$binfo.folder} theme" />
+<link rel="stylesheet" type="text/css" href="{$THurl}tpl/{$binfo.folder}.css" title="{$binfo.folder} theme" />
 <link rel="alternate stylesheet" type="text/css" href="{$THtplurl}futaba.css" title="Futaba-ish Stylesheet" />
 {else}
 <link rel="stylesheet" type="text/css" href="{$THtplurl}futaba.css" title="Futaba-ish Stylesheet" />
