@@ -70,6 +70,5 @@
     </form>
 </div>
 <div class="ssmed">
-    <span class="name">
-        <a href="{$THurl}{if $THuserewrite}{$binfo.folder}{else}drydock.php?b={$binfo.folder}{/if}#tlist">Thread List</a></span>
+    <a href="{$THurl}{if $THuserewrite}{$binfo.folder}{else}drydock.php?b={$binfo.folder}{/if}#tlist">Thread List</a>
 
