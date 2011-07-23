@@ -1,16 +1,16 @@
 {include file=head.tpl comingfrom=$comingfrom}
-<body>
+
 {it->binfo assign=binfo}
 {it->blotterentries assign=blotter}
 {* include_php file="linkbar.php" *} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
 {include file=pages.tpl}
-<br clear="all" />
-		<center>{include_php file="banners.php"}
+<br style="clear: both;" />
+		<div style="width: 100%; text-align: center;">{include_php file="banners.php"}
 		<div class="pgtitle">
 			{$binfo.name}<br \>
 		</div>
-		</center><br />
-<br/>{if $binfo.tlock}Only moderators and administrators are allowed to create new threads.<br />{/if}
+		</div>
+<br />{if $binfo.tlock}Only moderators and administrators are allowed to create new threads.<br />{/if}
 <a name="tlist"></a>
 Threads on this page:
     <div class="medtitle">

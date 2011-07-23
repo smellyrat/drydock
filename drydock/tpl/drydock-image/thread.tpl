@@ -46,11 +46,7 @@ Password: <input type="password" name="password" value=""><br>
 {literal}
 <script type="text/javascript">
 	<!--
-		var n=readCookie("{/literal}{$THcookieid}{literal}-name");
-		var t=readCookie("{/literal}{$THcookieid}{literal}-tpass");
-		var d=readCookie("{/literal}{$THcookieid}{literal}-th-goto");
-		var l=readCookie("{/literal}{$THcookieid}{literal}-link");
-		var p=readCookie("{/literal}{$THcookieid}{literal}-password");
+
 		
 		if (n!=null)
 		{

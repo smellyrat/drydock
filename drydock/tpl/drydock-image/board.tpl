@@ -4,7 +4,7 @@
 {it->blotterentries assign=blotter}
 {* include_php file="linkbar.php" *} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
 {include file=pages.tpl}
-<br clear="all" />
+<br style="clear: both;" />
 {* no workaround *}
 {* we don't get replies here *}
 {include file=whereami.tpl comingfrom=$comingfrom}

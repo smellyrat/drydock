@@ -12,66 +12,6 @@ function readCookie(name)
         return null;
 }
 
-function vctest() {
-    it=getit();
-    if (it) {
-        vcf=document.getElementById("vc");
-        it.open("GET","vctest.php?c="+vcf.value,true);
-        btn=document.getElementById("subbtn");
-        before=btn.value;
-        it.onreadystatechange=function() {
-            //btn.value="State: "+it.readyState;
-            if (it.readyState==4) {
-                if (it.responseText=="Y") {
-                    btn.value="Submitting..."
-                    document.getElementById("postform").submit();
-                    }
-                else {
-                    alert("The verification code seems to be incorrect. Please try again.");
-                    vcf.focus();
-                    btn.value=before;
-                    btn.disabled=false;
-                    }
-                }
-            }
-        it.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-        it.send("");
-        btn.value="Checking VC...";
-        btn.disabled=true;
-        }
-    else {
-        document.getElementById("postform").submit();
-        //document.postform.submit();
-        //return true;
-        }
-    }
-        
-            
-
-function getit() {
-    var it=null;
-    try {
-        it=new XMLHttpRequest();
-        }
-    catch(e) {
-        //alert("XMLHttpRequest failed.");
-        try {
-            it=new ActiveXObject("Msxml2.XMLHTTP");
-            }
-        catch(e) {
-            //alert("Msxml2.XMLHTTP failed.");
-            try {
-                it=new ActiveXObject("Microsoft.XMLHTTP");
-                }
-            catch(e) {
-                //alert("Microsoft.XMLHTTP failed.");
-                alert("Your browser won't support this feature.");
-                }
-            }
-        }
-    return(it);
-    }
-    
 function oldtoggmenu()
 {
     $("#idxmenuitem").toggle();
@@ -85,7 +25,6 @@ function oldtoggmenu()
         $("#main").css("margin-right", "0px");
     }
 }
-
 
 function ToggleMenu(name, duration, path)
 {
