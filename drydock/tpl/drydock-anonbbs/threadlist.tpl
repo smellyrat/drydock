@@ -45,10 +45,10 @@
 {counter name="upto"}
 <tr>
 <td style="text-align: right;">{$th.globalid}:</td>
-<td><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$th.globalid}">{if $th.title}{$th.title|escape:'html':'UTF-8'}{else}No Subject{/if}</a></td>
-<td style="text-align: right;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$th.globalid}">{$th.rcount+1}</a></td>
+<td><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$th.globalid}">{if $th.title}{$th.title|escape:'html':'UTF-8'}{else}No Subject{/if}</a></td>
+<td style="text-align: right;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$th.globalid}">{$th.rcount+1}</a></td>
 <td style="text-align: right;">
-<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$th.globalid}">
+<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$th.globalid}">
 {if $th.rcount>0}
 {$th.lastrep|date_format:$THdatetimestring}
 {else}

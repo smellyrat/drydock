@@ -1,7 +1,7 @@
 {if $thread.visible == "1"} {* deleting threads sets this to 0 to hide for review *}
 {if $comingfrom=="board"}
 <tr><td>
-<a name="{$thread.globalid}" href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">
+<a name="{$thread.globalid}" href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">
 {		if $binfo.forced_anon != "1"} {* begin forced_anon *}
 {			if !$thread.title}
 		<span class="filetitle">No subject</span>
@@ -32,8 +32,8 @@
 		<span class="postername">{$thread.name|escape:'html':'UTF-8'|default:""}</span><span class="postertrip">!{$thread.trip}</span>
 {				/if} {* trip used? *}
 {		/if} {* end forced_anon *}
-		{*</a>*}</td><td style="text-align: center;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}"><span class="timedate">{$thread.time|date_format:$THdatetimestring}</span></a></td>
-<td style="text-align: center;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">
+		{*</a>*}</td><td style="text-align: center;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}"><span class="timedate">{$thread.time|date_format:$THdatetimestring}</span></a></td>
+<td style="text-align: center;"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">
 {	assign value=$thread.rcount-$thread.scount var="count"}
 		<span class="omittedposts">{$count+1}</span></a></td>
 </tr>
@@ -68,8 +68,8 @@
 {		/if} {* end forced_anon *}
 		<span class="timedate">{$thread.time|date_format:$THdatetimestring}</span>
 {			if $thread.link}</a>{/if}
-		<span class="reflink"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">No.{$thread.globalid}</a></span>
-{if $comingfrom=="board"}&nbsp;[<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">Reply</a>]{/if}
+		<span class="reflink"><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">No.{$thread.globalid}</a></span>
+{if $comingfrom=="board"}&nbsp;[<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">Reply</a>]{/if}
 <a class="jsmod" style="display:none;">{$binfo.folder},{$thread.globalid}</a>
 
 {if $thread.pin}
@@ -121,13 +121,13 @@
 {			$bodey|filters_new|wrapper|quotereply:"$binfo":"$post":"$thread"}
 {		/if}
 {	/if}
-{if $comingfrom=="board" and $bodeycheck.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
+{if $comingfrom=="board" and $bodeycheck.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
 {/if}
 </blockquote>
 {/if}{*board preview*}
 {if $comingfrom=="board"}
 {	assign value=$thread.rcount-$thread.scount var="count"}
-{	if $count>0}<span class="omittedposts">{$count} {if $count>1}posts{else}post{/if} omitted. Click <a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">full thread</a> to view.</span>{/if}
+{	if $count>0}<span class="omittedposts">{$count} {if $count>1}posts{else}post{/if} omitted. Click <a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">full thread</a> to view.</span>{/if}
 {	if $thread.rcount > 0}
 {		assign value=$thread.reps var="location"}
 {	/if}
@@ -206,7 +206,7 @@
 {			$bodey|filters_new|wrapper|quotereply:"$binfo":"$post":"$thread"}
 {		/if}
 {	/if}
-{if $comingfrom=="board" and $bodeycheck.wastruncated} <em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}#{$post.globalid}" title="Read the rest of this post" class="ssmed">[more...]</a></em>{/if}
+{if $comingfrom=="board" and $bodeycheck.wastruncated} <em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}#{$post.globalid}" title="Read the rest of this post" class="ssmed">[more...]</a></em>{/if}
 {/if}
 				</blockquote>
 			</td>

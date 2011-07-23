@@ -11,7 +11,7 @@
 		<img src="{$THurl}static/permasage.png" alt="THIS THREAD SUCKS">
 {/if}
 
-<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">
+<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">
 {if $binfo.forced_anon != 1}
 {$thread.title|escape:'html':'UTF-8'|default:"No Subject"}
 {else}
@@ -78,7 +78,7 @@ No Subject
 {	else}
 {		$bodey.text|filters_new|wrapper|quotereply:"$binfo":"$post":"$thread"}
 {	/if}
-{if $bodey.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
+{if $bodey.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
 </blockquote>
     </div>
 {	if $comingfrom=="board"}
@@ -118,7 +118,7 @@ No Subject
 		<span class="timedate">{$post.time|date_format:$THdatetimestring}</span>
 {			if $post.link}</a>{/if}
 
-[<a href="misc.php?action=report&board={$binfo.folder}&postid={$post.globalid}" target="_blank">Report</a>]
+[<a href="misc.php?action=report&amp;board={$binfo.folder}&amp;postid={$post.globalid}" target="_blank">Report</a>]
 
 <a class="jsmod" style="display:none;">{$binfo.folder},{$post.globalid}</a>
 
@@ -132,7 +132,7 @@ No Subject
 {	else}
 {		$bodey.text|filters_new|wrapper|quotereply:"$binfo":"$post":"$thread"}
 {	/if}
-{if $bodey.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
+{if $bodey.wastruncated}<em><a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}#{$post.globalid}" class="ssmed">[more...]</a></em>{/if}
 </blockquote>
         </div>
 
@@ -140,7 +140,7 @@ No Subject
 
 {include file="postblock.tpl" comingfrom="thread"}
 {if $comingfrom=="board"}
-&nbsp;&bull;&nbsp;<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&i={/if}{$thread.globalid}">View thread</a>&nbsp;&bull;&nbsp;
+&nbsp;&bull;&nbsp;<a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">View thread</a>&nbsp;&bull;&nbsp;
 {$thread.rcount+1}</span> total post{if $thread.rcount==1}{else}s{/if}.{if $thread.scount>0} Last <span class="name">{$thread.scount}</span> {if $thread.scount==1}reply{else}replies{/if} shown.{/if}
 {/if}
 </div>

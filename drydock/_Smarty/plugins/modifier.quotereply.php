@@ -57,7 +57,7 @@ function lookup_qr_link($bid, $bfold, $threadid, $threadglob, $pulledvalue)
 			}
 			else
 			{
-				$link = '<a href="'.THurl.'drydock.php?b='.$bfold.'&i='.$pulledvalue.'#'.$pulledvalue.'">&gt;&gt;'.$pulledvalue."</a>";
+				$link = '<a href="'.THurl.'drydock.php?b='.$bfold.'&amp;i='.$pulledvalue.'#'.$pulledvalue.'">&gt;&gt;'.$pulledvalue."</a>";
 			}
 		}
 		else // This is a reply
@@ -70,7 +70,7 @@ function lookup_qr_link($bid, $bfold, $threadid, $threadglob, $pulledvalue)
 				}
 				else
 				{
-					$link = "<a href=\"".THurl.'drydock.php?b='.$bfold.'&i='.$threadglob."#".$pulledvalue."\">&gt;&gt;".$pulledvalue."</a>";
+					$link = "<a href=\"".THurl.'drydock.php?b='.$bfold.'&amp;i='.$threadglob."#".$pulledvalue."\">&gt;&gt;".$pulledvalue."</a>";
 				}			
 			}
 			else // Cross-thread reply
@@ -89,7 +89,7 @@ function lookup_qr_link($bid, $bfold, $threadid, $threadglob, $pulledvalue)
 					}
 					else
 					{
-						$link = "<a href=\"".THurl.'drydock.php?b='.$bfold.'&i='.$threadop."#".$pulledvalue."\">&gt;&gt;".$pulledvalue."</a>";
+						$link = "<a href=\"".THurl.'drydock.php?b='.$bfold.'&amp;i='.$threadop."#".$pulledvalue."\">&gt;&gt;".$pulledvalue."</a>";
 					}
 				}
 			}

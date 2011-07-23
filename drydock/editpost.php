@@ -339,7 +339,7 @@
 					}
 					else
 					{
-						$diereturn = 'Post(s) deleted.<br /><a href="' . THurl . 'drydock.php?b=' . $boardname . '&i=' . $threadop . '">Return to thread</a>';
+						$diereturn = 'Post(s) deleted.<br /><a href="' . THurl . 'drydock.php?b=' . $boardname . '&amp;i=' . $threadop . '">Return to thread</a>';
 					}
 				}
 	
@@ -417,7 +417,7 @@
 			}
 			else
 			{
-				THdie('Thread moved.<br /><a href="' . THurl . 'drydock.php?b=' . $destboard_name . '&i=' . $newthreadspot . '">Return to thread</a>');
+				THdie('Thread moved.<br /><a href="' . THurl . 'drydock.php?b=' . $destboard_name . '&amp;i=' . $newthreadspot . '">Return to thread</a>');
 			}
 		}
 		else

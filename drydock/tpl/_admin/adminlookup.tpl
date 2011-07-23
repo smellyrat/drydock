@@ -53,7 +53,7 @@ IP:
 					{if $THuserewrite == true}
 						[<a href="{$THurl}{$boardz}/thread/{$post.thread_globalid}#{$post.globalid}">Thread</a>]
 					{else} 
-						[<a href="{$THurl}drydock.php?b={$boardz}&i={$post.thread_globalid}#{$post.globalid}">Thread</a>]
+						[<a href="{$THurl}drydock.php?b={$boardz}&amp;i={$post.thread_globalid}#{$post.globalid}">Thread</a>]
 					{/if}
 				{else} {* No board found, weird *}		
 					Post {$post.globalid} in [<a href="{$THurl}drydock.php?t=$post.thread">Thread</a>]				
@@ -65,7 +65,7 @@ IP:
 					{if $THuserewrite == true}
 						[<a href="{$THurl}{$boardz}/thread/{$post.globalid}">Thread</a>]
 					{else} 
-						[<a href="{$THurl}drydock.php?b={$boardz}&i={$post.globalid}">Thread</a>]
+						[<a href="{$THurl}drydock.php?b={$boardz}&amp;i={$post.globalid}">Thread</a>]
 					{/if}
 					
 				{else}

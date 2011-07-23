@@ -8,12 +8,12 @@
         	{if $THuserewrite}
             <a href="{$THurl}{$boardname}/thread/{$threadid}#{$postid}">
             {else}
-            <a href="{$THurl}drydock.php?b={$boardname}&i={$threadid}#{$postid}">
+            <a href="{$THurl}drydock.php?b={$boardname}&amp;i={$threadid}#{$postid}">
             {/if}
             p.{$postid}</a> in thread {$threadid} in /{$boardname}/
         </div>
         
-    <form action="{$THurl}editpost.php?board={$boardname}&post={$postid}" method="POST">
+    <form action="{$THurl}editpost.php?board={$boardname}&amp;post={$postid}" method="POST">
 	<table style="width: 80%;"><tbody>
 	
 		<tr>
@@ -23,7 +23,7 @@
 		
 		<tr>
 			<td><b>Private ID:</b>{$postarray.id}</td>
-			<td><b>Poster IP:</b><a href="lookups.php?action=iplookup&ip={$ipstring}" target="_blank">{$ipstring}</a></td>
+			<td><b>Poster IP:</b><a href="lookups.php?action=iplookup&amp;ip={$ipstring}" target="_blank">{$ipstring}</a></td>
 		</tr>
 	
 		<tr>

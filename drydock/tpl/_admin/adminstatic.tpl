@@ -61,10 +61,10 @@
                         	<a href="misc.php?action=getpage&page={$page.name}">View</a>
                         </td>
                         <td>
-							<a href="admin.php?a=spe&id={$page.id}">Edit this page</a>
+							<a href="admin.php?a=spe&amp;id={$page.id}">Edit this page</a>
                         </td>
                         <td>
-							<a href="admin.php?t=spx&id={$page.id}">Delete this page</a>
+							<a href="admin.php?t=spx&amp;id={$page.id}">Delete this page</a>
                         </td>
                     </tr>
 {/foreach}

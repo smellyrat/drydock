@@ -170,7 +170,7 @@
 		} 
 		else 
 		{ 
-			$location = THurl."drydock.php?b=".$binfo['folder']."&i=".$loc_arr['thread_loc']."#".$loc_arr['post_loc']; 
+			$location = THurl."drydock.php?b=".$binfo['folder']."&amp;i=".$loc_arr['thread_loc']."#".$loc_arr['post_loc']; 
 		}
 	} 
 	else

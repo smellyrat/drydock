@@ -42,7 +42,7 @@ Filter by board:
 					{if $THuserewrite == true}
 						[<a href="{$THurl}{$boardz}/thread/{$report.post.thread_globalid}#{$report.post.globalid}">Thread</a>]
 					{else} 
-						[<a href="{$THurl}drydock.php?b={$boardz}&i={$report.post.thread_globalid}#{$report.post.globalid}">Thread</a>]
+						[<a href="{$THurl}drydock.php?b={$boardz}&amp;i={$report.post.thread_globalid}#{$report.post.globalid}">Thread</a>]
 					{/if}
 				{else} {* No board found, weird *}		
 					Post {$report.post.globalid} in [<a href="{$THurl}drydock.php?t={$report.post.thread}">Thread</a>]				
@@ -54,7 +54,7 @@ Filter by board:
 					{if $THuserewrite == true}
 						[<a href="{$THurl}{$boardz}/thread/{$report.post.globalid}">Thread</a>]
 					{else} 
-						[<a href="{$THurl}drydock.php?b={$boardz}&i={$report.post.globalid}">Thread</a>]
+						[<a href="{$THurl}drydock.php?b={$boardz}&amp;i={$report.post.globalid}">Thread</a>]
 					{/if}
 					
 				{else}
