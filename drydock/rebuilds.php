@@ -127,16 +127,16 @@ function rebuild_config($configpost)
 	if((int) $configpost['THvc']==1 && !file_exists($path."recaptchalib.php"))  //Did they get the file?
 	{
 		fwrite($config, 'define("THvc",' . THvc.');' . "\n");  //NO CHANGE ALLOWED!
-		$recaptchaerror = "You need to get recaptchalib.php from <a href='http://google.com/recaptcha/'>Google</a>!<br>"
-			."All settings were saved except anti-spam.<br><br>"
+		$recaptchaerror = "You need to get recaptchalib.php from <a href='http://google.com/recaptcha/'>Google</a>!<br />"
+			."All settings were saved except anti-spam.<br /><br />"
 			.'<a href="'.$path.'admin.php?a=g">continue</a>';
 	} else {  //Allow the change... unless the keys aren't set!
 		if($configpost['reCAPTCHAPublic'] == NULL || $configpost['reCAPTCHAPrivate'] == NULL)
 		{
 			fwrite($config, 'define("reCAPTCHAPublic","' . reCAPTCHAPublic . '");' . "\n");
 			fwrite($config, 'define("reCAPTCHAPrivate","' . reCAPTCHAPrivate . '");' . "\n");
-			$recaptchaerror = "reCAPTCHA keys must be set to use it.  You can get keys from <a href='http://google.com/recaptcha/'>Google</a>!<br>"
-				."All settings were saved except anti-spam.<br><br>"
+			$recaptchaerror = "reCAPTCHA keys must be set to use it.  You can get keys from <a href='http://google.com/recaptcha/'>Google</a>!<br />"
+				."All settings were saved except anti-spam.<br /><br />"
 				.'<a href="'.$path.'admin.php?a=g">continue</a>';
 		} else {  //Sounds good, chief.
 			fwrite($config, 'define("THvc",' . (int) $configpost['THvc'] . ');' . "\n");
@@ -254,7 +254,7 @@ function rebuild_hovermenu()
 	'<div class="idxmenutitle">' . "\n"); //this is long, is this right?
 	if ($showcount > 0)
 	{
-		fwrite($sidelinks, "Board Navigation<br>\n");
+		fwrite($sidelinks, "Board Navigation<br />\n");
 		if (THnewsboard != 0)
 		{
 			fwrite($sidelinks, '<a href="' . THurl . 'news.php">' . "News page</a><br />\n");
@@ -302,7 +302,7 @@ function rebuild_hovermenu()
 	fwrite($sidelinks, '} ?>' . "\n");
 	fwrite($sidelinks, '<a href="' . THurl . '">Site Index</a><br />' . "\n");
 	fwrite($sidelinks, '<?php if($_SESSION["username"]) {' . "\n" . 'echo "<a href=\"".THurl."profiles.php?action=logout\">Log Out</a> / <a href=\"".THurl."profiles.php\">Profiles</a>";' . "\n" . ' } else {' . "\n");
-	fwrite($sidelinks, 'echo "<a href=\"".THurl."profiles.php?action=login\">Login</a>' . "\n" . ' / ' . "\n" . '<a href=".THurl."profiles.php?action=register>Register</a>";' . "\n" . '}?>' . "\n");
+	fwrite($sidelinks, 'echo "<a href=\"".THurl."profiles.php?action=login\">Login</a>' . "\n" . ' / ' . "\n" . '<a href=\"".THurl."profiles.php?action=register\">Register</a>";' . "\n" . '}?>' . "\n");
 	fwrite($sidelinks, '</div>');
 	fwrite($sidelinks, '</div>' . "\n");
 	fclose($sidelinks);

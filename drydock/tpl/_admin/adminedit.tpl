@@ -27,22 +27,22 @@
 		</tr>
 	
 		<tr>
-			<td><b>Poster name:</b><br> 
+			<td><b>Poster name:</b><br /> 
 			<input name="name"
 			{if $adminpowers == 0} disabled {/if}
 			type="text" value="{$postarray.name}"></td>
 			
-			<td><b>Poster trip:</b><br> <input name="trip"
+			<td><b>Poster trip:</b><br /> <input name="trip"
 			{if $adminpowers == 0} disabled {/if}
 			type="text" value="{$postarray.trip}"></td>
 		</tr>
 		
 		<tr>
-			<td><b>Poster link:</b><br> <input name="link"
+			<td><b>Poster link:</b><br /> <input name="link"
 			{if $adminpowers == 0} disabled {/if}
 			type="text" value="{$postarray.link}"></td>
 			
-			<td><b>Post subject (if OP):</b><br> <input name="title"
+			<td><b>Post subject (if OP):</b><br /> <input name="title"
 			{if $adminpowers == 0} disabled {/if}
 			type="text" value="{$postarray.title}"></td>
 		</tr>
@@ -63,8 +63,8 @@
 			<td>
 				<table><tbody>
 					<tr>	
-						<td><b>Modify thread:</b><br></td>
-						<td><b>Visibility:</b><br></td>
+						<td><b>Modify thread:</b><br /></td>
+						<td><b>Visibility:</b><br /></td>
 					</tr>
 
 					<tr>
@@ -123,7 +123,7 @@
 			</td>
 	
 			<td>
-				<b>Delete images:</b><br>
+				<b>Delete images:</b><br />
 	
 				{counter name="imgcount" assign="imgcount" start="0"} {* start a new table row after every 5th picture *}
 				{foreach from=$postarray.images item=thisimage}
@@ -143,11 +143,11 @@
 					{counter name="imgcount"}
 					
 					{if $imgcount mod 2 == 0}
-						<br>
+						<br />
 					{/if}
 				{/foreach}
 				{if $imgcount == 0}
-					No images<br>
+					No images<br />
 				{/if}
 			</td>
 		</tr>
@@ -155,19 +155,19 @@
 		<tr>
 			<td>
 				{if $adminpowers > 0}
-					<b>Delete:</b><br>
+					<b>Delete:</b><br />
 					<select name="moddo">
 						<option value="nil" selected="selected">&#8212;</option>
 						<option value="killpost">Delete this post</option>
 						<option value="killip">Delete all posts from this poster's IP</option>
 						<option value="killsub">Delete all posts from this poster's subnet</option>
-					</select><br>
+					</select><br />
 				{else} 
 					Deletion functions are not available at your access level.
-					Please use the hide functions instead.<br>
+					Please use the hide functions instead.<br />
 				{/if}
 		
-				<b>Ban:</b><br>
+				<b>Ban:</b><br />
 				<select name="modban">
 				<option value="nil" selected="selected">&#8212;</option>
 				<option value="banip">Ban this poster's IP</option>
@@ -180,7 +180,7 @@
 	
 				{* Is this a thread and are we admin? *}
 				{if $postarray.thread == 0 && $adminpowers > 0} 
-					<br><b>Move thread:</b><br>
+					<br /><b>Move thread:</b><br />
 					<select name="movethread">
 					<option value="nil" selected="selected">&#8212;</option>
 					{foreach from=$boards item=board}
@@ -191,12 +191,12 @@
 						{/if}
 					{/foreach}
 					</select>
-					<br><b>Warning:</b> hiding/deleting this post will hide/delete all replies.
+					<br /><b>Warning:</b> hiding/deleting this post will hide/delete all replies.
 				{/if}	
 			</td>
 	
 			<td>
-				<b>Ban options:</b><br>
+				<b>Ban options:</b><br />
 				<table><tbody><tr>
 					<td>Public ban reason:</td>
 					<td><input type="text" name="publicbanreason" size="20" /></td></tr>

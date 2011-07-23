@@ -322,11 +322,11 @@
 	
 					if (THuserewrite)
 					{
-						$diereturn = 'Post(s) deleted.<br><a href="' . THurl . $boardname . '">Return to board</a>';
+						$diereturn = 'Post(s) deleted.<br /><a href="' . THurl . $boardname . '">Return to board</a>';
 					}
 					else
 					{
-						$diereturn = 'Post(s) deleted.<br><a href="' . THurl . 'drydock.php?b=' . $boardname . '">Return to board</a>';
+						$diereturn = 'Post(s) deleted.<br /><a href="' . THurl . 'drydock.php?b=' . $boardname . '">Return to board</a>';
 					}
 				}
 				else
@@ -335,11 +335,11 @@
 	
 					if (THuserewrite)
 					{
-						$diereturn = 'Post(s) deleted.<br><a href="' . THurl . $boardname . '/thread/' . $threadop . '">Return to thread</a>';
+						$diereturn = 'Post(s) deleted.<br /><a href="' . THurl . $boardname . '/thread/' . $threadop . '">Return to thread</a>';
 					}
 					else
 					{
-						$diereturn = 'Post(s) deleted.<br><a href="' . THurl . 'drydock.php?b=' . $boardname . '&i=' . $threadop . '">Return to thread</a>';
+						$diereturn = 'Post(s) deleted.<br /><a href="' . THurl . 'drydock.php?b=' . $boardname . '&i=' . $threadop . '">Return to thread</a>';
 					}
 				}
 	
@@ -413,11 +413,11 @@
 	
 			if (THuserewrite)
 			{
-				THdie('Thread moved.<br><a href="' . THurl . $destboard_name . '/thread/' . $newthreadspot . '">Return to thread</a>');
+				THdie('Thread moved.<br /><a href="' . THurl . $destboard_name . '/thread/' . $newthreadspot . '">Return to thread</a>');
 			}
 			else
 			{
-				THdie('Thread moved.<br><a href="' . THurl . 'drydock.php?b=' . $destboard_name . '&i=' . $newthreadspot . '">Return to thread</a>');
+				THdie('Thread moved.<br /><a href="' . THurl . 'drydock.php?b=' . $destboard_name . '&i=' . $newthreadspot . '">Return to thread</a>');
 			}
 		}
 		else

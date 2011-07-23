@@ -12,7 +12,7 @@
 <div class="sslarge">
 <div class="pgtitle">Find post from image:</div>
 <form action="lookups.php" method="get">
-Image URL: <input type="text" name="url"><br>
+Image URL: <input type="text" name="url"><br />
 <input type="submit" name="submit">
 <input type="hidden" name="action" value="imglookup">
 </form>
@@ -27,7 +27,7 @@ IP:
 <input type="text" name="ip" value="{$single_ip}">
 {else}
 <input type="text" name="ip">
-{/if}<br>
+{/if}<br />
 <input type="submit" name="submit">
 <input type="hidden" name="action" value="iplookup">
 </form>
@@ -78,7 +78,7 @@ IP:
 			&nbsp;<i><b>Previously moderated</b></i>
 			{/if}
 			
-			<br>
+			<br />
 			
 			{* Show stuff like name, link field, etc *}
 			
@@ -101,7 +101,7 @@ IP:
 				<img src="{$THurl}static/invisible.png" alt="INVISIBLE" border="0">
 			{/if}
 						
-			{if $post.title != ''}<br><span class="filetitle">{$post.title}</span>{/if}
+			{if $post.title != ''}<br /><span class="filetitle">{$post.title}</span>{/if}
 			
 			{* Show images *}
 			{if $post.images}
@@ -246,10 +246,10 @@ IP:
 	                            Banned IP
 	                        </td>
 	                        <td>
-	                            Private<br>Reason
+	                            Private<br />Reason
 	                        </td>
 	                        <td>
-	                            Admin<br>Reason
+	                            Admin<br />Reason
 	                        </td>
 							<td>
 	                            Duration

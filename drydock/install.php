@@ -166,7 +166,7 @@ p.centertext {
         <div class="pgtitle">
             Drydock Installation Script
         </div>
-	<br>
+	<br />
 <?php if(!isset($_GET['p'])) {
 	//Attempt to touch a file in the directories that need to be chmodded.
 	
@@ -382,27 +382,27 @@ $check = unserialize($configarray);
 ?>
 <div class="logo">confirm settings</div>
 Here you can review your settings before they are written to the server.
-If everything here looks good, go ahead and hit continue.<br><br>
+If everything here looks good, go ahead and hit continue.<br /><br />
 <?php
-	echo "Database type: ".$check['THdbtype']."<br>";
-	echo "Database table prefix: ".$check['THdbprefix']."<br>";
+	echo "Database type: ".$check['THdbtype']."<br />";
+	echo "Database table prefix: ".$check['THdbprefix']."<br />";
 	if($check['THdbtype']!="SQLite")
 	{
-		echo "Database server: ".$check['THdbserver']."<br>";
-		echo "Database username: ".$check['THdbuser']."<br>";
-		echo "Database name: ".$check['THdbbase']."<br>";
+		echo "Database server: ".$check['THdbserver']."<br />";
+		echo "Database username: ".$check['THdbuser']."<br />";
+		echo "Database name: ".$check['THdbbase']."<br />";
 	}
-	echo "Install location: ".$check['THpath']."<br>";
-	echo "Install URL: ".$check['THurl']."<br>";
+	echo "Install location: ".$check['THpath']."<br />";
+	echo "Install URL: ".$check['THurl']."<br />";
 
-	echo "Administrator username: ".$check['adminname']."<br>";
+	echo "Administrator username: ".$check['adminname']."<br />";
 
-	echo "PEAR path: ".$check['THpearpath']."<br>";
-	echo "Enable cURL: ".$check['THusecURL']."<br>"; //THusecURL
-	echo "Enable SWF metatags: ".$check['THuseSWFmeta']."<br>"; //THuseSWFmeta
-	echo "Enable SVG support: ".$check['THuseSVG']."<br>"; //THuseSVG
+	echo "PEAR path: ".$check['THpearpath']."<br />";
+	echo "Enable cURL: ".$check['THusecURL']."<br />"; //THusecURL
+	echo "Enable SWF metatags: ".$check['THuseSWFmeta']."<br />"; //THuseSWFmeta
+	echo "Enable SVG support: ".$check['THuseSVG']."<br />"; //THuseSVG
 ?>
-<br>
+<br />
 <form method="post" enctype="multipart/form-data" action="install.php?p=7">
 <input type="hidden" name="configarray" value="<?php echo htmlspecialchars($configarray); ?>">
 <input type="submit" value="Continue">

@@ -7,7 +7,7 @@
 <tr bgcolor="#DDDDDD"><td><b style="font-size:15px;color:#000000">~~~ItemTitle~~~</b></td><td align="right"><b style="font-size:15px;color:#000000">~~~ItemAuthor~~~</b></td></tr>
 
 <tr bgcolor="#FFFFFF"><td colspan="2"><dl><dt><span style='font-family:Verdana'>~~~ItemPubShortDate~~~ ~~~ItemPubShortTime~~~</span>
-<br><br><dd>~~~ItemDescription~~~<P></dl></td></tr>
+<br /><br /><dd>~~~ItemDescription~~~<P></dl></td></tr>
 <tr bgcolor="#DDDDDD"><td align="right" colspan="2"><a href="~~~ItemLink~~~">comment on this</a>
 </table></td></tr></table>
             ~~~EndItemsRecord~~~

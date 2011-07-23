@@ -6,7 +6,7 @@
         <div class="pgtitle">
 Housekeeping Functions
         </div>
-	<br>
+	<br />
         <div class="sslarge">
 			The following buttons can be used to force updates to certain script built pages.  They can be called manually if there is some error in the build process or if changes are made outisde of the scope of the update scripts (such as editing a post in your news board).
         <div class="pgtitle">

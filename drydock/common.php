@@ -79,7 +79,7 @@
 			foreach( $bans as $singleban )
 			{
 				// Display wildcards as appropriate.
-				printf("Associated IP: %d.%d.%s.%s<br>\n",
+				printf("Associated IP: %d.%d.%s.%s<br />\n",
 				$singleban['ip_octet1'],
 				$singleban['ip_octet2'],
 				(($singleban['ip_octet3'] == -1) ? "*" : $singleban['ip_octet3']),

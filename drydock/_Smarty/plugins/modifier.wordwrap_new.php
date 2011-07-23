@@ -9,8 +9,8 @@
 /**
  * Smarty wordwrap modifier plugin
  *
- * Type:     modifier<br>
- * Name:     wordwrap_new<br>
+ * Type:     modifier<br />
+ * Name:     wordwrap_new<br />
  * Purpose:  wrap a string of text at a given length, hopefully in a way that doesn't break things!  Call this before nl2br.
  * @author   ordog (lol)
  * @param string $string The source string

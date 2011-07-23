@@ -16,5 +16,5 @@
 	{if $binfo.allowedformats & 16}SWF {/if}
     {if $binfo.allowedformats & 32}PDF {/if}
 {else}Image posting is currently disabled.{/if} {* can you even post images? *}
-{if $binfo.allowvids}<br>Video tags are enabled for this board. {/if}
+{if $binfo.allowvids}<br />Video tags are enabled for this board. {/if}
 

@@ -87,7 +87,7 @@
 <td class="postblock">Blotter</td>
 <td><div class="rules">
 {foreach from=$blotter item=blot}
-<span class="timedate">{$blot.time|date_format:$THdatetimestring}</span> - {$blot.entry}<br>
+<span class="timedate">{$blot.time|date_format:$THdatetimestring}</span> - {$blot.entry}<br />
 {/foreach}
 </div></td>
 </tr>

@@ -54,7 +54,7 @@
 			}
 			closedir($handle);
 		}
-		echo "Available logs:<br>\n";
+		echo "Available logs:<br />\n";
 		echo "<ul>\n";
 		foreach( $valid_logs as $logchoice )
 		{

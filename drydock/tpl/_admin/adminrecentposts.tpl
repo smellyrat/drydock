@@ -137,10 +137,10 @@
 			<span id="quickmod{$post.id}" style="display: none;" class="modblock">
 					<input type="hidden" name="board" value="{$boardz}" />
 					<input type="hidden" name="post" value="{$post.globalid}" />
-					<input type="checkbox" name="doban" value="1"> Ban poster<br>
-					Reason: <input type="text" name="banreason"> <br>
-					Duration: <input type="text" name="duration" value="0"><br>
-					<input type="checkbox" name="del" value="1"> Delete this post (requires admin)<br>
+					<input type="checkbox" name="doban" value="1"> Ban poster<br />
+					Reason: <input type="text" name="banreason"> <br />
+					Duration: <input type="text" name="duration" value="0"><br />
+					<input type="checkbox" name="del" value="1"> Delete this post (requires admin)<br />
 					<input type="submit" name="quickmod" value="quickmod">
 			</span>
 			</form>
@@ -180,7 +180,7 @@
 				<img src="{$THurl}static/invisible.png" alt="INVISIBLE" border="0">
 			{/if}
 						
-			{if $post.title != ''}<br><span class="filetitle">{$post.title}</span>{/if}
+			{if $post.title != ''}<br /><span class="filetitle">{$post.title}</span>{/if}
 			
 			</div> {* end of name, link field, etc *}
 			

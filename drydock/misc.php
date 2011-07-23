@@ -297,11 +297,11 @@
 					switch( $status )
 					{
 						case 0: // valid report attempt
-							$message = 'Reporting post #'.$found_post.' in /'.$_POST['board'].'/.<br>
-										<form action="misc.php" method="post">Report category:<br>
-										<input type="radio" name="category" value="1"> Illegal content<br>
-										<input type="radio" name="category" value="2"> Rule violation<br>
-										<input type="radio" name="category" value="3" checked="checked"> Low-quality posting<br>
+							$message = 'Reporting post #'.$found_post.' in /'.$_POST['board'].'/.<br />
+										<form action="misc.php" method="post">Report category:<br />
+										<input type="radio" name="category" value="1"> Illegal content<br />
+										<input type="radio" name="category" value="2"> Rule violation<br />
+										<input type="radio" name="category" value="3" checked="checked"> Low-quality posting<br />
 										<input type="hidden" name="report" value="report2">
 										<input type="hidden" name="post" value="'.$found_post.'">
 										<input type="hidden" name="board" value="'.$_POST['board'].'">
@@ -474,7 +474,7 @@
 							$db->banipfrompost($postarray['id'], $isthread, 0, $reason, "", $reason, $duration, 
 								$_SESSION['username'] . " via mod panel");
 							
-							$message = $message . "<br>Banning";
+							$message = $message . "<br />Banning";
 						}
 						
 						// Delete, if they're an admin
@@ -501,11 +501,11 @@
 							// Write to the log
 							writelog("delete\tt:" . $postarray['globalid'] . "\tb:" . $postarray['board'], "moderator");
 							
-							$message = $message . "<br>Post deletion";
+							$message = $message . "<br />Post deletion";
 						}
 						elseif ( $_POST['del'] == true ) // hrmph :[
 						{
-							$message = $message . "<br><i><b>Post deletion failed (insufficient access)</i></b>";
+							$message = $message . "<br /><i><b>Post deletion failed (insufficient access)</i></b>";
 						}
 					}					
 				}	
@@ -578,7 +578,7 @@
 						$db->banipfrompost($postarray['id'], $isthread, 0, $reason, "", $reason, $duration, 
 							$_SESSION['username'] . " via mod panel");
 							
-						$message = $message . "<br>Banning";
+						$message = $message . "<br />Banning";
 
 						// Delete, if they're an admin
 						if($_SESSION['admin'] == 1)
@@ -604,11 +604,11 @@
 							// Write to the log
 							writelog("delete\tt:" . $postarray['globalid'] . "\tb:" . $postarray['board'], "moderator");
 							
-							$message = $message . "<br>Post deletion";
+							$message = $message . "<br />Post deletion";
 						}
 						else // hrmph :[
 						{
-							$message = $message . "<br><i><b>Post deletion failed (insufficient access)</i></b>";
+							$message = $message . "<br /><i><b>Post deletion failed (insufficient access)</i></b>";
 						}
 					}
 				}	

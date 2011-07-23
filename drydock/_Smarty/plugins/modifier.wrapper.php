@@ -24,7 +24,7 @@ for ($i=0; $i<=$length; $i=$i+1)
 
    if ($wrap>$maxwordlength)
        {
-       $returnvar = $returnvar . "<br>\n";
+       $returnvar = $returnvar . "<br />\n";
        $wrap=0;
        }
    }

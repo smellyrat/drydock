@@ -300,7 +300,7 @@
 			
 			if($result === null)
 			{
-				printf("Insert Error for %d.%d.%d.%s: #%d: %s<br>\n",
+				printf("Insert Error for %d.%d.%d.%s: #%d: %s<br />\n",
 				$insert['ip_octet1'],
 				$insert['ip_octet2'],
 				$insert['ip_octet3'],
@@ -357,7 +357,7 @@ p.centertext {
 				{
 					// Change the pane corresponding with this message.
 					document.getElementById("action_"+type).style.display = "block"; // unhide
-					document.getElementById("action_"+type).innerHTML = "Server response:<br>"+this.responseText;
+					document.getElementById("action_"+type).innerHTML = "Server response:<br />"+this.responseText;
 					
 					// Change the link for this request either to be hidden or back to a valid link
 					if( this.responseText == "Success!"
@@ -387,7 +387,7 @@ p.centertext {
         <div class="pgtitle">
             drydock Upgrade Script
         </div>
-	<br>
+	<br />
 This script will attempt to perform the necessary database changes.  Make sure that THdbprefix is defined
 in your current config.php script before executing this script.  Probably this will work:
 <pre>define("THdbprefix","drydock_");</pre>

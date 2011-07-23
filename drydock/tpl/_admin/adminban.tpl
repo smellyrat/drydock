@@ -23,7 +23,7 @@
                                 Banned IP
                             </td>
                             <td>
-                                Private<br>Reason
+                                Private<br />Reason
                             </td>
 							<td>
                                 Duration
@@ -61,7 +61,7 @@
 			
     {/foreach}
                          </table>
-					<br />Unban rationale: <input type="text" name="reason"><br>
+					<br />Unban rationale: <input type="text" name="reason"><br />
                     <input type="submit" value="Unban checked IPs" />
                 </div>
             </form>
@@ -116,10 +116,10 @@
                                 Banned IP
                             </td>
                             <td>
-                                Private<br>Reason
+                                Private<br />Reason
                             </td>
                             <td>
-                                Admin<br>Reason
+                                Admin<br />Reason
                             </td>
 							<td>
                                 Duration
@@ -164,7 +164,7 @@
 				</table>
 			</div>
 	{/if}
-			<br />Unban rationale: <input type="text" name="reason"><br>
+			<br />Unban rationale: <input type="text" name="reason"><br />
 			<input type="submit" value="Unban checked IPs" />
         </div>
      </form>
@@ -190,7 +190,7 @@
 <br />
 <form method="post" enctype="multipart/form-data" action="admin.php?t=lx">
 <div>
-IP address: <input type="text" name="ip" /><br>
+IP address: <input type="text" name="ip" /><br />
 <input type="submit" value="Lookup" />
 </div>
 </form>

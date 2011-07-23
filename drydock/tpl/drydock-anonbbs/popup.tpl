@@ -40,9 +40,9 @@ body { margin: 0; padding: 8px; margin-bottom: auto; }
 
 {if $timeout > 0}
 	{if $redirectURL != ""} {* Possibly redirect *}
-	<br>This window will redirect in {$timeout} seconds.  Click <a href="{$redirectURL}">here</a> to immediately go to your destination.
+	<br />This window will redirect in {$timeout} seconds.  Click <a href="{$redirectURL}">here</a> to immediately go to your destination.
 	{else}
-	<br>This window will close in {$timeout} seconds.
+	<br />This window will close in {$timeout} seconds.
 	{/if}
 {/if}
 

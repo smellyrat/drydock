@@ -47,7 +47,7 @@ Subject: <input type="text" name="subj" size="45" /><br />
 Password: <input type="password" name="password" size="8" /> {* New password field for deletion *} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;<input type="submit" value="Post" /><br> 
+&nbsp;&nbsp;<input type="submit" value="Post" /><br /> 
 <input type="hidden" name="board" value="{$binfo.folder}" />
 {if $comingfrom == "thread"}<input type="hidden" name="thread" value="{$thread.id}" />{/if}
                 </div>

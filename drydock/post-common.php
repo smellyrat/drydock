@@ -620,14 +620,14 @@
 	            $prot = $flash->getProtected();
 	            $compr = $flash->getCompression();
 
-	            $extrainfo = $type." file, version ".intval($version).".<br>";
-	            $extrainfo = $extrainfo . "FPS: ".floatval($fps)."<br>";
+	            $extrainfo = $type." file, version ".intval($version).".<br />";
+	            $extrainfo = $extrainfo . "FPS: ".floatval($fps)."<br />";
 
 	            if($framecount != 1)
 	            {
-	                $extrainfo = $extrainfo . "Frame count: ".intval($framecount)." frames<br>";
+	                $extrainfo = $extrainfo . "Frame count: ".intval($framecount)." frames<br />";
 	            } else{
-	                $extrainfo = $extrainfo . "Frame count: 1 frame<br>";
+	                $extrainfo = $extrainfo . "Frame count: 1 frame<br />";
 	            }
 
 	            $bg = $flash->getBackgroundColor();
@@ -639,11 +639,11 @@
 
 	            if($prot)
 	            {
-	                $extrainfo = $extrainfo . "<br>Protected file";
+	                $extrainfo = $extrainfo . "<br />Protected file";
 	            }
 	            if($compr)
 	            {
-	                $extrainfo = $extrainfo . "<br>Zlib compression";
+	                $extrainfo = $extrainfo . "<br />Zlib compression";
 	            }
 				
 				$fyle['extra_info'] = $db->addexifdata($extrainfo);

@@ -72,7 +72,7 @@ Edit this board now or continue to add more boards (and edit later)</td><td><inp
 <tr><td>Hide from index/linkbar</td><td><input type="checkbox" name="hidden{$board.id}"{if $board.hidden==1} checked="checked"{/if} /></td></tr>
 <tr><td>forced_anon</td><td><input type="checkbox" name="forced_anon{$board.id}"{if $board.forced_anon==1} checked="checked"{/if} /></td></tr>
 <tr><td>Apply wordfilters</td><td><input type="checkbox" name="filter{$board.id}"{if $board.filter==1} checked="checked"{/if} /></td></tr>
-<tr><td>Allow embedded videos<br>(MySpace, YouTube, Google)</td><td><input type="checkbox" name="allowvids{$board.id}"{if $board.allowvids==1} checked="checked"{/if} /></td></tr>
+<tr><td>Allow embedded videos<br />(MySpace, YouTube, Google)</td><td><input type="checkbox" name="allowvids{$board.id}"{if $board.allowvids==1} checked="checked"{/if} /></td></tr>
 <tr><td>Require registration</td><td><input type="checkbox" name="requireregistration{$board.id}"{if $board.requireregistration==1} checked="checked"{/if} /></td></tr>
 <tr><td>Board layout</td><td>
                     <select name="boardlayout{$board.id}">
@@ -81,7 +81,7 @@ Edit this board now or continue to add more boards (and edit later)</td><td><inp
    {/foreach}
 	</select>
 </tr></td>
-<tr><td>Use custom css<br>(Place css file named "{$board.folder}.css" in template directory)</td><td><input type="checkbox" name="customcss{$board.id}"{if $board.customcss==1} checked="checked"{/if} /></td></tr>
+<tr><td>Use custom css<br />(Place css file named "{$board.folder}.css" in template directory)</td><td><input type="checkbox" name="customcss{$board.id}"{if $board.customcss==1} checked="checked"{/if} /></td></tr>
 
 <tr><td>Thread lock</td><td><input type="checkbox" name="tlock{$board.id}"{if $board.tlock==1} checked="checked"{/if} /></td></tr>
 <tr><td>Reply lock</td><td><input type="checkbox" name="rlock{$board.id}"{if $board.rlock==1} checked="checked"{/if} /></td></tr>

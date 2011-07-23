@@ -68,11 +68,11 @@ if ($_GET['action'] == "login")
 		else
 		{ // invalid login?
 			echo "<div class=\"pgtitle\">Login error</div><br />\n";
-			echo "<b>There was an error processing your request.</b><br>\n";
-			echo "<u>Possible causes:</u><br>\n";
-			echo "Invalid username<br>\n";
-			echo "Invalid password<br>\n";
-			echo "Your account has not been approved<br>\n";
+			echo "<b>There was an error processing your request.</b><br />\n";
+			echo "<u>Possible causes:</u><br />\n";
+			echo "Invalid username<br />\n";
+			echo "Invalid password<br />\n";
+			echo "Your account has not been approved<br />\n";
 			echo "Your account has been disabled\n";
 		}
 	}
@@ -95,7 +95,7 @@ if ($_GET['action'] == "login")
 	else
 	{
 		echo "<div class=\"pgtitle\">Logged in as " . $_SESSION['username'] . "</div><br />\n";
-		echo "You are logged in as <b>" . $_SESSION['username'] . "</b>. <br><br>\n";
+		echo "You are logged in as <b>" . $_SESSION['username'] . "</b>. <br /><br />\n";
 		echo "[<a href=\"profiles.php?action=logout\">Logout if this is not you</a>]\n";
 		echo "</td></tr></table>\n";
 	}
@@ -123,12 +123,12 @@ else
 			unset ($_SESSION['moderator']);
 			unset ($_SESSION['mod_array']);
 			echo '<div class="pgtitle">Logged out</div><br />';
-			echo "You are now logged out!<br><br>\n";
+			echo "You are now logged out!<br /><br />\n";
 		}
 		else
 		{
 			echo '<div class="pgtitle">Logged out</div><br />';
-			echo "You are not logged in!<br><br>\n";
+			echo "You are not logged in!<br /><br />\n";
 		}
 		echo "[<a href=\"drydock.php\">Board index</a>]\n";
 	}
@@ -171,7 +171,7 @@ else
 			else
 			{
 				echo "<div class=\"pgtitle\">Permissions error</div><br />\n";
-				echo "<b>Error:</b> You are not authorized to view this page!<br><br>\n";
+				echo "<b>Error:</b> You are not authorized to view this page!<br /><br />\n";
 				echo "[<a href=\"drydock.php\">Board index</a>]\n";
 			}
 		}
@@ -234,7 +234,7 @@ else
 							THurl . "static/disable.png\" alt=\"Disable user\" border=\"0\">Disable user</a>";
 						}
 
-						echo "<br>\n";
+						echo "<br />\n";
 					}
 
 					//echo "        </div><br />\n<div align=\"right\ style=\"right: 10px;\">";
@@ -317,7 +317,7 @@ else
 				else
 				{
 					echo "<div class=\"pgtitle\">Permissions error</div><br />\n";
-					echo "<b>Error:</b> You are not authorized to view this page!<br><br>\n";
+					echo "<b>Error:</b> You are not authorized to view this page!<br /><br />\n";
 					echo "[<a href=\"drydock.php\">Board index</a>]\n";
 					echo "</td></tr></table>\n";
 				}
@@ -423,7 +423,7 @@ else
 
 							if ($passlength < 4)
 							{
-								$passErrString = "Sorry, your password must be at least 4 characters.<br>\n";
+								$passErrString = "Sorry, your password must be at least 4 characters.<br />\n";
 							}
 							else
 							{
@@ -451,12 +451,12 @@ else
 
 							if ($picture_pending)
 							{
-								$imgErrString .= "Picture already pending admin approval.<br>\n";
+								$imgErrString .= "Picture already pending admin approval.<br />\n";
 							}
 
 							if ($_FILES['picture']['size'] > THprofile_maxpicsize)
 							{
-								$imgErrString .= "Picture must be no larger than " . THprofile_maxpicsize . " bytes.<br>\n";
+								$imgErrString .= "Picture must be no larger than " . THprofile_maxpicsize . " bytes.<br />\n";
 							}
 
 							//check the MIME type, not the extention - tyam
@@ -479,7 +479,7 @@ else
 									"gif"
 								)))
 							{
-								$imgErrString .= "Picture must be a JPG, PNG, or GIF.<br>\n";
+								$imgErrString .= "Picture must be a JPG, PNG, or GIF.<br />\n";
 							}
 
 							if ($filetype == "jpg")
@@ -497,7 +497,7 @@ else
 
 							if ($theimg == null)
 							{
-								$imgErrString .= "Unknown error.<br>\n";
+								$imgErrString .= "Unknown error.<br />\n";
 							}
 							else
 							{
@@ -556,7 +556,7 @@ else
 								if ($_FILES['picture'] && !move_uploaded_file($_FILES['picture']['tmp_name'], $picpath))
 								{
 									// Error moving the file where it was supposed to be, so don't update the DB
-									$imgErrString .= "Unknown error.<br>\n";
+									$imgErrString .= "Unknown error.<br />\n";
 								}
 							}
 							
@@ -672,13 +672,13 @@ else
 					echo '</td></tr><tr><td>';
 					echo "<b>Description:</b></td><td><textarea name=\"description\" rows=\"5\" columns=\"30\">\n";
 					echo replacequote($user['description']);
-					echo "</textarea><br>\n";
+					echo "</textarea><br />\n";
 
 					echo '</td></tr><tr><td>';
 					if ($_SESSION['username'] == $username)
 					{
 						echo "<b>Password:</b></td><td><input type=\"password\" name=\"password\">";
-						echo "(Confirm <input type=\"checkbox\" name=\"changepass\" value=\"1\">)<br>\n";
+						echo "(Confirm <input type=\"checkbox\" name=\"changepass\" value=\"1\">)<br />\n";
 					}
 
 					echo '</td></tr></table>';
@@ -740,7 +740,7 @@ else
 							{
 								if( stripos($username, $reserved) !== false || $nameexists )
 								{
-									$errorstring .= "Sorry, an account with this name already exists.<br>\n";
+									$errorstring .= "Sorry, an account with this name already exists.<br />\n";
 									break;
 								}
 							}
@@ -748,12 +748,12 @@ else
 							$namelength = strlen($username);
 							if ($namelength < 4 || $namelength > 30)
 							{
-								$errorstring .= "Sorry, your name must be between 4 and 30 characters.<br>\n";
+								$errorstring .= "Sorry, your name must be between 4 and 30 characters.<br />\n";
 							}
 
 							if(!preg_match('/^([\w\.])+$/i', $username))
 							{
-								$errorstring .= "Sorry, your name must be alphanumeric and contain no spaces.<br>\n";
+								$errorstring .= "Sorry, your name must be alphanumeric and contain no spaces.<br />\n";
 							}
 
 							if ($password)
@@ -761,12 +761,12 @@ else
 								$passlength = strlen($password);
 								if ($passlength < 4)
 								{
-									$errorstring .= "Sorry, your password must be at least 4 characters.<br>\n";
+									$errorstring .= "Sorry, your password must be at least 4 characters.<br />\n";
 								}
 							}
 							else
 							{
-								$errorstring .= "You must provide a password!<br>\n";
+								$errorstring .= "You must provide a password!<br />\n";
 							}
 
 							if (isset ($_POST['email']) && strlen($email))
@@ -775,17 +775,17 @@ else
 								/* Check if valid email address */
 								if( ! validateemail($email) ) // Provided in common.php
 								{
-									$errorstring .= "You must provide a valid email address!<br>\n";
+									$errorstring .= "You must provide a valid email address!<br />\n";
 								}
 
 								if ($db->emailexists($email) == true)
 								{
-									$errorstring .= "That email has already been used to register an account!<br>\n";
+									$errorstring .= "That email has already been used to register an account!<br />\n";
 								}
 							}
 							else
 							{
-								$errorstring .= "You must provide an email address!<br>\n";
+								$errorstring .= "You must provide an email address!<br />\n";
 							}
 
 							if ($errorstring == "")
@@ -809,54 +809,54 @@ else
 										THprofile_userlevel, $email, $initial_status);
 								if ($fail == null)
 								{
-									$errorstring .= "Database error.<br>\n";
+									$errorstring .= "Database error.<br />\n";
 								}
 								else
 								{
-									//echo "You have registered successfully.<br>\n";
+									//echo "You have registered successfully.<br />\n";
 									$success = 1;
 								}
 							}
 						}
 						if ($errorstring != "")
 						{
-							echo "The following errors were encountered:<br>\n";
+							echo "The following errors were encountered:<br />\n";
 							echo $errorstring;
 						}
 
 						if ($success=="0")
 						{
 							echo "<form action=\"profiles.php?action=register\" method=\"POST\">\n";
-							echo "<b>Username:</b><input type=\"text\" name=\"user\" maxlength=\"30\" ><br>\n";
-							echo "<b>Password:</b><input type=\"password\" name=\"password\" maxlength=\"30\" ><br>\n";
-							echo "<b>Email:</b><input type=\"text\" name=\"email\" maxlength=\"50\" ><br>\n";
-							echo "<input type=\"submit\" value=\"Register\"><br>\n";
+							echo "<b>Username:</b><input type=\"text\" name=\"user\" maxlength=\"30\" ><br />\n";
+							echo "<b>Password:</b><input type=\"password\" name=\"password\" maxlength=\"30\" ><br />\n";
+							echo "<b>Email:</b><input type=\"text\" name=\"email\" maxlength=\"50\" ><br />\n";
+							echo "<input type=\"submit\" value=\"Register\"><br />\n";
 							echo "</form>\n";
 						}
 						else
 						{
 
-							echo "You have successfully registered an account with username <b>" . $username . "</b>.<br>\n";
+							echo "You have successfully registered an account with username <b>" . $username . "</b>.<br />\n";
 
 							if (THprofile_regpolicy == 1)
 							{
-								echo "However, you must be manually approved by a moderator before logging in.<br>\n";
+								echo "However, you must be manually approved by a moderator before logging in.<br />\n";
 
 								if (THprofile_emailwelcome)
 								{
-									echo "You will receive notification of your approval through email.<br>\n";
+									echo "You will receive notification of your approval through email.<br />\n";
 								}
 
 							}
 							else
 							{ // THprofile_regpolicy == 2
 
-								echo "You may log in as soon as desired.<br>\n";
+								echo "You may log in as soon as desired.<br />\n";
 
 								if (THprofile_emailwelcome)
 								{
 									sendWelcome($username, $email);
-									echo "An email containing your account information has been sent to your specified email address.<br>\n";
+									echo "An email containing your account information has been sent to your specified email address.<br />\n";
 								}
 							}
 		echo "<table><form action=\"profiles.php?action=login\" method=\"POST\">\n";
@@ -885,11 +885,11 @@ else
 							if (!isset ($_POST['user']))
 							{
 
-								echo "<b>Note:</b> submitting this form will reset your password.<br>\n";
+								echo "<b>Note:</b> submitting this form will reset your password.<br />\n";
 								echo "<form action=\"profiles.php?action=forgotpass\" method=\"POST\">\n";
 								echo "Username:</td><td><input type=\"text\" name=\"user\" maxlength=\"30\" >\n";
 								echo "<input type=\"submit\" value=\"Submit\">\n";
-								echo "</form><br><br>\n";
+								echo "</form><br /><br />\n";
 							}
 							else
 							{
@@ -918,11 +918,11 @@ else
 								if ($db->setuserpass($username, $pass))
 								{
 									sendnewpass($_POST['user'], $user['email'], $pass, $_SERVER['REMOTE_ADDR']);
-									echo "Your password has been reset and emailed to your specified address.<br><br>\n";
+									echo "Your password has been reset and emailed to your specified address.<br /><br />\n";
 								}
 								else
 								{
-									echo "There was an error resetting your password.  Please try again later.<br><br>\n";
+									echo "There was an error resetting your password.  Please try again later.<br /><br />\n";
 								}
 							}
 							echo "[<a href=\"drydock.php\">Board index</a>]\n";
@@ -1057,7 +1057,7 @@ elseif ($_GET['action'] == "permissions")
 	{
 		echo "<input type=\"checkbox\" name=\"admin\" value=\"1\"> Admin";
 	}
-	echo "<br>\n";
+	echo "<br />\n";
 
 	if ($user['mod_global'])
 	{
@@ -1067,9 +1067,9 @@ elseif ($_GET['action'] == "permissions")
 	{
 		echo "<input type=\"checkbox\" name=\"moderator\" value=\"1\"> Global moderator";
 	}
-	echo "<br>\n";
+	echo "<br />\n";
 
-	echo "<u>Individual boards:</u><br>\n";
+	echo "<u>Individual boards:</u><br />\n";
 	$add_new_line = 0;
 	foreach ($boards as $board_to_mod)
 	{
@@ -1088,7 +1088,7 @@ elseif ($_GET['action'] == "permissions")
 		if ($add_new_line == 4)
 		{
 			$add_new_line = 0;
-			echo "<br>\n";
+			echo "<br />\n";
 		}
 		else
 		{
@@ -1099,7 +1099,7 @@ elseif ($_GET['action'] == "permissions")
 	// If there are an odd number of boards, start on a new line for userlevel
 	if ($add_new_line != 0)
 	{
-		echo "<br>\n";
+		echo "<br />\n";
 	}
 
 	echo "<u>Userlevel:</u><br />\n";

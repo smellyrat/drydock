@@ -38,7 +38,7 @@
 
 {* End of form for post deletion/reporting/whatever else *}
 <div style="text-align:right">
-Password: <input type="password" name="password" value=""><br>
+Password: <input type="password" name="password" value=""><br />
 <input type="submit" name="report" value="Report"><input type="submit" name="delete" value="Delete">
 </div>
 </form>

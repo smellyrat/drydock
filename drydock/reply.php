@@ -193,12 +193,12 @@
 		// There was some sort of error encountered when attempting to upload a file
 		
 		// Build a string based on the errors
-		$popuptext = "The following errors were encountered when attempting to upload files:<br><ul>\n";
+		$popuptext = "The following errors were encountered when attempting to upload files:<br /><ul>\n";
 		foreach( $filemessages as $filemsg)
 		{
 			$popuptext = $popuptext . "<li>" . htmlspecialchars($filemsg) . "</li>\n";
 		}
-		$popuptext = $popuptext . '</ul><br>Click <a href="'.$location.'">here to proceed.';
+		$popuptext = $popuptext . '</ul><br />Click <a href="'.$location.'">here to proceed.';
 		
 		$sm->assign("text",$popuptext); // Stick into the template
 		

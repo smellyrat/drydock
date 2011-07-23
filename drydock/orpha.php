@@ -36,7 +36,7 @@ if( $beginning < 0 ){
 //Beginning should never be greater than $count, for the reason that $offset is always >= 0
 	
 	$imagequery = "SELECT * FROM ".THimages_table." ORDER BY id ASC LIMIT $beginning , $orpha";
-	echo "$imagequery<br>";
+	echo "$imagequery<br />";
 
 	$imgs=array();
 	$queryresult=$db->myquery($imagequery);
@@ -165,7 +165,7 @@ while($nomoreimages == 0 && $row < 8)
 
 			echo "</a>";
 			//we already know this image is orphaned, so let's output its location and even a link to a deleter script
-			echo '<br>';
+			echo '<br />';
 			echo $wrapper.":";
 			echo $wrapper%7;
 			echo "; (<i>".$thisimage['fsize']." K, ".$thisimage['width']."x".$thisimage['height']."</i>)";
@@ -185,7 +185,7 @@ while($nomoreimages == 0 && $row < 8)
 }
 echo '</table></div>';
 echo "rm ".$rmstring;
-echo "<br><br>";
+echo "<br /><br />";
 echo "DELETE from ". THimages_table." where ".$deletestring;
 //echo "DELETE from images where ";
 	

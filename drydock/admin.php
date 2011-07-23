@@ -713,7 +713,7 @@
 				$updated_board['name'] = replacequote($_POST['name'.$oldid]);
 				$updated_board['folder'] = replacequote($folder); // we already did the stuff above
 				$updated_board['about'] = strip_tags(replacequote($_POST['about'.$oldid]), 
-					'<i><b><u><strike><p><br><font><a><ul><ol><li><marquee>');
+					'<i><b><u><strike><p><br /><font><a><ul><ol><li><marquee>');
 				$updated_board['rules'] = replacequote($_POST['rules'.$oldid]);
 				$updated_board['boardlayout'] =$_POST['boardlayout'.$oldid];			
 					
@@ -1010,11 +1010,11 @@
 			// Check if the account exists
 			if($profile_dbi->userexists($username) == true)
 			{
-			$errorstring .= "Sorry, an account with this name already exists.<br>\n";
+			$errorstring .= "Sorry, an account with this name already exists.<br />\n";
 			}
 			if(!preg_match('/^([\w\.])+$/i', $username))
 			{
-	        $errorstring .= "Sorry, your name must be alphanumeric and contain no spaces.<br>\n";
+	        $errorstring .= "Sorry, your name must be alphanumeric and contain no spaces.<br />\n";
 	        }
 			
 			// Password validation
@@ -1023,12 +1023,12 @@
 				$passlength = strlen($password);
 				if($passlength < 4)
 				{
-					$errorstring .= "Sorry, your password must be at least 4 characters.<br>\n";
+					$errorstring .= "Sorry, your password must be at least 4 characters.<br />\n";
 				}
 			}
 			else
 			{
-				$errorstring .= "You must provide a password!<br>\n";
+				$errorstring .= "You must provide a password!<br />\n";
 			}
 			
 			// Email validation
@@ -1037,17 +1037,17 @@
 		         /* Check if valid email address */
 				if( !validateemail($email) ) // Provided in common.php
 				{
-					$errorstring .= "You must provide a valid email address!<br>\n";
+					$errorstring .= "You must provide a valid email address!<br />\n";
 				}
 				// Check if it exists already
 				if($profile_dbi->emailexists($email) == true)
 				{
-					$errorstring .= "That email has already been used to register an account!<br>\n";
+					$errorstring .= "That email has already been used to register an account!<br />\n";
 				}
 			}
 			else
 			{
-				$errorstring .= "You must provide an email address!<br>\n";
+				$errorstring .= "You must provide an email address!<br />\n";
 			}
 			
 			// No errors encountered so far, attempt to register

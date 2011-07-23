@@ -80,10 +80,10 @@ Filter by board: <select name="board">
 					<span id="quickmod{$thisimage.reply_id}" style="display: none;" class="modblock">
 							<input type="hidden" name="board" value="{$boardz}" />
 							<input type="hidden" name="post" value="{$thisimage.reply_globalid}" />
-							<input type="checkbox" name="doban" value="1"> Ban poster<br>
-							Reason: <input type="text" name="banreason"> <br>
-							Duration: <input type="text" name="duration" value="0"><br>
-							<input type="checkbox" name="del" value="1"> Delete this post (requires admin)<br>
+							<input type="checkbox" name="doban" value="1"> Ban poster<br />
+							Reason: <input type="text" name="banreason"> <br />
+							Duration: <input type="text" name="duration" value="0"><br />
+							<input type="checkbox" name="del" value="1"> Delete this post (requires admin)<br />
 							<input type="submit" name="quickmod" value="quickmod">
 					</span>
 					</form>
@@ -118,10 +118,10 @@ Filter by board: <select name="board">
 					<span id="quickmod{$thisimage.thread_id}" style="display: none;" class="modblock">
 							<input type="hidden" name="board" value="{$boardz}" />
 							<input type="hidden" name="post" value="{$thisimage.thread_globalid}" />
-							<input type="checkbox" name="doban" value="1"> Ban poster<br>
-							Reason: <input type="text" name="banreason"> <br>
-							Duration: <input type="text" name="duration" value="0"><br>
-							<input type="checkbox" name="del" value="1"> Delete this post (requires admin)<br>
+							<input type="checkbox" name="doban" value="1"> Ban poster<br />
+							Reason: <input type="text" name="banreason"> <br />
+							Duration: <input type="text" name="duration" value="0"><br />
+							<input type="checkbox" name="del" value="1"> Delete this post (requires admin)<br />
 							<input type="submit" name="quickmod" value="quickmod">
 					</span>
 					</form>

@@ -436,7 +436,7 @@ class ThornDBI
 				}
 			}
 		
-			//var_dump($multi);echo"<br>";
+			//var_dump($multi);echo"<br />";
 		
 			return $multi;
 		}
