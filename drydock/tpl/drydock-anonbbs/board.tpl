@@ -12,7 +12,7 @@
 		</div>
 <br />{if $binfo.tlock}Only moderators and administrators are allowed to create new threads.<br />{/if}
 <a name="tlist" />
-Threads on this page:
+<div style="padding-right: 5px; margin-bottom: 5px;">Threads on this page:
     <div class="medtitle">
 {it->getsthreads assign="bthreads"}
 {counter name="upto" assign="upto" start="0"}
@@ -37,7 +37,6 @@ Threads on this page:
 {foreachelse}
 <div class="medtitle">(No threads on this board)</div>  
 {/foreach}{*For each thread*}
-</div>
 <div class="box">
 <a name="newthread" />
 {include file=postblock.tpl comingfrom=$comingfrom}
