@@ -16,7 +16,7 @@
         {/if}
     {/if}
 </div>
-<div id="showit" class="sslarge">
+<div class="sslarge showit">
     <form method="post" enctype="multipart/form-data" action="{$THurl}{if $comingfrom=="thread"}reply{else if $comingfrom == "board"}thread{/if}.php">
         <div>
             {if $comingfrom == "board" && $binfo.forced_anon!=1} {* begin forced_anon *}
