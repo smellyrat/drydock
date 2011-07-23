@@ -6,7 +6,7 @@
 				if(THvc==1)
 				{
 					require_once('recaptchalib.php');
-					$sm->assign('captcha', recaptcha_get_html(reCAPTCHAPublic));
+					$sm->assign('reCAPTCHAPublic', reCAPTCHAPublic);
 				}				$sm->assign('comingfrom',"thread");								//OOPS!  This will let us pull the thread we WANT not the thread we ASKED FOR.  -tyam				$db=new ThornThreadDBI(intval($_GET['i']), $boardid);								// The constructor initializes the $head member to be the assoc-array from the corresponding				// entry in the threads table, so if it's null that means that it wasn't found in the DB.
 				if($db->head == null)				{					THdie("Sorry, this thread does not exist.");				}
 				$sm->register_object("it",$db,array("getreplies","getsthreads","getindex","binfo","head","blotterentries"));								//$sm->display($threadtpl,$cid);
@@ -23,7 +23,7 @@
 			if(THvc==1)
 			{
 				require_once('recaptchalib.php');
-				$sm->assign('captcha', recaptcha_get_html(reCAPTCHAPublic));
+				$sm->assign('reCAPTCHAPublic', reCAPTCHAPublic);
 			}
 			$sm->assign('comingfrom',"board");			if (isset($ogd)==true)			{				$sm->assign("on",$ogd);			}
 

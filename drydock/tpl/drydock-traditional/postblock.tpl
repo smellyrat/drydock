@@ -43,13 +43,7 @@
 						<input type="submit" value="Submit" id="subbtn" /></td>
 				</tr>
 		{if $THvc==1}
-				<tr>
-					<td class="postblock">Verification Code</td>
-					<td>
-						{literal}<script type="text/javascript">var RecaptchaOptions = { theme : 'clean' };</script>{/literal}
-						{$captcha}
-					</td>
-				</tr>
+			{include file=recaptcha.tpl}
 		{elseif $THvc==2}
 				<tr>
 					<td class="postblock">LEAVE BLANK IF HUMAN</td>

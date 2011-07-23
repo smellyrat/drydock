@@ -22,9 +22,7 @@ Subject: <input type="text" name="subj" size="45" /><br />
 {				if $binfo.forced_anon!=1} {* begin forced_anon *}
                     Name: <input type="text" name="nombre" size="20" /> {/if}{* end forced_anon *}Link: <input type="text" name="link" size="20" /><br />
                     {if $THvc==1}
-						Verification Code:
-						{literal}<script type="text/javascript">var RecaptchaOptions = { theme : 'clean' };</script>{/literal}
-						{$captcha}
+						{include file=recaptcha.tpl}
                     {elseif $THvc==2}
 						LEAVE BLANK IF HUMAN: <input type=text" name="email" /><br />
                     {/if}
