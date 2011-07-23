@@ -81,15 +81,6 @@
 					<td><input type="password" name="password" size="8" /> (for post deletion)</td>{* New password field for deletion *}
 				</tr>
 				<tr>
-					<td class="postblock">Then</td>
-					<td>
-						<select name="todo">
-{if $comingfrom=="thread"}<option value="post">Go to my post</option>{else if $comingfrom=="board"}<option value="thread">Go to the new thread</option>{/if}
-							<option value="board" selected="selected">Return to board</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
 					<td class="postblock">Rules</td>
 					<td><div class="rules">{include file=rules.tpl}</div></td>
 				</tr>

@@ -26,7 +26,6 @@
 		THINGS THAT MIGHT ALSO COME IN:
 		$_POST['vc'] (captcha string)
 		$_POST['email'] (spambot string)
-		$_POST['todo'] (after-posting string)
 		$_FILES (for images)
 		$_POST['pin']
 		$_POST['lock']
@@ -170,13 +169,12 @@
 		{
 			setcookie(THcookieid."-link",$_POST['link'],time()+THprofile_cookietime, THprofile_cookiepath);
 		} 
-		setcookie(THcookieid."-th-goto", $_POST['todo'],time()+THprofile_cookietime, THprofile_cookiepath);
 		setcookie(THcookieid."-password", $_POST['password'],time()+THprofile_cookietime, THprofile_cookiepath);
 	}
 
 	// Initialize $location variable for HTTP redirects
 	$location = "drydock.php"; // Default
-	if (($_POST['todo']=="thread") || (preg_match("/^(mailto:)?noko$/", $_POST['link']))) // noko check
+	if ((preg_match("/^(mailto:)?noko$/", $_POST['link']))) // noko check
 	{
 		// Look up the global ID for this thread.
 		$loc_arr = $db->getpostlocation($tnum);
@@ -190,8 +188,7 @@
 			$location = THurl."drydock.php?b=".$binfo['folder']."&i=".$loc_arr['thread_loc']; 
 		}
 	}
-
-	elseif ($_POST['todo']=="board")
+	else
 	{
 		if (THuserewrite) 
 		{ 
