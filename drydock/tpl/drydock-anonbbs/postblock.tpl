@@ -1,5 +1,5 @@
 {* Increment variable *}
-{math assign="postblock_increment" equation="x + 1" x=$postblock_increment}
+{counter assign="pb" name="postblock_increment"}
 
 <div class="pgtitle">
     {if $comingfrom=="board"}
@@ -53,13 +53,13 @@
                         {/if} {* if pix>0*}
                 Password: <input type="password" name="password" size="8" /> {* New password field for deletion *}
             {if $THvc==1}
-                <input type="button" id="recaptcha_required_{$postblock_increment}"
-                onclick="showRecaptcha('recaptcha_div_{$postblock_increment}', 
-                'submit_{$postblock_increment}',
-                'recaptcha_required_{$postblock_increment}');" 
+                <input type="button" id="recaptcha_required_{$pb}"
+                onclick="showRecaptcha('recaptcha_div_{$pb}', 
+                'submit_{$pb}',
+                'recaptcha_required_{$pb}');" 
                 value="Post" 
                 class="recaptcha_required" />
-                <input type="submit" id="submit_{$postblock_increment}" class="post_submit" value="Post" style="display: none;" />
+                <input type="submit" id="submit_{$pb}" class="post_submit" value="Post" style="display: none;" />
              {else}
                 <input type="submit" value="Post" />
               {/if}  
