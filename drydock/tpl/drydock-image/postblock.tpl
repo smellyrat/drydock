@@ -24,7 +24,7 @@
 {				if $binfo.forced_anon!=1} {* begin forced_anon *}
 				<tr>
 					<td class="postblock">Name</td>
-					<td><input type="text" name="nombre" size="40" maxlength="40"/><span style="font-size:x-small;"><input type="checkbox" name="mem" style="font-size:x-small;" value="on" />Remember</span></td>
+					<td><input type="text" class="frmName" name="nombre" size="40" maxlength="40"/><span style="font-size:x-small;"><input type="checkbox" name="mem" style="font-size:x-small;" value="on" />Remember</span></td>
 				</tr>
 {				/if} {* end forced_anon *}
 {				if $binfo.forced_anon!=1 and $comingfrom=="board"} {* begin forced_anon / boardorthread check*}
@@ -35,7 +35,7 @@
 {				/if} {* end forced_anon / boardorthread check *}
 				<tr>
 					<td class="postblock">Link</td>
-					<td><input type="text" name="link" size="40" maxlength="40"/>
+					<td><input type="text" class="frmLink" name="link" size="40" maxlength="40"/>
 						<input type="submit" value="Submit" id="subbtn" /></td>
 				</tr>
 		{if $THvc==1}
@@ -72,7 +72,7 @@
 			{/if} {* if pix>0*}
 				<tr>
 					<td class="postblock">Password</td>
-					<td><input type="password" name="password" size="8" /> (for post deletion)</td>{* New password field for deletion *}
+					<td><input type="password" class="frmPassword" name="password" size="8" /> (for post deletion)</td>{* New password field for deletion *}
 				</tr>
 				<tr>
 					<td class="postblock">Rules</td>

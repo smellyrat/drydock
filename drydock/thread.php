@@ -131,7 +131,7 @@
 	$lock=(int)($_POST['lock']=="on" && $mod);
 	$permasage=(int)($_POST['permasage']=="on" && $mod);
 
-	$usethese=preptrip($_POST['nombre'],$_POST['tpass']);
+	$usethese=preptrip($_POST['nombre']);
 
 	if(preg_match("/^(mailto:)?noko$/", $_POST['link']))  //hide noko
 	{
@@ -165,10 +165,6 @@
 		if ($_POST['nombre']!==null) 
 		{
 			setcookie(THcookieid."-name",$_POST['nombre'],time()+THprofile_cookietime, THprofile_cookiepath);
-		}
-		if ($_POST['tpass']!==null) 
-		{
-			setcookie(THcookieid."-tpass",$_POST['tpass'],time()+THprofile_cookietime, THprofile_cookiepath);
 		}
 		if ($_POST['link']!=null) 
 		{

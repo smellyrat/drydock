@@ -60,3 +60,17 @@ function ToggleMenu(name, duration, path)
                 $("#main").css("margin-right", "0px");
 	}
 }
+
+function randPassword()
+{
+    var chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var pass='';
+
+    for(var i=0;i<8;i++)
+    {
+            var rnd=Math.floor(Math.random()*chars.length);
+            pass+=chars.substring(rnd,rnd+1);
+    }
+    
+    return pass;
+}

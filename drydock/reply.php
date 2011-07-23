@@ -138,7 +138,7 @@
 	//Don't post if there's no files or body (mod stuff only)
 	if (strlen($_POST['body'])>1 || count($goodfiles)>0) 
 	{
-		$usethese=preptrip($_POST['nombre'],$_POST['tpass']);
+		$usethese=preptrip($_POST['nombre']);
 		$pnum=$db->putpost($usethese['nombre'],$usethese['trip'],$datlink,
 			$binfo['id'],(int)$_POST['thread'],$_POST['body'],ip2long($_SERVER['REMOTE_ADDR']),
 			$mod, $_POST['password']);
@@ -150,10 +150,6 @@
 		if ($_POST['nombre']!==null) 
 		{
 			setcookie(THcookieid."-name",$_POST['nombre'],time()+THprofile_cookietime, THprofile_cookiepath);
-		}
-		if ($_POST['tpass']!==null) 
-		{
-			setcookie(THcookieid."-tpass",$_POST['tpass'],time()+THprofile_cookietime, THprofile_cookiepath);
 		}
 		if ($_POST['link']!=null) 
 		{

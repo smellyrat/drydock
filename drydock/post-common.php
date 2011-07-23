@@ -395,15 +395,13 @@
 	 * containing the name and 2ch-style tripcode hash!
 	 * 
 	 * @param string $name The name/tripcode in name#tripcode form
-	 * @param string $tpass Does nothing, left in for future
-	 * functionality
 	 * 
 	 * @return array An array with two elements: nombre (the name)
 	 * and trip (the hash).  For example, an incoming name value
 	 * of "joe#cool" would produce an array with a nombre element
 	 * of "joe" and a trip element of "QkO1sgFXdY".
 	 */
-    function preptrip($name,$tpass)
+    function preptrip($name)
     {
         $pos=strrpos($name,"#");
         if ($pos!==false)

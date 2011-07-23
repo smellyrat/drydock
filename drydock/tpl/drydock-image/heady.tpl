@@ -21,6 +21,24 @@
 {/if}
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="{$THurl}js.js"></script>
+        <script type="text/javascript">{literal}
+        var n=readCookie("{/literal}{$THcookieid}{literal}-name");
+        var l=readCookie("{/literal}{$THcookieid}{literal}-link");
+        var p=readCookie("{/literal}{$THcookieid}{literal}-password");
+
+        if (n!=null) { $(".frmName").val(unescape(n).replace(/\+/g," ")); }
+        if (l!=null) { $(".frmLink").val(unescape(l).replace(/\+/g," ")); }
+
+        if (p!= null)
+        {
+           $(".frmPassword").val(unescape(p).replace(/\+/g," "));
+        }
+        else
+        {
+            var pass=randPassword();
+            $(".frmPassword").val(pass);
+        }            
+        {/literal}</script>
 </head>
 {if $comingfrom=="thread"}
 <body class="replypage">

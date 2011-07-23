@@ -23,10 +23,10 @@
                 Subject: <input type="text" name="subj" size="45" /><br />
             {/if} {* end forced_anon *}
             {if $binfo.forced_anon!=1} {* begin forced_anon *}
-                Name: <input type="text" name="nombre" size="20" /> 
+                Name: <input type="text" class="frmName" name="nombre" size="20" /> 
             {/if}{* end forced_anon *}
 
-                Link: <input type="text" name="link" size="20" /><br />
+                Link: <input type="text" class="frmLink" name="link" size="20" /><br />
 
                 {if $THvc==1}
                     {include file=recaptcha.tpl}
@@ -51,7 +51,7 @@
                                 </noscript>
                             </td></tr></table>        
                         {/if} {* if pix>0*}
-                Password: <input type="password" name="password" size="8" /> {* New password field for deletion *}
+                Password: <input type="password" class="frmPassword" name="password" size="8" /> {* New password field for deletion *}
             {if $THvc==1}
                 <input type="button" id="recaptcha_required_{$pb}"
                 onclick="showRecaptcha('recaptcha_div_{$pb}', 
