@@ -159,7 +159,7 @@
 
 	// Initialize $location variable for HTTP redirects
 	$location = "drydock.php"; // Default
-	if (((preg_match("/^(mailto:)?noko$/", $_POST['link']))) // noko check
+	if ((preg_match("/^(mailto:)?noko$/", $_POST['link']))) // noko check
 	{
 		// Retrieve the global IDs for both the thread and post number
 		$loc_arr = $db->getpostlocation($thread['id'], $pnum);
