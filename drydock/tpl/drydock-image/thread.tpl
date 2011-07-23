@@ -13,7 +13,7 @@
 <hr />
 
 {* Beginning of form for post deletion/reporting/whatever else we might want in the future *}
-<form target="_blank" action="misc.php" method="POST" id="delform">
+<form target="_blank" action="misc.php" method="POST">
 <input type="hidden" name="board" value="{$binfo.folder}" />
 
 {*		as of yet, i don't think we need to split the viewblock for threads,

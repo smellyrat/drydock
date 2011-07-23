@@ -6,7 +6,7 @@
         <div class="pgtitle">
             Manager Post
         </div>
-<form name="postform" id="postform" action="{$THurl}thread.php" method="post" enctype="multipart/form-data">
+<form action="{$THurl}thread.php" method="post" enctype="multipart/form-data">
 <table>
 	<tbody>
 		<tr>
@@ -24,7 +24,7 @@
 				</tr>
 			<tr>
 				<td class="postblock">Comment</td>
-				<td colspan="2"><textarea name="body" cols="48" rows="4" id="cont"></textarea></td>
+				<td colspan="2"><textarea name="body" cols="48" rows="4"></textarea></td>
 			</tr>
 				<tr><td class="postblock">Files</td><td colspan="2">
 {*

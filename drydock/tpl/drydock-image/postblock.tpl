@@ -18,7 +18,7 @@
 </div>
 
 <div class="postarea">
-	<form id="postform" action="{$THurl}{if $comingfrom=="thread"}reply{else if $comingfrom == "board"}thread{/if}.php" method="post" enctype="multipart/form-data">
+	<form action="{$THurl}{if $comingfrom=="thread"}reply{else if $comingfrom == "board"}thread{/if}.php" method="post" enctype="multipart/form-data">
 		<table>
 			<tbody>
 {				if $binfo.forced_anon!=1} {* begin forced_anon *}

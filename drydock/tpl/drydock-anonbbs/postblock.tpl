@@ -17,7 +17,7 @@
     {/if}
 </div>
 <div id="showit" class="sslarge">
-    <form method="post" enctype="multipart/form-data" action="{$THurl}{if $comingfrom=="thread"}reply{else if $comingfrom == "board"}thread{/if}.php" id="postform">
+    <form method="post" enctype="multipart/form-data" action="{$THurl}{if $comingfrom=="thread"}reply{else if $comingfrom == "board"}thread{/if}.php">
         <div>
             {if $comingfrom == "board" && $binfo.forced_anon!=1} {* begin forced_anon *}
                 Subject: <input type="text" name="subj" size="45" /><br />
@@ -34,7 +34,7 @@
                     LEAVE BLANK IF HUMAN: <input type="text" name="email" /><br />
                 {/if}
 
-                <textarea name="body" cols="51" rows="8" id="cont"></textarea><br />
+                <textarea name="body" cols="51" rows="8"></textarea><br />
                 {			if (($binfo.tpix > 0 and $comingfrom == "board") or ($binfo.rpix > 0 and $comingfrom == "thread"))} {* are there images? *}
                     <table><tr><td class="postblock">File</td><td>
 				<script type="text/javascript">
