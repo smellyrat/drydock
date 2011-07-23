@@ -345,6 +345,7 @@ p.centertext {
 .box { padding-left:10px; margin-bottom:10px; border-style:none; border-color:black; border-width:1px; }
 .pgtitle { text-decoration:none; color:#2266AA; font-family:sans-serif; font-size:x-large; border-width:0px 0px 2px 0px; border-color:#FF6600; border-style:solid; margin-right:10px; margin-top:5px; }
 </style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script type="text/javascript">
 		function RequestUpgrade(type) 
 		{ 

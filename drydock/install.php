@@ -142,7 +142,7 @@
 ?>
 <html><head>
 <title>drydock <?php echo THversion; ?> installer</title>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <style type="text/css">
 body {
 background-image:url('static/watermark.png');

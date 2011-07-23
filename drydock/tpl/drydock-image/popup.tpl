@@ -32,7 +32,7 @@
 body { margin: 0; padding: 8px; margin-bottom: auto; }
 {/literal}
 </style>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{$THtplurl}futaba.css" title="Futaba-ish Stylesheet" />
 </head>
 

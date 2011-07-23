@@ -37,8 +37,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <?php if(THnewsboard != 0) echo '<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml" />'; ?>
-<title><?php echo THname;?> &#8212; News Page</title></head>
+<title><?php echo THname;?> &#8212; News Page</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo THurl.'tpl/'.THtplset;?>/futaba.css" title="Stylesheet" />
+</head>
 <body>	
 <div id="main">
 	<div class="box">

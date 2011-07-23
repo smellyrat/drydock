@@ -65,8 +65,10 @@ if( $beginning < 0 ){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
-<title><?php echo THname;?> &#8212; Administration &#8212; ThornLight</title></head>
+<title><?php echo THname;?> &#8212; Administration &#8212; ThornLight</title>
 <link rel="stylesheet" type="text/css" href="<?php echo THurl.'tpl/'.THtplset;?>/futaba.css" title="Stylesheet" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+</head>
 <body>	
 <div id="main">
     <div class="box">

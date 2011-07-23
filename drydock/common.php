@@ -69,6 +69,7 @@
 			echo '<head>';
 			echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 			echo '<meta http-equiv="Content-Style-Type" content="text/css" />';
+                        echo '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>';
 			echo '<link rel="stylesheet" type="text/css" href="href="'.THurl.'tpl/'.THtplset.'" title="Stylesheet" />';
 			echo '<title>b&</title>';
 			echo '</head>';

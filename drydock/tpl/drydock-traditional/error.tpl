@@ -23,6 +23,7 @@ form { margin-bottom: 0px }
 <link rel="stylesheet" type="text/css" href="{$THtplurl}Futaba.css" title="Futaba-ish Stylesheet" />
 
 <script type="text/javascript">var style_cookie="Futaba-ish Stylesheet";</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="{$THtplurl}js.js"></script>
 </head>
 
