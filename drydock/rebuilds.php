@@ -303,8 +303,7 @@ function rebuild_hovermenu()
 	fwrite($sidelinks, '<a href="' . THurl . '">Site Index</a><br />' . "\n");
 	fwrite($sidelinks, '<?php if($_SESSION["username"]) {' . "\n" . 'echo "<a href=\"".THurl."profiles.php?action=logout\">Log Out</a> / <a href=\"".THurl."profiles.php\">Profiles</a>";' . "\n" . ' } else {' . "\n");
 	fwrite($sidelinks, 'echo "<a href=\"".THurl."profiles.php?action=login\">Login</a>' . "\n" . ' / ' . "\n" . '<a href=\"".THurl."profiles.php?action=register\">Register</a>";' . "\n" . '}?>' . "\n");
-	fwrite($sidelinks, '</div>');
-	fwrite($sidelinks, '</div>' . "\n");
+	fwrite($sidelinks, '</div></div></div>' . "\n");
 	fclose($sidelinks);
 }
 

@@ -1,0 +1,86 @@
+html, body { background-color:#FFFFFF; color: #333333; FONT-SIZE: 14px; FONT-FAMILY: MS Sans Serif; }
+a { color: #0088A0; }
+a:hover { color: #0066FF; text-decoration: none; }
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
+
+a.info{ position:relative; /*this is the key*/ z-index:24; color:#FF6600; text-decoration:none }
+a.info:hover{ z-index:25; background-color:#EEEEEE }
+a.info span{ display: none }
+/*the span will display just on :hover state*/
+a.info:hover span{ display:block; position:absolute; top:2em; left:2em; width:15em; border:1px solid #FF6600; background-color:#EEEEEE; color:#333333; text-align: center }
+
+blockquote { margin: .5em .5em .5em 1em; float:none; clear:both; }
+blockquote p { margin: 0; padding: 0; }
+
+table.border{ border-style: groove; border-width: 1px; }
+table { border-style: none; FONT-SIZE: 14px; FONT-FAMILY: MS Sans Serif; }
+table td { border-style: none; }
+	.logo { clear:both; text-align:left; font-size:2em; font-weight: bold; color:#FF6600; }
+	.theader { background:#DDDDDD; text-align:center; padding:2px; color:#2266AA; clear: both; font-weight: bold; margin-bottom: .5em; border: solid 1px #CCCCCC; -moz-border-radius: 5px; }
+	.postarea { text-align: center; }
+	.rules { font-size:0.7em; }
+	.postblock { background:transparent; color:#002244; font-weight:bold; }
+	.reflink { font-size: .8em; font-weight: bold; }
+	.filesize { text-decoration:none; color: #666666; font-size: .8em; }
+.filetitle { background:inherit; font-size:1.2em; color:#002244; font-weight:bold; }
+	.postername { color:#004A99; font-weight:bold; }
+	.postertrip { color:#FF3300; }
+	.omittedposts { color:#666666; }
+.reply { background:#DDDDDD; border: solid 1px #CCCCCC; padding: 0; margin: 0; -moz-border-radius: 5px; }
+.reply blockquote { margin: .5em; }
+.doubledash { display: none; vertical-align:top; clear:both; float:left; }
+.replytitle { font-size: 1.2em; color:#002244; font-weight:bold; }
+hr { border-style: solid none none none; border-width: 1px; border-color: #0088A0; }
+.cells { font-size: 13px; color: #FFFFFF; background-color: #000000; border-color: #FFFFFF; }
+.b { FONT-WEIGHT: bold; }
+.c { TEXT-ALIGN: center; }
+.r { TEXT-ALIGN: right; }
+/*Thorn's addition*/
+#modblock { display:none; }
+.imgbox { white-space:nowrap; overflow:hidden; text-align:left; float:left; margin-left:1px; margin-top:1px; padding:3px; width:150px; }
+/*from heady.tpl - why was it there?*/
+body { margin: 0; padding: 8px; margin-bottom: auto; }
+blockquote blockquote { margin-left: 0em }
+form { margin-bottom: 0px }
+.postarea { text-align: center }
+.postarea table { margin: 0px auto; text-align: left }
+.thumb { border: none; float: center; margin: 2px 2px }
+.nothumb { float: left; background: #eee; border: 2px dashed #aaa; text-align: center; margin: 2px 20px; padding: 1em 0.5em;}
+.reply blockquote, blockquote :last-child { margin-bottom: 0em }
+.reflink a { color: inherit; text-decoration: none }
+.reply .filesize { margin-left: 20px }
+.userdelete { float: right; text-align: center; white-space: nowrap }
+.replypage .replylink { display: none }
+#idxmenu { overflow:hidden; white-space:nowrap; color:#333333; font-family: MS Sans Serif; font-size:large; position:fixed; float:right; text-align:center; background-color:#EFEFEF; border-style:solid; border-color:#0066FF; border-width:1px; right:8px; top:8px; width:150px; }
+#idxmenu A { color:#0066FF; text-decoration:none; margin:1px; }
+#idxmenuitem { font-family:"Gill Sans",Helvetica,sans-serif; font-size:small; text-align:left; overflow:hidden; }
+#idxmenuitem A:hover { text-decoration:underline; }
+#idxmenuitem .idxmenutitle { color:#2266AA; text-align:center; }
+#idxmenuitem .idxmenupg { text-align:center; font-size:x-small; }
+#idxmenuitem .idxmenutitle A { color:#0066FF; }
+	.pgtitle { text-decoration:none; color:#2266AA; font-family:sans-serif; font-size:x-large; border-width:0px 0px 2px 0px; border-color:#FF6600; border-style:solid; margin-right:10px; margin-top:5px; }
+.medtitle { font-size:large; margin-left:14px; margin-top:5px; }
+#main { margin-right:154px; }
+.box { padding-left:10px; margin-bottom:10px; border-style:none; border-color:black; border-width:1px; }
+.bline { font-family:sans-serif; font-size:xx-small; text-align:center; }
+.bottomAdTitle { font-family: arial,helvetica, sans-serif; background: #EEEEEE; color: #333333; }
+.plus { color: #0066FF; cursor: hand; cursor: pointer }
+.ban { color:red; font-weight: bold; }
+.centered
+{
+    width: 100%;
+    text-align: center;
+}
+.lefthalf
+{
+    width: 50%;
+    text-align: left;
+}
+
+.righthalf
+{
+    width: 50%;
+    text-align: right; 
+}

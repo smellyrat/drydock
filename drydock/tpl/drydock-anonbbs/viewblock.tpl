@@ -83,7 +83,7 @@
     </div>
     {if $comingfrom=="board"}
         {if $thread.rcount>$binfo.perth}
-            <div class="ssmed"><span class="name">Showing only last {$binfo.perth} {if $binfo.perth==1}reply{else}replies{/if}&rarr;</span></div><br />
+            <div class="ssmed"><span class="name">Showing only last {$binfo.perth} {if $binfo.perth==1}reply{else}replies{/if}&rarr;</span></div>
         {/if}
     {/if}
 
