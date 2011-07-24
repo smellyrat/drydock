@@ -17,7 +17,7 @@
                     <u>Individual boards:</u><br />
                     {counter name="boardcount" assign="boardcount" start="0"}
                     {foreach from=$boards item=board}
-                        <input type="checkbox" name="mod_board_{$board.id}" value="1" {if listcontains item=$board.id list=$user.mod_array}checked="checked"{/if} /> /{$board.folder}/ moderator        
+                        <input type="checkbox" name="mod_board_{$board.id}" value="1" {if (smlistcontains item=$board.id list=$user.mod_array)}checked="checked"{/if} /> /{$board.folder}/ moderator        
                     {if $boardcount mod 5 == 4 }<br />{/if}
                     {counter name="boardcount" assign="boardcount" print="false"}
                 {/foreach}
