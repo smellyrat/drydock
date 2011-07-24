@@ -119,7 +119,7 @@
 				Cookies last: <input type="text" name="THprofile_cookietime" size="3" value="{$cookietime}" />hours<br />
 				Cookies path: <input type="text" name="THprofile_cookiepath" size="24" value="{$THprofile_cookiepath}" /> (should be left as / except under special circumstances<br />
 				Send welcome email: <input type="checkbox" name="THprofile_emailwelcome"{if $THprofile_emailwelcome} checked="checked"{/if} /><br />
-				Enforce lowercase emails: <input type="checkbox" name="THprofile_lcnames"{if $THprofile_lcnames} checked="checked"{/if} /><br />
+				Enforce lowercase usernames: <input type="checkbox" name="THprofile_lcnames"{if $THprofile_lcnames} checked="checked"{/if} /><br />
 				Maximum profile image size: <input type="text" name="THprofile_maxpicsize" size="6" value="{$THprofile_maxpicsize}" />bytes<br />
 			</div>
 			<input type="submit" value="Submit" />
