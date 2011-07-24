@@ -272,20 +272,11 @@
 			$capcodes = array();
 			$capcodes = $db->fetchBCW(THbcw_capcode);
 			
-			if(count($capcodes) > 0)
-			{
-				foreach ($capcodes as $capcode)
-				{
-					$capcode = replacequote($capcode);
-				}
-			}
-			else
+			if(count($capcodes) <= 0)
 			{
 				$capcodes = null;
 			}
 			
-			//print_r($capcodes);
-			//rebuild_capcodes();
 			$sm->assign("capcodes",$capcodes);
 			$sm->display("admincapcodes.tpl");
 		}
@@ -300,14 +291,7 @@
 			// Retrieve wordfilters
 			$filters = array();
 			$filters = $db->fetchBCW(THbcw_filter);
-			if(count($filters) > 0)
-			{
-				foreach( $filters as $filter )
-				{
-					$filter = replacequote($filter);
-				}
-			}
-			else
+			if(count($filters) <= 0)
 			{
 				$filters = null;
 			}
