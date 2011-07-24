@@ -34,6 +34,13 @@ function renderPermissionDenied()
     $sm->display("nopermission.tpl", null);
 }
 
+function renderError(errmsg)
+{
+    $sm = sminit("error.tpl", null, "profiles", false, false);
+    $sm->assign("errmsg", errmsg);
+    $sm->display("error.tpl", null);   
+}
+
         $db = new ThornProfileDBI();
 
         if (isset($_GET['action'])) {
@@ -173,7 +180,7 @@ function renderPermissionDenied()
                 $passErrString = ""; // This only gets set if there is a problem with the password
 
                 if (!isset($_GET['user'])) {
-                    die("You must specify a user!");
+                    renderError("You must specify a user!");
                 }
 
                 if (THprofile_lcnames) {
@@ -183,11 +190,11 @@ function renderPermissionDenied()
                 }
 
                 if (!$db->userexists($username)) {
-                    die("Invalid user specified!");
+                    renderError("Invalid user specified!");
                 }
 
                 if (!$db->caneditprofile($username)) {
-                    die("You cannot edit this user's profile!");
+                    renderPermissionDenied();
                 }
 
                 if (isset($_POST['edit_update'])) {
@@ -357,127 +364,47 @@ function renderPermissionDenied()
                     $actionstring = "Profile edit\tprofile:" . $username;
                     writelog($actionstring, "profiles");
                 } // end of if isset($_POST['edit_update'])
+                //
                 // Reload the user data
                 $user = $db->getuserdata($username);
 
-                echo "<title>" . THname . "&#8212; Editing profile of " . $user['username'] . "</title>\n";
-                echo "</head><body>\n";
-                echo '<div id="main"><div class="box">';
-                echo "<div class=\"pgtitle\">User profile:" . $user['username'] . "</div><br />\n";
-
+                $sm = sminit("editprofile.tpl",null,false,false);
+                $sm->assign("user",$user);
+                $sm->assign("sessUsername", $_SESSION['username']);
+                $sm->assign("maxProfImgSize", THprofile_maxpicsize);
+                
                 // For errors involving changing of password or uploading of image
                 if ($imgErrString != "") {
-                    echo "<font color=\"#ff0000\">" . $imgErrString . "</font>";
+                   $sm->assign("imgErrString", $imgErrString);
                 }
                 if ($passErrString != "") {
-                    echo "<font color=\"#ff0000\">" . $passErrString . "</font>";
+                    $sm->assign("passErrString", $passErrString);
                 }
 
-                echo "<form id=\"profileedit\" action=\"" . THurl . "profiles.php?action=edit&user=" .
-                $username . "\" method=\"post\" enctype=\"multipart/form-data\">";
-                echo '<input type="hidden" name="edit_update" value="1">';
-                echo "<p style=\"text-align: left;\">\n"; // This is for picture manipulation stuff
-                echo '<table class="centered"><tr><td style="width: 50%;">';
-                if ($user['has_picture']) {
-                    echo "<img src=\"" . THurl . "images/profiles/" . $user['username'] . "." .
-                    $user['has_picture'] . "\" align=\"left\" /><br />\n";
-                    echo "<input type=\"checkbox\" name=\"remove_picture\" value=\"1\"> Remove picture<br />\n";
-                } else {
-                    echo "<img src=\"" . THurl . "static/nopicture.png\" align=\"left\" />\n";
-                }
-                echo '</td></tr><tr><td style="width: 50%;">';
-                if ($user['pic_pending']) {
-                    echo "<img src=\"" . THurl . "static/time.png\" alt=\"Picture pending\">" . $username . " has a picture awating admin approval.<br />\n";
-                } else {
-                    echo "<b>Upload a new picture: </b></td><td><input type=\"file\" name=\"picture\" /></td></tr>\n";
-                    echo "<tr><td colspan=2>To be displayed on the main site, it first must be manually approved by an admin.\n";
-                    echo "File must be a JPEG, GIF, or PNG no larger than 500x500 or " . THprofile_maxpicsize . " bytes.";
-                    echo "If the image is too large, it will be resized.</td></tr>\n";
-                }
-
-                echo '<tr><td>';
-                // If user has been granted a capcode by the admins, they can specify how to display their name
+               // If user has been granted a capcode by the admins, they can specify how to display their name
                 if ($user['capcode']) {
                     $capcode = $db->getusercapcode($user['capcode']);
-
-                    if ($capcode) {
-                        echo "<b>Current capcode displays as:</b></td><td>" . $capcode;
-                        echo "\n</td></tr><tr><td>";
+                    if ($capcode) 
+                        $sm->assign("capcode", $capcode);
                     }
-                    if ($user['proposed_capcode']) {
-                        echo "<b>Capcode awaiting approval:</b></td><td>" . $user['proposed_capcode'] . "<br />\n";
-                    } else { //HAJIME NO KAPPUKOUDO
-                        echo "<b>Propose a capcode:</b></td><td><input type=\"text\" name=\"capcode\"" .
-                        "length=\"128\" maxlength=\"128\" />";
-                        echo "<i><small>(admin approval required)</small></i><br />\n";
-                    }
-                    echo '</td></tr><tr><td>';
                 }
 
-                echo "<b>Gender:</b></td><td>";
-                ?>
-                <SELECT name="gender">
-                    <OPTION <?php
-        if ($user['gender'] == "U" || !$user['gender']) {
-            echo "SELECTED";
-        }
-                ?> value="U">--
-                        <OPTION <?php
-            if ($user['gender'] == "M") {
-                echo "SELECTED";
-            }
-            ?> value="M">Male
-                            <OPTION <?php
-            if ($user['gender'] == "F") {
-                echo "SELECTED";
-            }
-                ?> value="F">Female
-                                </SELECT>
-                                <?php
-                                echo '</td></tr><tr><td>';
-                                echo "<b>Age:</b></td><td><input type=\"text\" name=\"age\" value=\"" .
-                                replacequote($user['age']) . "\" length=\"3\" maxlength=\"3\" /><br />\n";
+                $sm->display("editprofile.tpl",null);
 
-                                echo '</td></tr><tr><td>';
-                                echo "<b>Location:</b></td><td><input type=\"text\" name=\"location\" value=\"" .
-                                replacequote($user['location']) . "\"/><br />\n";
-
-                                echo '</td></tr><tr><td>';
-                                echo "<b>Contact information:</b></td><td><input type=\"text\" name=\"contact\" value=\"" .
-                                replacequote($user['contact']) . "\"/><br />\n";
-
-                                echo '</td></tr><tr><td>';
-                                echo "<b>Description:</b></td><td><textarea name=\"description\" rows=\"5\" columns=\"30\">\n";
-                                echo replacequote($user['description']);
-                                echo "</textarea><br />\n";
-
-                                echo '</td></tr><tr><td>';
-                                if ($_SESSION['username'] == $username) {
-                                    echo "<b>Password:</b></td><td><input type=\"password\" name=\"password\">";
-                                    echo "(Confirm <input type=\"checkbox\" name=\"changepass\" value=\"1\">)<br />\n";
-                                }
-
-                                echo '</td></tr></table>';
-                                echo "<input type=\"submit\" value=\"Submit\" id=\"subbtn\" /><br />\n";
-                                echo "<a href=\"" . THurl . "profiles.php?action=viewprofile&user=" . $username . "\">Return to member profile</a>";
-                                //echo "</div></div>\n";
                             } else
                             if ($_GET['action'] == "register") {
-                                echo "<div class=\"pgtitle\">Register a new account</div><br />\n";
+
                                 if (isset($_SESSION['username'])) {
-                                    die("But you are logged in!");
+                                    renderError("But you are logged in!");
                                 }
 
                                 if (THprofile_regpolicy == 0) {
-                                    die("Registration disabled.");
+                                    renderError("Registration disabled.");
                                 }
 
                                 $success = 0;
-
-                                echo "<title>" . THname . "&#8212; Register</title>\n";
-                                echo "</head><body>\n";
-                                echo '<div id="main"><div class="box">';
                                 $errorstring = "";
+                                
                                 if (isset($_POST['user'])) {
                                     if (THprofile_lcnames) {
                                         $username = strtolower(trim($_POST['user']));
@@ -559,54 +486,33 @@ function renderPermissionDenied()
                                         if ($fail == null) {
                                             $errorstring .= "Database error.<br />\n";
                                         } else {
-                                            //echo "You have registered successfully.<br />\n";
                                             $success = 1;
                                         }
                                     }
                                 }
-                                if ($errorstring != "") {
-                                    echo "The following errors were encountered:<br />\n";
-                                    echo $errorstring;
-                                }
+                                                                
+                                $sm = sminit("register.tpl", null, "profiles", false, false);
+                                $sm->assign("success",$success);
+                                $sm->assign("errorstring", $errorstring);
+                                $sm->assign("regpolicy", THprofile_regpolicy);
+                                $sm->assign("emailwelcome", THprofile_emailwelcome);
 
-                                if ($success == "0") {
-                                    echo "<form action=\"profiles.php?action=register\" method=\"POST\">\n";
-                                    echo "<b>Username:</b><input type=\"text\" name=\"user\" maxlength=\"30\" ><br />\n";
-                                    echo "<b>Password:</b><input type=\"password\" name=\"password\" maxlength=\"30\" ><br />\n";
-                                    echo "<b>Email:</b><input type=\"text\" name=\"email\" maxlength=\"50\" ><br />\n";
-                                    echo "<input type=\"submit\" value=\"Register\"><br />\n";
-                                    echo "</form>\n";
-                                } else {
-
-                                    echo "You have successfully registered an account with username <b>" . $username . "</b>.<br />\n";
-
-                                    if (THprofile_regpolicy == 1) {
-                                        echo "However, you must be manually approved by a moderator before logging in.<br />\n";
-
-                                        if (THprofile_emailwelcome) {
-                                            echo "You will receive notification of your approval through email.<br />\n";
-                                        }
-                                    } else { // THprofile_regpolicy == 2
-                                        echo "You may log in as soon as desired.<br />\n";
-
-                                        if (THprofile_emailwelcome) {
-                                            sendWelcome($username, $email);
-                                            echo "An email containing your account information has been sent to your specified email address.<br />\n";
-                                        }
+                                // Set the username for the Smarty template if we succeeded
+                                if ($success == 1) {
+                                    $sm->assign("username", $username);
+                                    
+                                    // Send an email if the registration is immediately valid
+                                    if (THprofile_regpolicy == 2 && THprofile_emailwelcome) {
+                                        sendWelcome($username, $email); 
                                     }
-                                    echo "<table><form action=\"profiles.php?action=login\" method=\"POST\">\n";
-                                    echo "<tr><td>Username:</td><td><input type=\"text\" name=\"name\" maxlength=\"30\" ></td></tr>\n";
-                                    echo "<tr><td>Password:</td><td><input type=\"password\" name=\"password\" maxlength=\"30\" ></td></tr>\n";
-                                    echo "<tr><td><input type=\"checkbox\" name=\"remember\" ><font size=\"2\">Remember me</td>\n";
-                                    echo "<tr><td><input type=\"submit\" value=\"Login\"></td></tr>\n";
-                                    echo "</form></table>\n";
                                 }
-//						echo "[<a href=\"drydock.php\">Board index</a>]\n";
-                                echo "</td></tr></table>\n";
+                                
+                                $sm->display("register.tpl",null);
+
                             } else
                             if ($_GET['action'] == "forgotpass") {
                                 if (isset($_SESSION['username'])) {
-                                    die("But you are logged in!");
+                                    renderError("But you are logged in!");
                                 }
 
                                 echo "<title>" . THname . "&#8212; Lost password</title>\n";
@@ -630,7 +536,7 @@ function renderPermissionDenied()
                                     }
 
                                     if (!$db->userexists($username)) {
-                                        die("Invalid user specified!");
+                                        renderError("Invalid user specified!");
                                     }
 
                                     $user = $db->getuserdata($username);
@@ -651,7 +557,7 @@ function renderPermissionDenied()
                                 echo "</td></tr></table>\n";
                             } elseif ($_GET['action'] == "permissions") {
                                 if (!isset($_GET['user'])) {
-                                    die("You must specify a user!");
+                                    renderError("You must specify a user!");
                                 }
 
                                 if (THprofile_lcnames) {
@@ -661,12 +567,12 @@ function renderPermissionDenied()
                                 }
 
                                 if (!$db->userexists($username)) {
-                                    die("Invalid user specified!");
+                                    renderError("Invalid user specified!");
                                 }
 
                                 // Adding one more requirement to canEditProfile: the user has to be an admin (canEditProfile will return true if it is the user's own profile)
                                 if (!$db->caneditprofile($username) || !$_SESSION['admin']) {
-                                    die("You cannot edit this user's permissions!");
+                                    renderPermissionDenied();
                                 }
 
                                 echo "<title>" . THname . "&#8212; Viewing permissions of " . $username . "</title>\n";
@@ -734,7 +640,6 @@ function renderPermissionDenied()
 
                                     $actionstring = "Permissions\tprofile:" . $username;
                                     writelog($actionstring, "profiles");
-                                    //echo $query; print_r($_POST); die();
                                 }
 
                                 $user = $db->getuserdata($username); // reload user info
@@ -797,7 +702,7 @@ function renderPermissionDenied()
 //to phpmyadmin.  BE CAREFUL WITH THIS, END-USER >:[                   Love, tyam
                             elseif ($_GET['action'] == "remove") {
                                 if (!isset($_GET['user'])) {
-                                    die("You must specify a user!");
+                                    renderError("You must specify a user!");
                                 }
                                 if (THprofile_lcnames) {
                                     $username = strtolower($_GET['user']);
@@ -806,16 +711,16 @@ function renderPermissionDenied()
                                 }
 
                                 if (!$db->userexists($username)) {
-                                    die("Invalid user specified!");
+                                    renderError("Invalid user specified!");
                                 }
                                 // Only admins can do this.
                                 if (!$_SESSION['admin']) {
-                                    die("You cannot do this!");
+                                    renderInvalidPermissions();
                                 }
 
                                 //Don't delete yourself.
                                 if ($_SESSION['username'] == $username) {
-                                    die("You cannot do this!");
+                                    renderError("You cannot lock yourself out!");
                                 }
 
                                 $db->suspenduser($username);
@@ -835,33 +740,24 @@ function renderPermissionDenied()
                             }
                         } else {
 
-                            echo "<title>" . THname . "&#8212; Profiles System</title>\n";
-                            echo "</head><body>\n";
-                            echo '<div id="main"><div class="box">';
-                            echo "<div class=\"pgtitle\">Profiles System</div><br />\n";
-                            echo "Profile system options:<br /><br />";
-
-                            if ($_SESSION['username']) { //basically, if logged in
-                                echo '<a href="' . THurl . 'profiles.php?action=logout">Logout</a><br />';
-                                echo '<a href="' . THurl . 'profiles.php?action=viewprofile&user=' . $_SESSION['username'] . '">Your profile</a><br />';
-                            } else { //not logged in
-                                echo '<a href="' . THurl . 'profiles.php?action=login">Login</a><br />';
-                                //if we're not taking new regs, let's not display the option - should be changed on menu bar also probably but that's for later
-                                if (THprofile_regpolicy != 0) {
-                                    echo '<a href="' . THurl . 'profiles.php?action=register">Register</a><br />';
-                                }
-                            }
-                            echo '<hr />'; //clear space for the next set
-                            //is member list available?
-                            if ((THprofile_viewuserpolicy == 0) && ($_SESSION['admin'] || $_SESSION['moderator'] || $_SESSION['mod_array'])) { //Mods only
-                                echo '<a href="' . THurl . 'profiles.php?action=memberlist">Member List</a>';
+                            $canSeeMemberlist = 0;
+                            
+                              //is member list available?
+                            if ((THprofile_viewuserpolicy == 0) && 
+                                 ($_SESSION['admin'] || $_SESSION['moderator'] || $_SESSION['mod_array'])) { //Mods only
+                                $canSeeMemberlist = 1;
                             } elseif ((THprofile_viewuserpolicy == 1) && ($_SESSION['username'])) { //Only logged in users
-                                echo '<a href="' . THurl . 'profiles.php?action=memberlist">Member List</a>';
+                                $canSeeMemberlist = 1;
                             } elseif (THprofile_viewuserpolicy == 2) { //Anyone
-                                echo '<a href="' . THurl . 'profiles.php?action=memberlist">Member List</a>';
-                            } //member list block
-
-                            echo '<br />'; //clear space for the next set
+                               $canSeeMemberlist = 1;
+                            }    
+                            
+                            $sm = sminit("menu.tpl", null, "profiles", false, false);
+                            $sm->assign("sessUsername", $_SESSION['username']);
+                            $sm->assign("regpolicy", THprofile_regpolicy);
+                            $sm->assign("canSeeMemberlist", $canSeeMemberlist);
+                           
+                            $sm->display("menu.tpl, null");
                         }
                         echo '        </div>
 	    </div>';
