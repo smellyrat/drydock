@@ -108,7 +108,7 @@
 			$it=opendir(THpath."tpl/");
 			while (($set=readdir($it))!==false)
 			{
-				if (in_array($set,array(".","..","_admin",".svn","_compd"))==false && is_dir(THpath."tpl/".$set))
+				if (in_array($set,array(".","..","_admin",".svn","_compd","profiles"))==false && is_dir(THpath."tpl/".$set))
 				{
 					$sets[]=$set;
 				}
