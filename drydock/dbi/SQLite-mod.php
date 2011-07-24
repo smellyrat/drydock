@@ -598,6 +598,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 3: Notes (string)
 				$query = 'INSERT INTO ' . THcapcodes_table . ' ( capcodefrom, capcodeto, notes ) VALUES ("' .
 				$this->escape_string($field1) . '","' . $this->escape_string($field2) . '","' . $this->escape_string($field3) . '");';
+				rebuild_capcodes();
 				break;
 
 			case 3 : // Wordfilters
@@ -606,6 +607,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 3: Notes (string)
 				$query = 'INSERT INTO ' . THfilters_table . ' ( filterfrom, filterto, notes ) VALUES ("' .
 				$this->escape_string($field1) . '","' . $this->escape_string($field2) . '","' . $this->escape_string($field3) . '");';
+				rebuild_filters();
 				break;
 
 			default :

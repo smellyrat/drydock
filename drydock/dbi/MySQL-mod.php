@@ -601,7 +601,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 1: The entry (string)
 				// FIELD 2: The target board (integer)
 				$query = 'INSERT INTO ' . THblotter_table . ' ( entry, board, time ) VALUES ("' .
-				$this->escape_string($field1) . '","' . intval($field2) . '","' . (THtimeoffset * 60) + time() . '")';
+				$this->escape_string($field1) . '","' . intval($field2) . '","' . ((THtimeoffset * 60) + time()) . '")';
 				break;
 
 			case 2 : // Capcodes
@@ -610,6 +610,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 3: Notes (string)
 				$query = 'INSERT INTO ' . THcapcodes_table . ' ( capcodefrom, capcodeto, notes ) VALUES ("' .
 				$this->escape_string($field1) . '","' . $this->escape_string($field2) . '","' . $this->escape_string($field3) . '");';
+				rebuild_capcodes();
 				break;
 
 			case 3 : // Wordfilters
@@ -618,6 +619,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 3: Notes (string)
 				$query = 'INSERT INTO ' . THfilters_table . ' ( filterfrom, filterto, notes ) VALUES ("' .
 				$this->escape_string($field1) . '","' . $this->escape_string($field2) . '","' . $this->escape_string($field3) . '");';
+				rebuild_filters();
 				break;
 
 			default :
