@@ -261,7 +261,6 @@
 		$smarty->assign("GET",$_GET);
 		$smarty->assign("THcookieid", THcookieid);
 		$smarty->register_function("smcount","smcount");
-                $smarty->register_function("smlistcontains","smlistcontains");
 		return($smarty);
 	}
 	
@@ -331,11 +330,6 @@
 			unlink($deletion);
 		}
 	}
-        
-        function smlistcontains($p,&$sm)
-        {  
-            return is_in_csl($params['item'],$params['list']);  
-        }
 	
 	/**
 	 * Delete a cache for a static page, given its ID.

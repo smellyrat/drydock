@@ -14,14 +14,14 @@
                     <input type="checkbox" name="moderator" value="1" {if $user.mod_global}checked="checked"{/if} /> Global moderator
                     <br />                
 
-                    <u>Individual boards:</u><br />
-                    {counter name="boardcount" assign="boardcount" start="0"}
+                    <u>Individual boards:</u><div>
+                    {counter name="boardcount" assign="boardcount" start="0" print=false}
                     {foreach from=$boards item=board}
-                        <input type="checkbox" name="mod_board_{$board.id}" value="1" {if (smlistcontains item=$board.id list=$user.mod_array)}checked="checked"{/if} /> /{$board.folder}/ moderator        
+                        <input type="checkbox" name="mod_board_{$board.id}" value="1" {if is_in_csl($board.id, $user.mod_array)}checked="checked"{/if} /> /{$board.folder}/ moderator        
                     {if $boardcount mod 5 == 4 }<br />{/if}
-                    {counter name="boardcount" assign="boardcount" print="false"}
+                    {counter name="boardcount" assign="boardcount" print=false}
                 {/foreach}
-                <br />
+                </div>
 
                 <u>Userlevel:</u><br />
                 <input type="text" name="userlevel" value="{$user.userlevel}" /><br />
