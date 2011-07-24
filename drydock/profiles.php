@@ -697,6 +697,6 @@ $sm->assign("sessUsername", $_SESSION['username']);
 $sm->assign("regpolicy", THprofile_regpolicy);
 $sm->assign("canSeeMemberlist", $canSeeMemberlist);
 
-$sm->display("menu.tpl, null");
+$sm->display("menu.tpl", null);
 }
 ?>
