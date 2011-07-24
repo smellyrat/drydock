@@ -650,6 +650,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 3: Notes (string)
 				$query = 'UPDATE ' . THcapcodes_table . " SET capcodefrom='" .
 				$this->escape_string($field1) . "', capcodeto='" . $this->escape_string($field2) . "', notes='" . $this->escape_string($field3) . "' WHERE id=" . intval($id);
+				rebuild_capcodes();
 				break;
 
 			case 3 : // Wordfilters
@@ -658,6 +659,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 3: Notes (string)
 				$query = 'UPDATE ' . THfilters_table . " SET filterfrom='" .
 				$this->escape_string($field1) . "', filterto='" . $this->escape_string($field2) . "', notes='" . $this->escape_string($field3) . "' WHERE id=" . intval($id);
+				rebuild_filters();
 				break;
 
 			default :
@@ -679,10 +681,12 @@ class ThornModDBI extends ThornDBI
 
 			case 2 : // Capcodes
 				$query = "DELETE FROM " . THcapcodes_table . " WHERE id=" . intval($id);
+				rebuild_capcodes();
 				break;
 
 			case 3 : // Wordfilters
 				$query = "DELETE FROM " . THfilters_table . " WHERE id=" . intval($id);
+				rebuild_filters();
 				break;
 
 			default :
