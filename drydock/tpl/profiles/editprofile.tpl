@@ -97,7 +97,7 @@
                                     (Confirm <input type="checkbox" name="changepass" value="1">)
                                 </td>
                             </tr>
-                            {if}
+                            {/if}
                             </table>
                             <input type="submit" value="Submit" id="subbtn" /></form><br />
                         [<a href="{$THurl}profiles.php?action=viewprofile&amp;user={$user.username}">User profile</a>]
