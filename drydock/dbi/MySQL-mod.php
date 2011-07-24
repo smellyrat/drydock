@@ -601,7 +601,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 1: The entry (string)
 				// FIELD 2: The target board (integer)
 				$query = 'INSERT INTO ' . THblotter_table . ' ( entry, board, time ) VALUES ("' .
-				$this->clean($field1) . '","' . intval($field2) . '","' . (THtimeoffset * 60) + time() . '")';
+				$this->escape_string($field1) . '","' . intval($field2) . '","' . (THtimeoffset * 60) + time() . '")';
 				break;
 
 			case 2 : // Capcodes
@@ -609,7 +609,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 2: Capcode to (string)
 				// FIELD 3: Notes (string)
 				$query = 'INSERT INTO ' . THcapcodes_table . ' ( capcodefrom, capcodeto, notes ) VALUES ("' .
-				$this->clean($field1) . '","' . $this->clean($field2) . '","' . $this->clean($field3) . '");';
+				$this->escape_string($field1) . '","' . $this->escape_string($field2) . '","' . $this->escape_string($field3) . '");';
 				break;
 
 			case 3 : // Wordfilters
@@ -617,7 +617,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 2: Filter to (string)
 				// FIELD 3: Notes (string)
 				$query = 'INSERT INTO ' . THfilters_table . ' ( filterfrom, filterto, notes ) VALUES ("' .
-				$this->clean($field1) . '","' . $this->clean($field2) . '","' . $this->clean($field3) . '");';
+				$this->escape_string($field1) . '","' . $this->escape_string($field2) . '","' . $this->escape_string($field3) . '");';
 				break;
 
 			default :
@@ -639,7 +639,7 @@ class ThornModDBI extends ThornDBI
 			case 1 : // Blotter posts
 				// FIELD 1: The entry (string)
 				// FIELD 2: The target board (integer)
-				$query = 'UPDATE ' . THblotter_table . " SET entry = '" . $this->clean($field1) . "', board=" . intval($field2) . " WHERE id=" . intval($id);
+				$query = 'UPDATE ' . THblotter_table . " SET entry = '" . $this->escape_string($field1) . "', board=" . intval($field2) . " WHERE id=" . intval($id);
 				break;
 
 			case 2 : // Capcodes
@@ -647,7 +647,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 2: Capcode to (string)
 				// FIELD 3: Notes (string)
 				$query = 'UPDATE ' . THcapcodes_table . " SET capcodefrom='" .
-				$this->clean($field1) . "', capcodeto='" . $this->clean($field2) . "', notes='" . $this->clean($field3) . "' WHERE id=" . intval($id);
+				$this->escape_string($field1) . "', capcodeto='" . $this->escape_string($field2) . "', notes='" . $this->escape_string($field3) . "' WHERE id=" . intval($id);
 				break;
 
 			case 3 : // Wordfilters
@@ -655,7 +655,7 @@ class ThornModDBI extends ThornDBI
 				// FIELD 2: Filter to (string)
 				// FIELD 3: Notes (string)
 				$query = 'UPDATE ' . THfilters_table . " SET filterfrom='" .
-				$this->clean($field1) . "', filterto='" . $this->clean($field2) . "', notes='" . $this->clean($field3) . "' WHERE id=" . intval($id);
+				$this->escape_string($field1) . "', filterto='" . $this->escape_string($field2) . "', notes='" . $this->escape_string($field3) . "' WHERE id=" . intval($id);
 				break;
 
 			default :
