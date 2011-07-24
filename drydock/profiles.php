@@ -27,8 +27,14 @@ if (isset($_POST['remember'])) {
         <link rel="stylesheet" type="text/css" href="<?php echo THurl . 'tpl/' . THtplset; ?>/futaba.css" title="Stylesheet" />
 
         <?php
-        $db = new ThornProfileDBI();
+        
+function renderPermissionDenied()
+{
+    $sm = sminit("nopermission.tpl", null, "profiles", false, false);
+    $sm->display("nopermission.tpl", null);
+}
 
+        $db = new ThornProfileDBI();
 
         if (isset($_GET['action'])) {
             if ($_GET['action'] == "login") {
@@ -74,9 +80,8 @@ if (isset($_POST['remember'])) {
                 $sm->display("login.tpl", null);
             } else
             if ($_GET['action'] == "logout") {
-                echo "<title>" . THname . "&#8212; Logout</title>\n";
-                echo "</head><body>\n";
-                echo '<div id="main"><div class="box">';
+                
+                $sm = sminit("logout.tpl", null, "profiles", false, false);
 
                 if (isset($_SESSION['username'])) {
                     if (isset($_COOKIE[THcookieid . '-uname']) && isset($_COOKIE[THcookieid . '-id'])) {
@@ -91,18 +96,15 @@ if (isset($_POST['remember'])) {
                     unset($_SESSION['admin']);
                     unset($_SESSION['moderator']);
                     unset($_SESSION['mod_array']);
-                    echo '<div class="pgtitle">Logged out</div><br />';
-                    echo "You are now logged out!<br /><br />\n";
                 } else {
-                    echo '<div class="pgtitle">Logged out</div><br />';
-                    echo "You are not logged in!<br /><br />\n";
+                    // Not logged in, weird.
+                    $sm->assign("notloggedout", 1);
                 }
-                echo "[<a href=\"drydock.php\">Board index</a>]\n";
+                
+                $sm->display("logout.tpl", null);
+                
             } else
             if ($_GET['action'] == "memberlist") {
-                echo "<title>" . THname . "&#8212; Members</title>\n";
-                echo "</head><body>\n";
-                echo '<div id="main"><div class="box">';
                 $can_access = 0;
 
                 if (THprofile_viewuserpolicy == 2) {
@@ -114,20 +116,13 @@ if (isset($_POST['remember'])) {
                 }
 
                 if ($can_access) {
-                    echo "<div class=\"pgtitle\">Members</div><br />\n";
 
-                    $users = $db->getuserlist();
-
-                    foreach ($users as $user_entry) {
-                        if ($user_entry['username'] != "initialadmin") {
-                            echo "<a href=\"profiles.php?action=viewprofile&user=" . $user_entry['username'] . "\">" .
-                            $user_entry['username'] . "</a><br />\n";
-                        }
-                    }
+                    $sm = sminit("memberlist.tpl", null, "profiles", false, false);
+                    $sm->assign("users",$db->getuserlist());
+                    $sm->display("memberlist.tpl", null);
+                    
                 } else {
-                    echo "<div class=\"pgtitle\">Permissions error</div><br />\n";
-                    echo "<b>Error:</b> You are not authorized to view this page!<br /><br />\n";
-                    echo "[<a href=\"drydock.php\">Board index</a>]\n";
+                    renderPermissionDenied();
                 }
             } else
             if ($_GET['action'] == "viewprofile") {
@@ -169,10 +164,7 @@ if (isset($_POST['remember'])) {
                     }
                     $sm->display("viewprofile.tpl", null);
                 } else {
-                    echo "<div class=\"pgtitle\">Permissions error</div><br />\n";
-                    echo "<b>Error:</b> You are not authorized to view this page!<br /><br />\n";
-                    echo "[<a href=\"drydock.php\">Board index</a>]\n";
-                    echo "</td></tr></table>\n";
+                    renderPermissionDenied();
                 }
             } else
             if ($_GET['action'] == "edit") {
