@@ -85,9 +85,7 @@
                                 <strong>Description:</strong>
                             </td>
                             <td>
-                                <textarea name="description" rows="5" columns="30">
-                                    {$user.description|escape}
-                                </textarea>
+                                <textarea name="description" rows="5" columns="30">$user.description|escape}</textarea>
                             </td></tr>
                             {if $sessUsername == $user.username}
                             <tr><td>
