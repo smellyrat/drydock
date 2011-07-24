@@ -192,12 +192,12 @@ renderPermissionDenied();
 if (isset($_POST['edit_update'])) {
 $user = $db->getuserdata($username);
 
-if (isset($_POST['capcode']) && $user['capcode'] != "") {
+if (isset($_POST['capcode']) && trim($_POST['capcode']) != "" && $user['capcode'] != "") {
 $capcode = $db->getusercapcode($user['capcode']);
 
 // Don't bother with the approval process if it's identical to the capcode 
 // that's already been approved
-if ($capcode != $_POST['capcode']) {
+if (htmlentities($capcode) != $_POST['capcode']) {
 $db->proposeusercapcode($username, $capcode);
 }
 }

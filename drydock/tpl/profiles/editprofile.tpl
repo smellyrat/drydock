@@ -44,7 +44,7 @@
                                     </td></tr><tr><td>
                                 {/if}
 
-                                    {if $user.proposed_capcode}}
+                                    {if $user.proposed_capcode}
                                         <strong>Capcode awaiting approval:</strong></td><td>{$user.proposed_capcode}
                                     {else}
                                         <strong>Propose a capcode:</strong></td><td><input type="text" name="capcode" length="128" maxlength="128" />
