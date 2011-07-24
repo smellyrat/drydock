@@ -376,7 +376,7 @@ $sm->assign("passErrString", $passErrString);
 // If user has been granted a capcode by the admins, they can specify how to display their name
 if ($user['capcode']) {
 $capcode = $db->getusercapcode($user['capcode']);
-if ($capcode)
+if ($capcode) {
 $sm->assign("capcode", $capcode);
 }
 }
