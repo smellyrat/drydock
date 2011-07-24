@@ -35,13 +35,13 @@
 								<input type="hidden" name="id{$filters.id}" size="15" value='{$filters.id}' />
                             </td>
                             <td>
-								<input type="text" name="from{$filters.id}" size="15" value='{$filters.filterfrom|escape}' />
+								<input type="text" name="from{$filters.id}" size="15" value='{$filters.filterfrom|escape:'quotes'}' />
                             </td>
                             <td>
-                                <input type="text" name="to{$filters.id}" size="40" value='{$filters.filterto|escape}' />
+                                <input type="text" name="to{$filters.id}" size="40" value='{$filters.filterto|escape:'quotes'}' />
                             </td>
                             <td>
-                                <input type="text" name="notes{$filters.id}" size="25" value='{$filters.notes|escape}' />
+                                <input type="text" name="notes{$filters.id}" size="25" value='{$filters.notes|escape:'quotes'}' />
                             </td>
                         </tr>
     {/foreach}

@@ -32,16 +32,16 @@
                                     <tr>
                                         <td>
                                             <input type="checkbox" name='del{$capcodes.id}' />
-                                            <input type="hidden" name="id{$capcodes.id}" size="15" value='{$capcodes.id|escape}' />
+                                            <input type="hidden" name="id{$capcodes.id}" size="15" value='{$capcodes.id}' />
                                         </td>
                                         <td>
-                                            <input type="text" name="from{$capcodes.id}" size="10" value='{$capcodes.capcodefrom|escape}' />
+                                            <input type="text" name="from{$capcodes.id}" size="10" value='{$capcodes.capcodefrom|escape:'quotes'}' />
                                         </td>
                                         <td>
-                                            <input type="text" name="to{$capcodes.id}" value='{$capcodes.capcodeto|escape}' />
+                                            <input type="text" name="to{$capcodes.id}" value='{$capcodes.capcodeto|escape:'quotes'}' />
                                         </td>
                                         <td>
-                                            <input type="text" name="notes{$capcodes.id}" value='{$capcodes.notes|escape}' />
+                                            <input type="text" name="notes{$capcodes.id}" value='{$capcodes.notes|escape:'quotes'}' />
                                         </td>
                                     </tr>
                                 {/foreach}
