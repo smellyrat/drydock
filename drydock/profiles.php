@@ -360,7 +360,7 @@ writelog($actionstring, "profiles");
                 // Reload the user data
 $user = $db->getuserdata($username);
 
-$sm = sminit("editprofile.tpl", null, false, false);
+$sm = sminit("editprofile.tpl", null, "profiles", false, false);
 $sm->assign("user", $user);
 $sm->assign("sessUsername", $_SESSION['username']);
 $sm->assign("maxProfImgSize", THprofile_maxpicsize);
