@@ -12,33 +12,25 @@
 
 require_once ("config.php");
 require_once ("common.php");
-session_start();
-if (isset($_POST['remember'])) {
-    setcookie(THcookieid . "-uname", $_SESSION['username'], time() + THprofile_cookietime, THprofile_cookiepath);
-    setcookie(THcookieid . "-id", $_SESSION['userid'], time() + THprofile_cookietime, THprofile_cookiepath);
-}
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="Content-Style-Type" content="text/css" />
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo THurl . 'tpl/' . THtplset; ?>/futaba.css" title="Stylesheet" />
 
-        <?php
-        
 function renderPermissionDenied()
 {
     $sm = sminit("nopermission.tpl", null, "profiles", false, false);
     $sm->display("nopermission.tpl", null);
-}
 
-function renderError(errmsg)
+
+function renderError($errmsg)
 {
     $sm = sminit("error.tpl", null, "profiles", false, false);
-    $sm->assign("errmsg", errmsg);
+    $sm->assign("errmsg", $errmsg);
     $sm->display("error.tpl", null);   
+}
+
+session_start();
+
+if (isset($_POST['remember'])) {
+    setcookie(THcookieid . "-uname", $_SESSION['username'], time() + THprofile_cookietime, THprofile_cookiepath);
+    setcookie(THcookieid . "-id", $_SESSION['userid'], time() + THprofile_cookietime, THprofile_cookiepath);
 }
 
         $db = new ThornProfileDBI();
@@ -515,20 +507,13 @@ function renderError(errmsg)
                                     renderError("But you are logged in!");
                                 }
 
-                                echo "<title>" . THname . "&#8212; Lost password</title>\n";
-                                echo "</head><body>\n";
-                                echo '<div id="main"><div class="box">';
-                                echo "<div class=\"pgtitle\">Forgot password</div><br />\n";
+                                $sm = sminit("forgotpass.tpl", null, "profiles", false, false);
 
-                                if (!isset($_POST['user'])) {
+                                if (isset($_POST['user'])) {
 
-                                    echo "<b>Note:</b> submitting this form will reset your password.<br />\n";
-                                    echo "<form action=\"profiles.php?action=forgotpass\" method=\"POST\">\n";
-                                    echo "Username:</td><td><input type=\"text\" name=\"user\" maxlength=\"30\" >\n";
-                                    echo "<input type=\"submit\" value=\"Submit\">\n";
-                                    echo "</form><br /><br />\n";
-                                } else {
-
+                                    // Let Smarty know we're submitting
+                                    $sm->assign("submitting", 1);
+                                    
                                     if (THprofile_lcnames) {
                                         $username = strtolower($_POST['user']);
                                     } else {
@@ -540,21 +525,33 @@ function renderError(errmsg)
                                     }
 
                                     $user = $db->getuserdata($username);
-                                    $pass = generateRandStr(8);
-
-                                    $actionstring = "Forgot pass\tprofile:" . $username;
-                                    writelog($actionstring, "profiles");
-
-                                    // This way, it will only send an email if the password reset was actually successful
-                                    if ($db->setuserpass($username, $pass)) {
-                                        sendnewpass($_POST['user'], $user['email'], $pass, $_SERVER['REMOTE_ADDR']);
-                                        echo "Your password has been reset and emailed to your specified address.<br /><br />\n";
-                                    } else {
-                                        echo "There was an error resetting your password.  Please try again later.<br /><br />\n";
+                                    
+                                    // Make sure the provided email address matches the profile name
+                                    if( !isset($_POST['email']) || (strtolower($_POST['email']) != strtolower($user['email']))) {
+                                        
+                                        // ...nope, didn't match
+                                        $actionstring = "Failed pass reset\tprofile:" . $username;
+                                        writelog($actionstring, "profiles");
+                                        
+                                        $sm->assign("mismatch", 1);
                                     }
+                                    else {
+                                        $pass = generateRandStr(8);
+
+                                        $actionstring = "Forgot pass\tprofile:" . $username;
+                                        writelog($actionstring, "profiles");
+
+                                        // This way, it will only send an email if the password reset was actually successful
+                                        if ($db->setuserpass($username, $pass)) {
+                                            sendnewpass($_POST['user'], $user['email'], $pass, $_SERVER['REMOTE_ADDR']);
+                                        } else {
+                                            // Set error condition
+                                            $sm->assign("error", 1);                           
+                                       }                         
+                                   }
                                 }
-                                echo "[<a href=\"drydock.php\">Board index</a>]\n";
-                                echo "</td></tr></table>\n";
+                                
+                                $sm->display("forgotpass.tpl", null);
                             } elseif ($_GET['action'] == "permissions") {
                                 if (!isset($_GET['user'])) {
                                     renderError("You must specify a user!");
@@ -575,11 +572,9 @@ function renderError(errmsg)
                                     renderPermissionDenied();
                                 }
 
-                                echo "<title>" . THname . "&#8212; Viewing permissions of " . $username . "</title>\n";
-                                echo "</head><body>\n";
-                                echo '<div id="main"><div class="box">';
-                                echo "<div class=\"pgtitle\">User permissions:" . $username . "</div><br />\n";
-
+                                // We init this up here so that we can add error messages as necessary
+                                $sm = sminit("permissions.tpl",null,"profiles",false,false);
+                                
                                 $user = $db->getuserdata($username);
                                 $boards = $db->getboard(); // no parameters means all boards
 
@@ -627,14 +622,12 @@ function renderError(errmsg)
                                         if ($_SESSION['userlevel'] >= intval($_POST['userlevel'])) {
                                             $userlevel = intval($_POST['userlevel']);
                                         } else {
-                                            print "<span style=\"color:#ff0000;font-weight:bolder;\">You cannot raise the userlevel to one higher than your own!</span><br />\n";
+                                            $sm->assign("userlevelerror", 1);
                                             $userlevel = $user['userlevel']; // reset it to normal
                                         }
                                     } else {
-
                                         $userlevel = $user['userlevel']; // nothing changed
                                     }
-
 
                                     $db->updateuserpermissions($username, $admin, $moderator, $userlevel, $mod_array, $capcode);
 
@@ -643,64 +636,18 @@ function renderError(errmsg)
                                 }
 
                                 $user = $db->getuserdata($username); // reload user info
+                                
+                                // Assign standard Smarty stuff
+                                $sm->assign("user",$user);
+                                $sm->assign("boards", $boards);
 
-                                echo "<form action=\"profiles.php?action=permissions&user=" . $username . "\" method=\"POST\">\n";
-
-                                if ($user['mod_admin']) {
-                                    echo "<input type=\"checkbox\" name=\"admin\" value=\"1\" checked=\"on\" > Admin";
-                                } else {
-                                    echo "<input type=\"checkbox\" name=\"admin\" value=\"1\"> Admin";
-                                }
-                                echo "<br />\n";
-
-                                if ($user['mod_global']) {
-                                    echo "<input type=\"checkbox\" name=\"moderator\" value=\"1\" checked=\"on\" > Global moderator";
-                                } else {
-                                    echo "<input type=\"checkbox\" name=\"moderator\" value=\"1\"> Global moderator";
-                                }
-                                echo "<br />\n";
-
-                                echo "<u>Individual boards:</u><br />\n";
-                                $add_new_line = 0;
-                                foreach ($boards as $board_to_mod) {
-                                    $add_new_line++;
-                                    if (is_in_csl($board_to_mod['id'], $user['mod_array'])) {
-                                        echo "<input type=\"checkbox\" name=\"mod_board_" . $board_to_mod['id'] .
-                                        "\" value=\"1\" checked=\"on\" > /" . $board_to_mod['folder'] . "/ moderator";
-                                    } else {
-                                        echo "<input type=\"checkbox\" name=\"mod_board_" . $board_to_mod['id'] .
-                                        "\" value=\"1\"> /" . $board_to_mod['folder'] . "/ moderator";
-                                    }
-
-                                    if ($add_new_line == 4) {
-                                        $add_new_line = 0;
-                                        echo "<br />\n";
-                                    } else {
-                                        echo "    ";
-                                    }
-                                }
-
-                                // If there are an odd number of boards, start on a new line for userlevel
-                                if ($add_new_line != 0) {
-                                    echo "<br />\n";
-                                }
-
-                                echo "<u>Userlevel:</u><br />\n";
-                                echo "<input type=\"text\" name=\"userlevel\" value=\"" . $user['userlevel'] . "\"/><br />";
-
-                                echo "<u>User's capcode hash:</u><br />\n";
-                                echo "<input type=\"text\" name=\"capcode\" value=\"" . replacequote($user['capcode']) . "\"/>";
-                                echo "<input type=\"checkbox\" name=\"remove_capcode\" value=\"1\"> Remove";
-
-                                echo "<input type=\"hidden\" name=\"permsub\" value=\"1\">\n";
-                                echo "<br /><input type=\"submit\" value=\"Submit\">\n";
-                                echo "</form>"; //</div>\n";
-                                echo "<a href=\"" . THurl . "profiles.php?action=viewprofile&user=" . $username . "\">Return to member profile</a>";
+                                $sm->display("permissions.tpl", null);
                             }
 //this function is really dangerous because if someone doesn't use this correctly 
 //they can lock themselves out of admin stuff completely, unless they have access
 //to phpmyadmin.  BE CAREFUL WITH THIS, END-USER >:[                   Love, tyam
                             elseif ($_GET['action'] == "remove") {
+                                
                                 if (!isset($_GET['user'])) {
                                     renderError("You must specify a user!");
                                 }
@@ -727,19 +674,15 @@ function renderError(errmsg)
 
                                 $actionstring = "Remove\tprofile:" . $username;
                                 writelog($actionstring, "profiles");
-
-                                echo "<title>" . THname . "&#8212; Removing user " . $username . "</title>\n";
-                                echo "</head><body>\n";
-                                echo '<div id="main"><div class="box">';
-                                echo "<div class=\"pgtitle\">Successful removal of " . $username . "</div><br />\n";
-
-                                //it's done, let's get them out of here
-                                echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2; URL=" .
-                                THurl . "profiles.php?action=memberlist" .
-                                "\">User deleted, returning to member list...";
-                            }
+                                
+                                $sm = sminit("remove.tpl",null,"profiles",false,false);
+                                $sm->assign("username", $username);
+                                $sm->display("remove.tpl", null);
+                          
                         } else {
 
+                            // Fall-through case - just show all the available options
+                            
                             $canSeeMemberlist = 0;
                             
                               //is member list available?
@@ -759,9 +702,3 @@ function renderError(errmsg)
                            
                             $sm->display("menu.tpl, null");
                         }
-                        echo '        </div>
-	    </div>';
-                        include ("menu.php");
-                        ?>
-                        </body>
-                        </html>

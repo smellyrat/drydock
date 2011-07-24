@@ -1,4 +1,4 @@
-{*{include file=head.tpl} Commented out until everything in profiles gets switched over *}
+{include file=head.tpl}
 <title>{$THname} &#8212; Register</title>
 </head>
 <body>

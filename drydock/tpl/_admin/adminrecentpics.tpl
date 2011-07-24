@@ -76,7 +76,7 @@ Filter by board: <select name="board">
 										
 					{* Show quick-moderation panel *}
 					[<a onclick="$('#quickmod{$thisimage.reply_id}').toggle();">Quickmod</a>]
-					<form target="_blank" action="misc.php" method="POST">
+					<form target="_blank" action="misc.php" method="post">
 					<span id="quickmod{$thisimage.reply_id}" style="display: none;" class="modblock">
 							<input type="hidden" name="board" value="{$boardz}" />
 							<input type="hidden" name="post" value="{$thisimage.reply_globalid}" />
@@ -113,7 +113,7 @@ Filter by board: <select name="board">
 					
 					
 					{* Show quick-moderation panel *}
-					<form target="_blank" action="misc.php" method="POST">
+					<form target="_blank" action="misc.php" method="post">
 					[<a onclick="$('#quickmod{$thisimage.thread_id}').toggle();">Quickmod</a>]
 					<span id="quickmod{$thisimage.thread_id}" style="display: none;" class="modblock">
 							<input type="hidden" name="board" value="{$boardz}" />

@@ -1,21 +1,20 @@
-{*{include file=head.tpl} Commented out until everything in profiles gets switched over *}
+{include file=head.tpl}
 <title>{$THname} &#8212; Viewing profile of {$user.username}</title>
 </head>
 <body>
     <div id="main">
         <div class="box">
-
             <div class="pgtitle">User profile: {$user.username}</div><div>
 
                 {if $caneditprofile}
-                    <a href="profiles.php?action=edit&amp;user={$user.username}">
+                    <a href="{$THurl}profiles.php?action=edit&amp;user={$user.username}">
                         <img src="{$THurl}static/edit.png" alt="Edit profile" border="0" />Edit profile</a>
                     {/if}
 
                 {if $isadmin}
-                    <a href="profiles.php?action=permissions&amp;user={$user.username}">
+                    <a href="{$THurl}profiles.php?action=permissions&amp;user={$user.username}">
                         <img src="{$THurl}static/shield.png" alt="Edit permissions" border="0" />Edit permissions</a>
-                    <a href="profiles.php?action=remove&amp;user={$user.username}">
+                    <a href="{$THurl}profiles.php?action=remove&amp;user={$user.username}">
                         <img src="{$THurl}static/disable.png" alt="Disable user" border="0" />Disable user</a>
                     {/if}
                 <br />
@@ -78,6 +77,6 @@
                 {/if}
                 <br />
 
-                <a href="{$THurl}profiles.php?action=memberlist">Return to member list</a>
+                [<a href="{$THurl}profiles.php?action=memberlist">Return to member list</a>]
             </div>
 {include file=bottombar.tpl}

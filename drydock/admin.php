@@ -548,7 +548,7 @@
 			while (($set=readdir($it))!==false)
 			{
 				//echo($set);
-				if (in_array($set,array(".","..",".svn","_admin","_compd"))==false && is_dir(THpath."tpl/".$set)) //Should mebbe do a better test here... versions, etc
+				if (in_array($set,array(".","..",".svn","_admin","_compd","profiles"))==false && is_dir(THpath."tpl/".$set)) //Should mebbe do a better test here... versions, etc
 				{
 					$sets[]=$set;
 				}

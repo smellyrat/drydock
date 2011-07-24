@@ -115,7 +115,7 @@
 		{else}
 	There are currently no pending capcode requests.<br />
 	{/if}
-	<form action="admin.php?t=au" method="POST">
+	<form action="admin.php?t=au" method="post">
 		<div>
         <div class="pgtitle">
 	  Manually Add (and auto-approve) User Account

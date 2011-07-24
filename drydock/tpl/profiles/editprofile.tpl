@@ -1,4 +1,4 @@
-{*{include file=head.tpl} Commented out until everything in profiles gets switched over *}
+{include file=head.tpl}
 <title>{$THname} &#8212; Editing profile of {$user.username}</title>
 </head>
 <body>
@@ -100,6 +100,6 @@
                             {if}
                             </table>
                             <input type="submit" value="Submit" id="subbtn" /></form><br />
-                        <a href="{$THurl}profiles.php?action=viewprofile&ampuser={$user.username}">Return to user profile</a>
+                        [<a href="{$THurl}profiles.php?action=viewprofile&amp;user={$user.username}">User profile</a>]
                     </div>
                     {include file=bottombar.tpl}

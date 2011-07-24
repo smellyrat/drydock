@@ -1,4 +1,4 @@
-{*{include file=head.tpl} Commented out until everything in profiles gets switched over *}
+{include file=head.tpl}
 <title>{$THname} &#8212; Logout</title>
 </head>
 <body>
@@ -10,5 +10,5 @@
             {else}
                 <div>You are now logged out!</div>
             {/if}
-            [<a href="drydock.php">Board index</a>]
+            [<a href="{$THurl}drydock.php">Board index</a>]</div>
             {include file=bottombar.tpl}

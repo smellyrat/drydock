@@ -132,7 +132,7 @@
 			
 			{* Show quick-moderation panel *}
 
-			<form target="_blank" action="misc.php" method="POST">
+			<form target="_blank" action="misc.php" method="post">
 			[<a onclick="$('#quickmod{$post.id}').toggle();">Quickmod</a>]
 			<span id="quickmod{$post.id}" style="display: none;" class="modblock">
 					<input type="hidden" name="board" value="{$boardz}" />
@@ -147,7 +147,7 @@
 
 			{* Show quicker-mod panel *}
 			
-			<form target="_blank" action="misc.php" method="POST">
+			<form target="_blank" action="misc.php" method="post">
 			[<a href="misc.php?quicker=1&board={$boardz}&post={$post.globalid}">X</a>]
 			
 			{* Mark if a post has already been moderated *}

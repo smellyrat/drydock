@@ -12,7 +12,7 @@
 <hr />
 
 {* Beginning of form for post deletion/reporting/whatever else we might want in the future *}
-<form target="_blank" action="misc.php" method="POST">
+<form target="_blank" action="misc.php" method="post">
 <input type="hidden" name="board" value="{$binfo.folder}" />
 
 <table style="width: 100%;">

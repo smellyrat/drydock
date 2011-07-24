@@ -39,7 +39,7 @@ hr { border-style: solid none none none; border-width: 1px; border-color: #0088A
 .c { TEXT-ALIGN: center; }
 .r { TEXT-ALIGN: right; }
 /*Thorn's addition*/
-.modblock { display:none; border:1px solid #FF6600; background-color:#EEEEEE; color:#333333; z-index:24;text-decoration:none }
+.modblock { display:block; border:1px solid #FF6600; background-color:#EEEEEE; color:#333333; z-index:24;text-decoration:none }
 .quickmodblock  { position:absolute; top:2em; left:2em; width:15em; border:1px solid #FF6600; background-color:#EEEEEE; color:#333333; z-index:24;text-decoration:none  }
 .imgbox { white-space:nowrap; overflow:hidden; text-align:left; float:left; margin-left:1px; margin-top:1px; padding:3px; width:150px; }
 /*from heady.tpl - why was it there?*/

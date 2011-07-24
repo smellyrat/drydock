@@ -1,4 +1,4 @@
-{*{include file=head.tpl} Commented out until everything in profiles gets switched over *}
+{include file=head.tpl}
 <title>{$THname} &#8212; Login</title>
 </head>
 <body>
@@ -19,10 +19,10 @@
             {if $loggedin}
                 <div class="pgtitle">Logged in as {$username}</div>
                 <div>You are logged in as <strong>{$username}</strong>.<br /><br />
-                    [<a href="profiles.php?action=logout">Logout if this is not you</a>]</div>
+                    [<a href="{$THurl}profiles.php?action=logout">Logout if this is not you</a>]</div>
                 {else}
                 <div class="pgtitle">Login</div><br />
-                <table><form action="profiles.php?action=login" method="post">
+                <table><form action="{$THurl}profiles.php?action=login" method="post">
                         <tr><td>Username:</td><td><input type="text" name="name" maxlength="30" ></td></tr>
                         <tr><td>Password:</td><td><input type="password" name="password" maxlength="30" ></td></tr>
                         <tr><td><input type="checkbox" name="remember" ><font size="2">Remember me</td><td style="text-align: right;">
