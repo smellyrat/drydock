@@ -9,7 +9,7 @@
                 <ul>
                     {if $sessUsername}
                         <li><a href="{$THurl}profiles.php?action=logout">Logout</a></li>
-                        <li><a href="{$THurl}profiles.php?action=viewprofile&amp;username={$sessUsername}">Your profile</a></li>
+                        <li><a href="{$THurl}profiles.php?action=viewprofile&amp;user={$sessUsername}">Your profile</a></li>
                     {else}
                         <li><a href="{$THurl}profiles.php?action=login">Login</a></li>
                     {if $regpolicy > 0}<li><a href="{$THurl}profiles.php?action=register">Register</a></li>{/if}
