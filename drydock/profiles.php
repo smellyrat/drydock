@@ -198,7 +198,7 @@ $capcode = $db->getusercapcode($user['capcode']);
 // Don't bother with the approval process if it's identical to the capcode 
 // that's already been approved
 if (htmlentities($capcode) != $_POST['capcode']) {
-$db->proposeusercapcode($username, $capcode);
+$db->proposeusercapcode($username, $_POST['capcode']);
 }
 }
 
