@@ -242,6 +242,7 @@
 			//$smarty->display($tpl,$id);
 			echo $smarty->display($tpl,$id);
 			if(($_SESSION['admin']) || ($_SESSION['moderator']) || ($modvar)) { $smarty->display("modscript.tpl",null); }
+			$smarty->caching = false;
 			echo $smarty->display("bottombar.tpl",null);
 			die("<!-- Loaded from cache /-->");
 		}
