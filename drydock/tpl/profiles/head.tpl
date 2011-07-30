@@ -4,4 +4,4 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="{$THtplurl}default.css" title="Stylesheet" />
+<link rel="stylesheet" type="text/css" href="{$THtplurl}futaba.css" title="Stylesheet" />
