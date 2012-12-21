@@ -27,7 +27,7 @@
 		</div>
 		<div>
 
-[<a href="{$THurl}{if !$THuserewrite}drydock.php?b={/if}{$binfo.folder}">Return</a>]<br/>
+<div class="tlist" style="border-style:solid;">
 <table style="width: 50%;">
 <thead>
 <tr>
@@ -61,6 +61,14 @@
 (no threads)
 {/foreach}
 </tbody></table>
+</div>
+
+<a name="newthread" /></a>
+<div class="postbox">
+{if $binfo.tlock}Only moderators and administrators are allowed to create new threads.<br />{/if}
+{include file='postblock.tpl' comingfrom="board"}
+</div>
+
 	</div>
 </div>
 </div>

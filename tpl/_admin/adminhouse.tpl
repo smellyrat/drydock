@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212;Housekeeping</title></head>
 <body>
 <div id="main">
@@ -39,4 +39,4 @@ Housekeeping Functions
 *}
         </div>
     </div>
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

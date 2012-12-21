@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Board Settings</title></head>
 <body>
 {literal}
@@ -122,4 +122,4 @@ Edit this board now or continue to add more boards (and edit later)</td><td><inp
         </div>
     </div>
 {if $boardselect}<a href="admin.php?a=b">Return to board list</a><br />{/if}
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Profile Settings</title></head>
 <body>
 <div id="main">
@@ -126,4 +126,4 @@
 		</div>
 	</form>
 </div>
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

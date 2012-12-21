@@ -1,5 +1,14 @@
-{include file=admin-head.tpl}
-<title>{$THname} &#8212; Administration &#8212; Recent Posts</title></head>
+{include file='admin-head.tpl'}
+<title>{$THname} &#8212; Administration &#8212; Recent Posts</title>
+<style type="text/css">
+#moderation {
+		display: inline;
+}
+#moderation form {
+		display: inline;
+}
+</style>
+</head>
 <body>
 <div id="main">
     <div class="box">
@@ -120,7 +129,7 @@
 				{/if}			
 			{/if}
 			
-			
+				<div id="moderation">
 			{* Show edit link *}
 
 			{if $THuserewrite == true}
@@ -144,7 +153,6 @@
 					<input type="submit" name="quickmod" value="quickmod">
 			</span>
 			</form>
-
 			{* Show quicker-mod panel *}
 			
 			<form target="_blank" action="misc.php" method="post">
@@ -154,7 +162,7 @@
 			{if $post.unvisibletime != 0}
 			<i><b>Previously moderated</b></i>
 			{/if}
-			
+				</div>
 			</div> {* end of ID, board, moderation links *}
 				
 			
@@ -252,4 +260,4 @@
 {/if}	
 
 </div>
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

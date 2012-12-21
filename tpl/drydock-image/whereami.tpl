@@ -1,4 +1,4 @@
-<div class="centered">{include_php file="banners.php"}</div>
+<div class="centered">{phpbanners}</div>
 <div class="pgtitle">
 <div class="centered">
 {$binfo.name}

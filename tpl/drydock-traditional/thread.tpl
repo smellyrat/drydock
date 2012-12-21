@@ -1,7 +1,7 @@
 {include file=heady.tpl comingfrom=$comingfrom}
 {it->binfo assign=binfo}
 {it->blotterentries assign=blotter}
-{*include_php file="linkbar.php"*} {* tyam - this way we have a list of boards to quicklink to *}
+{*phplinkbar*} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
 {* no pages for thread view *}
 <br clear="all" />
 {it->head assign="thread"}{* Workaround *}

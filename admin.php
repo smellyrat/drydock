@@ -101,7 +101,7 @@
 			$sm->assign("THuseSVG",THuseSVG);
 			$sm->assign("THuseSWFmeta",THuseSWFmeta);
 			$sm->assign("THSVGthumbnailer", THSVGthumbnailer);
-			
+			$sm->assign("THusePDF", THusePDF);
 			//Assign other template sets
 			$sets=array();
 			//Read template sets
@@ -113,7 +113,7 @@
 					$sets[]=$set;
 				}
 			}
-			$sm->assign_by_ref("tplsets",$sets);
+			$sm->assignbyref("tplsets",$sets);
 
 			if (isset($_GET['boardselect']))
 			{
@@ -126,11 +126,13 @@
 				}
 				else
 				{
+					$sm->assign("boardselect","nothing");
 					THdie("Invalid board ID provided.");
 				}
 			}
 			else
 			{
+				$sm->assign("boardselect","");  //strict error fix
 				//Board list
 				if (THdbtype==null)
 				{
@@ -209,6 +211,7 @@
 			}
 			else
 			{
+				$sm->assign("banselect","");  //strict error fix
 				$rawbans=$db->getallbans();
 				if ($rawbans!=null)
 				{
@@ -454,8 +457,8 @@
 		{
 			if (isset($_POST['fc']))
 			{
-				$sm->clear_all_cache();
-				$sm->clear_compiled_tpl();
+				$sm->clearallcache();
+				$sm->clearCompiledTemplate();
 				rebuild_filters();
 				rebuild_capcodes();
 				rebuild_spamlist();
@@ -469,8 +472,8 @@
 			if(isset($_POST['cp'])) { rebuild_capcodes(); }
 			if(isset($_POST['al'])) {
 				//Do EVERYTHING
-				$sm->clear_all_cache();
-				$sm->clear_compiled_tpl();
+				$sm->clearAllCache();
+				$sm->clearCompiledTemplate();
 				rebuild_rss();
 				rebuild_htaccess();
 				rebuild_hovermenu();
@@ -527,6 +530,9 @@
 			$sm->assign("THuseSVG", THuseSVG);
 			$sm->assign("THusePDF", THusePDF);
 			$sm->assign("THusecURL", THusecURL);
+			$sm->assign("THusePDF", THusePDF);
+			$sm->assign("reCAPTCHAPrivate", reCAPTCHAPrivate);
+			$sm->assign("reCAPTCHAPublic", reCAPTCHAPublic);
 			$sm->assign("THprofile_adminlevel", THprofile_adminlevel);
 			$sm->assign("THprofile_userlevel", THprofile_userlevel);
 			$sm->assign("THprofile_emailname", THprofile_emailname);
@@ -538,9 +544,6 @@
 			$sm->assign("THprofile_maxpicsize", THprofile_maxpicsize);
 			$sm->assign("THprofile_regpolicy", THprofile_regpolicy);
 			$sm->assign("THprofile_viewuserpolicy", THprofile_viewuserpolicy);
-			$sm->assign("DDDEBUG", DDDEBUG);
-			$sm->assign("reCAPTCHAPrivate", reCAPTCHAPrivate);
-			$sm->assign("reCAPTCHAPublic", reCAPTCHAPublic);
 			//Assign other template sets
 			$sets=array();
 			//Read template sets
@@ -553,7 +556,7 @@
 					$sets[]=$set;
 				}
 			}
-			$sm->assign_by_ref("tplsets",$sets);
+			$sm->assignbyref("tplsets",$sets);
 			$sm->assign("boards",$db->getindex(array('full'=>true),$sm));
 			$sm->display("admingen.tpl");
 		}
@@ -561,7 +564,7 @@
 		{
 			$static_pages = $db->getstaticpages();
 			$single_page = null;
-			$sm->assign_by_ref("pages",$static_pages);
+			$sm->assignbyref("pages",$static_pages);
 			$sm->assign("single_page", $single_page);
 			$sm->display("adminstatic.tpl");
 		}
@@ -590,7 +593,7 @@
 				THdie("Invalid static page ID specified!");
 			}
 			
-			$sm->assign_by_ref("pages",$static_pages);
+			$sm->assignbyref("pages",$static_pages);
 			$sm->assign("single_page", $single_page);
 			$sm->display("adminstatic.tpl");
 		}
@@ -811,8 +814,8 @@
 			}
 		}
 		//print_r($boards);
-		$sm->clear_all_cache();
-		$sm->clear_compiled_tpl();
+		$sm->clearallcache();
+		$sm->clearCompiledTemplate();
 		rebuild_filters();
 		rebuild_capcodes();
 		rebuild_htaccess();

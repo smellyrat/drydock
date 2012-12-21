@@ -1,7 +1,10 @@
 html, body { background-color:#D0D0D0; color: #333333; FONT-SIZE: 14px; FONT-FAMILY: MS Sans Serif; }
-.box { padding-left:10px; margin-bottom:10px; border-style:solid; border-color:black; border-width:1px; background-color:#FFFFFF; }
+div.tlist {
+	padding-left:10px; margin-bottom:10px; border-color:black; border-width:1px; background-color:#EFFEFF;
+}
+.postbox { padding-left:10px; margin-bottom:10px; border-style:solid; border-color:black; border-width:1px; background-color:#EFFEFF; }
 .medtitle { font-size:large; margin-left:14px; margin-top:5px; color:#0066FF;}
-.pgtitle { text-decoration:none; color:#2266AA; font-family:sans-serif; font-size:x-large; border-width:0px 0px 2px 0px; border-color:#FF6600; border-style:solid; margin-right:10px; margin-top:5px; }
+.pgtitle { text-decoration:none; color:#2266AA; font-family:sans-serif; font-size:medium; border-width:0px 0px 2px 0px; border-color:#FF6600; border-style:solid; margin-right:10px; margin-top:5px; }
 #idxmenu { overflow:hidden; white-space:nowrap; color:#333333; font-family: MS Sans Serif; font-size:large; position:fixed; float:right; text-align:center; background-color:#EFEFEF; border-style:solid; border-color:#0066FF; border-width:1px; right:8px; top:8px; width:150px; }
 #idxmenu A { color:#0066FF; text-decoration:none; margin:1px; }
 #idxmenuitem { font-family:"Gill Sans",Helvetica,sans-serif; font-size:small; text-align:left; overflow:hidden; }
@@ -14,7 +17,6 @@ a:hover { color: #0066FF; text-decoration: none; }
 a:link {text-decoration: none; color: #0066FF;}
 a:visited {text-decoration: none; color: #0066FF;}
 a:active {text-decoration: none}
-.medtitle { font-size:large; margin-left:14px; margin-top:5px; }
 a.info{ position:relative; /*this is the key*/ z-index:24; color:#FF6600; text-decoration:none }
 a.info:hover{ z-index:25; background-color:#EEEEEE }
 a.info span{ display: none }

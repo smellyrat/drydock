@@ -66,6 +66,7 @@ function rebuild_config($configpost)
 	$config = fopen(THpath . "config.php", 'w');
 	fwrite($config, '<?php' . "\n");
 	//Stuff that doesn't change
+	fwrite($config, 'define("THlocale","' . THlocale . '");' . "\n"); //Changing locale is not supported as of 12/18/2012, maybe later
 	fwrite($config, 'define("ddversion","' . THversion . '");' . "\n");  //we can check against this later, in the upgrade script
 	fwrite($config, 'define("THpath","' . THpath . '");' . "\n");
 	fwrite($config, 'define("THurl","' . THurl . '");' . "\n");

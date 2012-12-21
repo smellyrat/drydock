@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Manager Post to /{$binfo.folder}/</title></head>
 <body>
 <div id="main">
@@ -53,4 +53,4 @@
 </table>
 <input type="hidden" name="board" value="{$binfo.folder}" />
 </form>
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

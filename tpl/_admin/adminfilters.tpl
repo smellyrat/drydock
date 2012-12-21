@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Filters</title></head>
 <body>
 <div id="main">
@@ -28,7 +28,7 @@
                                 Notes
                             </td>    
                        </tr>
-    {foreach from=$filters item=filters}
+    {foreach from='$filters' item='filters'}
                         <tr>
 						    <td>
                                 <input type="checkbox" name='del{$filters.id}' />
@@ -63,4 +63,4 @@
             </form>
         </div>
     </div>
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

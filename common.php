@@ -209,7 +209,7 @@
 	function sminit($tpl,$id=null,$template=THtplset,$admin=false,$modvar=false)
 	{
 		$smarty=smsimple();
-		$sm->cache_dir=THpath."cache/";
+		$smarty->cache_dir=THpath."cache/";
 		if ($admin)
 		{
 			//echo("ADMIM MODE ZOMG");
@@ -237,7 +237,7 @@
 			$smarty->assign("THtplurl",THurl."tpl/".$template."/");
 		}
 		$smarty->compile_dir=THpath."compd/";
-		if ($id!=null && $admin==false && $smarty->is_cached($tpl,$id))
+		if ($id!=null && $admin==false && $smarty->iscached($tpl,$id))
 		{
 			//$smarty->display($tpl,$id);
 			echo $smarty->display($tpl,$id);
@@ -246,7 +246,7 @@
 			echo $smarty->display("bottombar.tpl",null);
 			die("<!-- Loaded from cache /-->");
 		}
-		$smarty->assign_by_ref("THcname",$id);
+		$smarty->assignByRef("THcname",$id);
 		$smarty->assign("THname",THname);
 		$smarty->assign("THurl",THurl);
 		$smarty->assign("THtpltest",THtpltest);
@@ -261,7 +261,7 @@
 		$smarty->assign("THuserewrite",THuserewrite);
 		$smarty->assign("GET",$_GET);
 		$smarty->assign("THcookieid", THcookieid);
-		$smarty->register_function("smcount","smcount");
+		$smarty->registerPlugin("function","smcount", "smcount");
 		return($smarty);
 	}
 	
@@ -683,7 +683,7 @@
 	 */		
 	function checklogin() //look for cookies, set session variables if needed
 	{
-		if(isset($_COOKIE[THcookieid."-uname"]) && isset($_COOKIE[THcookieid."-id"]))
+		if(isset($_COOKIE['THcookieid'."-uname"]) && isset($_COOKIE['THcookieid'."-id"]))
 		{
 			// verify login information
 			$db=new ThornProfileDBI();

@@ -10,7 +10,7 @@
   Artistic License 2.0:
   http://www.opensource.org/licenses/artistic-license-2.0.php
  */
-
+define("DDDEBUG",1); // Could break things if enabled
 require_once("common.php");
 require_once("post-common.php");
 

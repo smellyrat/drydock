@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 <title>{$THname} &#8212; Logout</title>
 </head>
 <body>
@@ -11,4 +11,4 @@
                 <div>You are now logged out!</div>
             {/if}
             [<a href="{$THurl}drydock.php">Board index</a>]</div>
-            {include file=bottombar.tpl}
+            {include file='bottombar.tpl'}

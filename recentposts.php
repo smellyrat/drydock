@@ -128,8 +128,8 @@ else
 	$sm=sminit("adminrecentposts.tpl",null,"_admin",true); // Admin mode means NO caching. (and we provided a null id anyway)
 	
 	// These can be pretty big, so we're going to assign by reference.
-	$sm->assign_by_ref("posts",$posts);
-	$sm->assign_by_ref("boards",$boards);
+	$sm->assignbyref("posts",$posts);
+	$sm->assignbyref("boards",$boards);
 	
 	$sm->assign("board_folder", $board_folder); // name of the folder (for filtering)
 	$sm->assign("boardlink", $boardlink); //some stuff to append for easy link creation

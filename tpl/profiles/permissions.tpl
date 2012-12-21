@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 <title>{$THname} &#8212; Editing permissions of {$user.username}</title>
 </head>
 <body>
@@ -37,4 +37,4 @@
 
             [<a href="{$THurl}profiles.php?action=viewprofile&amp;user={$user.username}">User profile</a>]
         </div>
-        {include file=bottombar.tpl}
+        {include file='bottombar.tpl'}

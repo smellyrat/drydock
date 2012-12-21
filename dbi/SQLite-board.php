@@ -26,10 +26,23 @@ class ThornBoardDBI extends ThornDBI
 		$this->blotterentries = $this->getblotter($bored);
 		//$this->st=$st;
 		//$this->et=$et;
-		//var_dump($this->on);
+		//var_dump($bored);
 		//die();
 	}
-
+	function binfo()
+	{
+		$bored = $this->binfo['id'];
+		$wut = $this->myassoc("select * from " . THboards_table . " where id=" . $bored);
+		return $wut;
+	}
+	function page($payj)
+	{
+		return $payj;
+	}
+	function blotterentries()
+	{
+		$this->getblotter($this->binfo['id']);
+	}
 	function getallthreads($p, & $sm)
 	{
 		if (isset ($p['full']) == false)

@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Recent Images</title></head>
 <body>
 <div id="main">
@@ -67,7 +67,7 @@ Filter by board: <select name="board">
 					{if $boardz != false}
 						/{$boardz}/
 					{/if}
-
+				<div id="moderation">
 					{if $THuserewrite == true}
 						[<a href="{$THurl}{$boardz}/edit/{$thisimage.reply_globalid}">Edit</a>]
 					{else} 
@@ -90,7 +90,7 @@ Filter by board: <select name="board">
 
 					{* Show quicker-mod panel *}
 					[<a href="misc.php?quicker=1&board={$boardz}&post={$thisimage.reply_globalid}">X</a>]
-					
+				</div>
 				{else} {* No board found.  Weird. *}
 					No board (UID {$thisimage.reply_id})
 				{/if}
@@ -167,4 +167,4 @@ No images found!<br />
 {/if}
 
 </div>
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

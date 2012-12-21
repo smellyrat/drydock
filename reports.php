@@ -80,8 +80,8 @@ else
 	$sm=sminit("adminreports.tpl",null,"_admin",true); // Admin mode means NO caching. (and we provided a null id anyway)
 	
 	// These can be pretty big, so we're going to assign by reference.
-	$sm->assign_by_ref("reports",$processed_reports);
-	$sm->assign_by_ref("boards",$boards);
+	$sm->assignbyref("reports",$processed_reports);
+	$sm->assignbyref("boards",$boards);
 	
 	$sm->assign("board_folder", $board_folder); // name of the folder (for filtering)
 		

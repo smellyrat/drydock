@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; General Settings</title></head>
 <body>
 <form method="post" enctype="multipart/form-data" action="admin.php?t=g">
@@ -127,4 +127,4 @@
 </div>
 
 </form>
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

@@ -1,14 +1,14 @@
-{include file=heady.tpl comingfrom=$comingfrom}
+{include file='heady.tpl' comingfrom=$comingfrom}
 {it->binfo assign=binfo}
 {it->blotterentries assign=blotter}
-{* include_php file="linkbar.php" *} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
-{include file=pages.tpl}
+{*phplinkbar*} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
+{include file='pages.tpl'}
 <br clear="all" />
 {* no workaround *}
 {* we don't get replies here *}
-{include file=whereami.tpl comingfrom=$comingfrom}
+{include file='whereami.tpl' comingfrom=$comingfrom}
 {* we're at top, no return possible *}
-{include file=postblock.tpl comingfrom=$comingfrom}
+{include file='postblock.tpl' comingfrom=$comingfrom}
 <hr />
 
 <table style="width: 100%;">

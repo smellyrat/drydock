@@ -29,28 +29,12 @@
                 Link: <input type="text" class="frmLink" name="link" size="20" /><br />
 
                 {if $THvc==1}
-                    {include file=recaptcha.tpl}
+                    {include file='recaptcha.tpl'}
                 {elseif $THvc==2}
                     LEAVE BLANK IF HUMAN: <input type="text" name="email" /><br />
                 {/if}
 
                 <textarea name="body" cols="51" rows="8"></textarea><br />
-                {			if (($binfo.tpix > 0 and $comingfrom == "board") or ($binfo.rpix > 0 and $comingfrom == "thread"))} {* are there images? *}
-                    <table><tr><td class="postblock">File</td><td>
-				<script type="text/javascript">
-					<!--
-						document.write('\{section name=filelist loop=$binfo.pixperpost}
-<div id="file{$smarty.section.filelist.index}"{if $smarty.section.filelist.index!=0} style="display:none;"{/if}><input type="file" name="file{$smarty.section.filelist.index}" onchange="visfile({$smarty.section.filelist.index})" /><br /></div>\
-{/section}');
-					// /-->
-				</script>
-                                <noscript>
-                                {section name=filelistnojs loop=$binfo.pixperpost}
-                                    <div id="file{$smarty.section.filelistnojs.index}"><input type="file" name="file{$smarty.section.filelistnojs.index}" /><br /></div>
-                                    {/section}
-                                </noscript>
-                            </td></tr></table>        
-                        {/if} {* if pix>0*}
                 Password: <input type="password" class="frmPassword" name="password" size="8" /> {* New password field for deletion *}
             {if $THvc==1}
                 <input type="button" id="recaptcha_required_{$pb}"

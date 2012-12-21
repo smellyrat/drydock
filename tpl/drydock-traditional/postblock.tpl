@@ -52,7 +52,7 @@
                 <td class="postblock">Comment</td>
                 <td><textarea name="body" cols="48" rows="4"></textarea></td>
             </tr>
-            {			if (($binfo.tpix > 0 and $comingfrom == "board") or ($binfo.rpix > 0 and $comingfrom == "thread"))} {* are there images? *}
+            {if (($binfo.tpix > 0 and $comingfrom == "board") or ($binfo.rpix > 0 and $comingfrom == "thread"))} {* are there images? *}
                 <tr>
                     <td class="postblock">File</td>
                     <td>

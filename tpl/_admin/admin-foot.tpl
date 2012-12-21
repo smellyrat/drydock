@@ -4,6 +4,6 @@
         This page is not cached</div>
     </div>
 </div>
-{include_php file="menu.php"}
+{phpmenu}
 </body>
 </html>

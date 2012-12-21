@@ -117,11 +117,11 @@ else
 		$sm=sminit("adminlookup.tpl",null,"_admin",true); // Admin mode means NO caching. (and we provided a null id anyway)
 		
 		// These can be pretty big, so we're going to assign by reference.
-		$sm->assign_by_ref("posthistory",$posthistory);
-		$sm->assign_by_ref("banhistory",$banhistory);
-		$sm->assign_by_ref("banselect",$banselect);
-		$sm->assign_by_ref("reports",$reports);
-		$sm->assign_by_ref("boards",$boards);
+		$sm->assignbyref("posthistory",$posthistory);
+		$sm->assignbyref("banhistory",$banhistory);
+		$sm->assignbyref("banselect",$banselect);
+		$sm->assignbyref("reports",$reports);
+		$sm->assignbyref("boards",$boards);
 
 		$sm->assign("single_ip", $single_ip); // IP string
 		

@@ -36,7 +36,7 @@ class ThornPostDBI extends ThornDBI
 		$v = " VALUES ( " . $boardnumber  . " ,'" . $this->escape_string($title) . "','";
 		$v .= $this->escape_string($body);
 		$q .= ", ip, pin, permasage, lawk, time, bump";
-		$v .= "'," . $ip . " , " . $pin . " , " . $permasage . " , " . $lock . " , " . $tyme . " , " . $tyme;
+		$v .= "','" . $ip . "' , " . $pin . " , " . $permasage . " , " . $lock . " , " . $tyme . " , " . $tyme;
 		$globalid = $this->getglobalid($boardnumber);
 		$q .= ", globalid";
 		$v .= "," . $globalid;

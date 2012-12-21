@@ -1,0 +1,1 @@
+<table style="width: 100%;"><tr><td style="text-align: left;">[]</td><td style="text-align: right;">[ <a class=info href="http://localhost/drydock/branches/0.3.2/">idx</a> ]</td></tr></table>

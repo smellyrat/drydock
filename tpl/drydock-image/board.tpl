@@ -1,15 +1,15 @@
 <!-- board -->
-{include file=heady.tpl comingfrom=$comingfrom}
+{include file='heady.tpl' comingfrom=$comingfrom}
 {it->binfo assign=binfo}
 {it->blotterentries assign=blotter}
-{* include_php file="linkbar.php" *} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
-{include file=pages.tpl}
+{*phplinkbar*} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
+{include file='pages.tpl'}
 <br style="clear: both;" />
 {* no workaround *}
 {* we don't get replies here *}
-{include file=whereami.tpl comingfrom=$comingfrom}
+{include file='whereami.tpl' comingfrom=$comingfrom}
 {* we're at top, no return possible *}
-{include file=postblock.tpl comingfrom=$comingfrom}
+{include file='postblock.tpl' comingfrom=$comingfrom}
 <hr />
 
 {* Beginning of form for post deletion/reporting/whatever else we might want in the future *}
@@ -19,9 +19,9 @@
 <!-- threads -->
 {it->getsthreads assign="sthreads"}
 {foreach from=$sthreads item=thread}
-{include file=viewblock.tpl comingfrom=$comingfrom}
+{include file='viewblock.tpl' comingfrom=$comingfrom}
 {/foreach}{* multiple threads *}
-{include file=pages.tpl}
+{include file='pages.tpl'}
 {literal}
 <script type="text/javascript" defer="defer">
 	<!--

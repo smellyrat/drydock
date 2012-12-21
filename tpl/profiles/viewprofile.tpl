@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 <title>{$THname} &#8212; Viewing profile of {$user.username}</title>
 </head>
 <body>
@@ -79,4 +79,4 @@
 
                 [<a href="{$THurl}profiles.php?action=memberlist">Return to member list</a>]
             </div>
-{include file=bottombar.tpl}
+{include file='bottombar.tpl'}
