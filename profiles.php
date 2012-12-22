@@ -51,6 +51,7 @@ if ($_GET['action'] == "login") {
         $userdata = $db->getuserdata_login($_POST['name'], $_POST['password']);
 
         if ($userdata != NULL) {
+            $sm->assign("loginerror", 0);
             $_SESSION['username'] = $userdata['username'];
             $_SESSION['userid'] = generateRandID();
             $_SESSION['userlevel'] = $userdata['userlevel'];
@@ -60,26 +61,30 @@ if ($_GET['action'] == "login") {
             if ($userdata['mod_global'] || $userdata['mod_array']) {
                 $_SESSION['moderator'] = true;
             }
-
 // Update userid field
             $db->updateuser($_POST['name'], $_SESSION['userid']);
         } else {
 // Login error - show that in the template
             $sm->assign("loginerror", 1);
         }
+    } else {
+        $sm->assign("loginerror", 0);
     }
-
 //This checks to see if end user has even bothered to change the default email.  No use giving a link to something that won't work.  ~tyamzzz
-    if (THprofile_emailaddr != "THIS IS NOT AN EMAIL") {
+	//Feel free to work on this regex to make it more betterer
+    if(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", THprofile_emailaddr)) {
         $sm->assign("showreset", 1);
+    } else {
+        $sm->assign("showreset", 0);
     }
 
     if (isset($_SESSION['username'])) {
 // Set logged-in vars
         $sm->assign("loggedin", 1);
         $sm->assign("username", $_SESSION['username']);
+    } else {
+        $sm->assign("loggedin", 0);
     }
-
     $sm->display("login.tpl", null);
 } else
 if ($_GET['action'] == "logout") {

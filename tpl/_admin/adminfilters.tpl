@@ -28,20 +28,20 @@
                                 Notes
                             </td>    
                        </tr>
-    {foreach from='$filters' item='filters'}
+    {foreach from=$filters item='filter'}
                         <tr>
 						    <td>
-                                <input type="checkbox" name='del{$filters.id}' />
-								<input type="hidden" name="id{$filters.id}" size="15" value='{$filters.id}' />
+                                <input type="checkbox" name='del{$filter.id}' />
+								<input type="hidden" name="id{$filter.id}" size="15" value='{$filter.id}' />
                             </td>
                             <td>
-								<input type="text" name="from{$filters.id}" size="15" value='{$filters.filterfrom|replace:"'":"&#39;"}' />
+								<input type="text" name="from{$filter.id}" size="15" value='{$filter.filterfrom|replace:"'":"&#39;"}' />
                             </td>
                             <td>
-                                <input type="text" name="to{$filters.id}" size="40" value='{$filters.filterto|escape|replace:"'":"&#39;"}' />
+                                <input type="text" name="to{$filter.id}" size="40" value='{$filter.filterto|escape|replace:"'":"&#39;"}' />
                             </td>
                             <td>
-                                <input type="text" name="notes{$filters.id}" size="25" value='{$filters.notes|escape|replace:"'":"&#39;"}' />
+                                <input type="text" name="notes{$filter.id}" size="25" value='{$filter.notes|escape|replace:"'":"&#39;"}' />
                             </td>
                         </tr>
     {/foreach}

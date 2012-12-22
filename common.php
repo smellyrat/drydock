@@ -158,7 +158,7 @@
 		else 
 		{
 			$sm=sminit("error.tpl",$err);
-			$sm->assign_by_ref("error",$err);
+			$sm->assignbyref("error",$err);
 			$sm->display("error.tpl",null);
 			die();
 		}

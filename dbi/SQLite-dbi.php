@@ -15,7 +15,7 @@
 
 define("THdblitefn", sqlite_open(THpath . "unlinked/drydock.sqlite", 0666, $sqliteerror));
 require_once ("ABSTRACT-dbi.php"); // abstract interface
-define("DDDEBUG",1); // Could break things if enabled
+	if(!isset($DDDEBUG)) { define("DDDEBUG",1); } // Could break things if enabled, use only for testing
 
 
 class ThornDBI implements absThornDBI

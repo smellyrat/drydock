@@ -28,20 +28,20 @@
                                         Notes
                                     </td>    
                                 </tr>
-                                {foreach from='$capcodes' item='capcodes'}
+                                {foreach from=$capcodes item='capcode'}
                                     <tr>
                                         <td>
-                                            <input type="checkbox" name='del{$capcodes.id}' />
-                                            <input type="hidden" name="id{$capcodes.id}" size="15" value='{$capcodes.id}' />
+                                            <input type="checkbox" name='del{$capcode.id}' />
+                                            <input type="hidden" name="id{$capcode.id}" size="15" value='{$capcode.id}' />
                                         </td>
                                         <td>
-                                            <input type="text" name="from{$capcodes.id}" size="10" value='{$capcodes.capcodefrom|replace:"'":"&#39;"}' />
+                                            <input type="text" name="from{$capcode.id}" size="10" value='{$capcode.capcodefrom|replace:"'":"&#39;"}' />
                                         </td>
                                         <td>
-                                            <input type="text" name="to{$capcodes.id}" value='{$capcodes.capcodeto|replace:"'":"&#39;"}' />
+                                            <input type="text" name="to{$capcode.id}" value='{$capcode.capcodeto|replace:"'":"&#39;"}' />
                                         </td>
                                         <td>
-                                            <input type="text" name="notes{$capcodes.id}" value='{$capcodes.notes|replace:"'":"&#39;"}' />
+                                            <input type="text" name="notes{$capcode.id}" value='{$capcode.notes|replace:"'":"&#39;"}' />
                                         </td>
                                     </tr>
                                 {/foreach}

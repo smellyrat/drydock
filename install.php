@@ -164,7 +164,7 @@ p.centertext {
 <div id="main">
     <div class="box">
         <div class="pgtitle">
-            Drydock Installation Script
+            drydock Installation Script
         </div>
 	<br />
 <?php if(!isset($_GET['p'])) {
@@ -198,7 +198,7 @@ p.centertext {
 	if(@!file_exists($path."_Smarty/Smarty.class.php"))
 	{
 		die("Smarty templating engine is either not present, or is in the wrong place.<br />
-			Please download the latest version of Smarty 2 from <a href=\"http://smarty.net\" target=\"_blank\">the Smarty homepage</a>.<br/>
+			Please download the latest version of Smarty 3 from <a href=\"http://smarty.net\" target=\"_blank\">the Smarty homepage</a>.<br/>
 			Place the contents of smarty.zip/lib into ".$path."_Smarty/ (so you have something like _Smarty/Smarty.class.php and _Smarty/Smarty_Compiler.class.php) and try again.");
 	}
 
@@ -218,6 +218,7 @@ To continue, click the button below.
 	if ($path{strlen($path)-1}!="/") { $path.="/"; }
 	//In most cases, this will provide us with the desired output.
 	$url=str_replace("install.php", "", $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+	$url=str_replace("localhost", "127.0.0.1", $url);  //fixes IP bug with localhost installs... not that anyone should be doing those
 	$url=str_replace("?".$_SERVER['QUERY_STRING'], "", $url);
 	if ($url{strlen($url)-1}!="/") { $url.="/"; }
 
@@ -373,6 +374,10 @@ Please see the documentation for more information about these settings.  If you'
 <?php } elseif($_GET['p']==6) { 
 //var_dump($_POST);
 //pass our current info on to the next page
+//Fixes some errors inherent with checkboxes
+if(!isset($_POST['THusecURL'])) { $_POST['THusecURL'] = 0; }
+if(!isset($_POST['THuseSWFmeta'])) { $_POST['THuseSWFmeta'] = 0; }
+if(!isset($_POST['THuseSVG'])) { $_POST['THuseSVG'] = 0; }
 $configarray = unserialize(str_replace('\"','"',$_POST['configarray']));
 $post = array('THpearpath' => $_POST['THpearpath'], 'THusecURL' => $_POST['THusecURL'], 'THuseSWFmeta' => $_POST['THuseSWFmeta'], 'THuseSVG' => $_POST['THuseSVG']);
 $configarray = array_merge($post,$configarray);

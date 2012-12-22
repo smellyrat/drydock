@@ -138,7 +138,7 @@ $tnum = $db->putthread(
 movefiles($goodfiles, $tnum, true, $binfo, $db);
 
 $sm = smsimple();
-$sm->clear_cache(null, $board);
+$sm->clearcache(null, "b".$binfo['id']);
 //$sm->clear_cache(null,"idx"); what
 /* 	if (isset($_POST['tedit'])==true)
   {

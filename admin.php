@@ -121,12 +121,12 @@
 				$boardselect = $db->getboard(0, $_GET['boardselect']); // Should return an array of assoc-arrays (but with only one assoc-array)
 				if($boardselect)
 				{
-					$sm->assign("boardselect",$db->escape_string($_GET['boardselect']));
-					$sm->assign("board",$boardselect[0],$sm);
+					$sm->assign("boardselect",($_GET['boardselect']));
+					$sm->assign("board",$boardselect[0]);
 				}
 				else
 				{
-					$sm->assign("boardselect","nothing");
+					$sm->assign("boardselect","-1");
 					THdie("Invalid board ID provided.");
 				}
 			}
@@ -274,7 +274,6 @@
 			// Retrieve capcodes
 			$capcodes = array();
 			$capcodes = $db->fetchBCW(THbcw_capcode);
-			
 			if(count($capcodes) <= 0)
 			{
 				$capcodes = null;
@@ -544,6 +543,7 @@
 			$sm->assign("THprofile_maxpicsize", THprofile_maxpicsize);
 			$sm->assign("THprofile_regpolicy", THprofile_regpolicy);
 			$sm->assign("THprofile_viewuserpolicy", THprofile_viewuserpolicy);
+			$sm->assign("DDDEBUG",DDDEBUG);
 			//Assign other template sets
 			$sets=array();
 			//Read template sets
@@ -657,8 +657,8 @@
 		//echo '<pre>' . var_export($_POST,true).'</code></pre>';
 		if(isset($_POST['boardselect']))
 		{
+		
 			$boardnumber = $db->getboardnumber($_POST['boardselect']);
-			
 			if (isset($_POST['delete'.$boardnumber]) && $_POST['delete'.$boardnumber]==TRUE) //Delete images on that board; nuke it from db
 			{	
 				// Remove associated images
