@@ -17,8 +17,8 @@
 <input type="hidden" name="board" value="{$binfo.folder}" />
 
 <!-- threads -->
-{it->getsthreads assign="sthreads"}
-{foreach from=$sthreads item=thread}
+{it->getsthreads assign='sthreads'}
+{foreach from=$sthreads item='thread'}
 {include file='viewblock.tpl' comingfrom=$comingfrom}
 {/foreach}{* multiple threads *}
 {include file='pages.tpl'}

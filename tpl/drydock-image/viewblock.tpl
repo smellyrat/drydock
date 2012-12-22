@@ -98,7 +98,7 @@
 {assign value=$posts var="location"}
 {/if}
 {/if}
-{foreach from=$location item=post}
+{foreach from=$location item='post'}
 {if $post.visible == 1} {* deleting sets to 0 *}
 <table>
 	<tbody>

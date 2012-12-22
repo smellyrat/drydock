@@ -70,7 +70,6 @@
 			
 			if (isset($_GET['i'])==true) //Looking for a bento box.
 			{
-	echo "okay";
 				$threadtpl = "thread.tpl";  //oh boy let's split it up more
 				
 				// Caching ID format: t<board>-<thread global id>-<template>
@@ -147,9 +146,9 @@
 										
 			$sm->registerobject("it",$db,array("getallthreads","getsthreads","getindex","binfo","page","blotterentries"));
 			$sm->assign('template', $template);
+			var_dump($db);
 			//here we go with a bunch of retarded variables that later we can turn into an array  (looks like i kopiped this)
-            $sm->assign('username',$_SESSION['username']);
-
+			$sm->assign('username',$_SESSION['username']);
 			//Are we using reCAPTCHA?
 			if(THvc==1)
 			{

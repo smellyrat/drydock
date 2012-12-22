@@ -198,7 +198,9 @@ class ThornBoardDBI extends ThornDBI
 			$orderby .= " desc";
 		}
 		//print_r($this->binfo);
-		$orderby .= " limit " . ($this->page * $this->binfo['perpg']) . "," . $this->binfo['perpg'];
+		if($this->binfo['perpg'] > 0) {  //Set to 0 will not display any... here's a fix, now it'll show ALL
+			$orderby .= " limit " . ($this->page * $this->binfo['perpg']) . "," . $this->binfo['perpg'];
+		}
 		$thatid = $this->binfo['id'];
 
 		$frog = $this->myquery("select * from " . THthreads_table . " where board=" . $thatid . $orderby);
