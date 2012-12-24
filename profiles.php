@@ -106,7 +106,7 @@ if ($_GET['action'] == "logout") {
         unset($_SESSION['mod_array']);
     } else {
 // Not logged in, weird.
-        $sm->assign("notloggedout", 1);
+        $sm->assign("notloggedin", 1);
     }
 
     $sm->display("logout.tpl", null);

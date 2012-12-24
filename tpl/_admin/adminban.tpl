@@ -134,7 +134,7 @@
                                 Unbannning reason
                             </td>
                        </tr>
-		{foreach from=$banhistory item=ban}
+		{foreach from=$banhistory item='ban'}
 					<tr>
 						<td>
 							<a href="{$THurl}admin.php?a=x&banselect={$ban.id}">{$ban.ip_octet1}.{$ban.ip_octet2}.

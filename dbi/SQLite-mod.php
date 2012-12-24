@@ -21,7 +21,21 @@ class ThornModDBI extends ThornDBI
 	{
 		$this->ThornDBI();
 	}
+	function gethovermenuindex()
+	{
+		//define(DDDEBUG,1);
+//		$querystring = "SELECT * FROM drydock_hovermenuindex order by hoverindex";
 
+//$querystring = "SELECT * FROM drydock_hovermenuindex LEFT JOIN drydock_boards on drydock_hovermenuindex.id = drydock_boards.id where drydock_hovermenuindex.menutype = 0";
+$querystring = "SELECT drydock_hovermenuindex.id AS id, drydock_hovermenuindex.menutype AS menutype,
+drydock_hovermenuindex.hoverindex AS hoverindex, drydock_hovermenuindex.hidden AS hidden,
+drydock_boards.folder AS folder, drydock_boards.name AS name FROM drydock_boards 
+INNER JOIN drydock_hovermenuindex ON drydock_hovermenuindex.id = drydock_boards.id";
+// WHERE drydock_hovermenuindex.id = drydock_boards.id";
+		$hoverindex =  $this->mymultiarray($querystring);
+		$hovermenuindex = array();
+		return $hoverindex;
+	}
 	function banip($ip, $subnet, $privatereason, $publicreason, $adminreason, $postdata, $duration, $bannedby)
 	{
 		if ($this->checkban($ip) && $subnet == 0) // Check if it's a ban for a specific IP that's already covered by a subnet (the reverse is OK)

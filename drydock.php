@@ -9,7 +9,7 @@
 		Artistic License 2.0:
 		http://www.opensource.org/licenses/artistic-license-2.0.php
 	*/
-	if(!isset($DDDEBUG)) { define("DDDEBUG",1); } // Could break things if enabled, use only for testing
+//	if(!isset($DDDEBUG)) { define("DDDEBUG",1); } // Could break things if enabled, use only for testing
 	//Configure script still here?  Crap, this isn't good, let's deny access, just in case someone didn't read the directions
 	if (file_exists("install.php") && DDDEBUG!=1)
 	{

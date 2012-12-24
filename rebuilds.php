@@ -125,12 +125,14 @@ function rebuild_config($configpost)
 	//}
 
 	//We need to handle this differently now.  If they turn on reCAPTCHA without the lib, the pages just won't load and won't produce an error.  So let's fix that by causing an error.
-	if((int) $configpost['THvc']==1 && !file_exists($path."recaptchalib.php"))  //Did they get the file?
+	if((int) $configpost['THvc']==1 && !file_exists(THpath."recaptchalib.php"))  //Did they get the file?
 	{
 		fwrite($config, 'define("THvc",' . THvc.');' . "\n");  //NO CHANGE ALLOWED!
 		$recaptchaerror = "You need to get recaptchalib.php from <a href='http://google.com/recaptcha/'>Google</a>!<br />"
 			."All settings were saved except anti-spam.<br /><br />"
-			.'<a href="'.$path.'admin.php?a=g">continue</a>';
+			.'<a href="'.THurl.'admin.php?a=g">continue</a>';
+			fwrite($config, 'define("reCAPTCHAPublic","' . $configpost['reCAPTCHAPublic'] . '");' . "\n");
+			fwrite($config, 'define("reCAPTCHAPrivate","' . $configpost['reCAPTCHAPrivate'] . '");' . "\n");
 	} else {  //Allow the change... unless the keys aren't set!
 		if($configpost['reCAPTCHAPublic'] == NULL || $configpost['reCAPTCHAPrivate'] == NULL)
 		{
@@ -138,7 +140,7 @@ function rebuild_config($configpost)
 			fwrite($config, 'define("reCAPTCHAPrivate","' . reCAPTCHAPrivate . '");' . "\n");
 			$recaptchaerror = "reCAPTCHA keys must be set to use it.  You can get keys from <a href='http://google.com/recaptcha/'>Google</a>!<br />"
 				."All settings were saved except anti-spam.<br /><br />"
-				.'<a href="'.$path.'admin.php?a=g">continue</a>';
+				.'<a href="'.THurl.'admin.php?a=g">continue</a>';
 		} else {  //Sounds good, chief.
 			fwrite($config, 'define("THvc",' . (int) $configpost['THvc'] . ');' . "\n");
 			fwrite($config, 'define("reCAPTCHAPublic","' . $configpost['reCAPTCHAPublic'] . '");' . "\n");
@@ -193,7 +195,7 @@ function rebuild_config($configpost)
 	fclose($config); //file's closed, fwrites, etc
 
 	//Let's take care of that error.
-	if($recaptchaerror)
+	if(isset($recaptchaerror))
 	{
 		THdie($recaptchaerror);
 	}

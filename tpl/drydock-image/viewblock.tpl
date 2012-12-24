@@ -70,6 +70,7 @@
 {else}
 {if $comingfrom=="board"}{assign value=$thread.body|THtrunc:2000 var=bodeycheck}
 {assign value=$bodeycheck.text var=bodey}{else}{assign value=$thread.body var=bodey}{/if}
+{if $comingfrom=="board"} {$post = "" } {/if}
 {if $binfo.id == THnewsboard or $binfo.id == THmodboard or $binfo.filter!=1}
 {if $binfo.allowvids == 1} 
 {$bodey|vids|nl2br|wrapper|quotereply:"$binfo":"$post":"$thread"}
@@ -90,9 +91,7 @@
 {if $comingfrom=="board"}
 {assign value=$thread.rcount-$thread.scount var="count"}
 {if $count>0}<span class="omittedposts">{$count} {if $count>1}posts{else}post{/if} omitted. Click <a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">full thread</a> to view.</span>{/if}
-{if $thread.rcount > 0}
 {assign value=$thread.reps var="location"}
-{/if}
 {else}
 {if $posts}
 {assign value=$posts var="location"}

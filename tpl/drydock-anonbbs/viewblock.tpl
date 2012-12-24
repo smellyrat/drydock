@@ -71,6 +71,7 @@
                 </tr>
             </table>
 {/if}
+{if $comingfrom=="board"} {$post = "" } {/if}
                 <div class="postbody"><blockquote><p>
                             {assign value=$thread.body|THtrunc:2000 var=bodey}
                             {if $binfo.id == THnewsboard or $binfo.id == THmodboard or $binfo.filter!=1}
@@ -124,6 +125,25 @@
         <a class="jsmod" style="display:none;">{$binfo.folder},{$post.globalid}</a>
 
     </div>
+{if $post.images}
+				<table>
+					<tr>
+{counter name="imgcount" assign="imgcount" start="0"}
+{foreach from=$post.images item=it} {* each image *}
+						<td align=center>
+							<div class="filesize">File: <a href="{$THurl}images/{$post.imgidx}/{$it.name}" target="_blank">{$it.name|filetrunc}</a><br /></div>
+							<a class="info" href="{$THurl}images/{$post.imgidx}/{$it.name}" target="_blank">
+								<img src="{$THurl}images/{$post.imgidx}/{$it.tname}" width="{$it.twidth}" height="{$it.theight}" alt="{$it.name}" class="thumb" />
+								<span>{$it.fsize} K, {$it.width}x{$it.height}{if $it.anim}, animated{/if}<br />{$it.exif_text}</span>
+							</a>
+						</td>
+{if ($imgcount == 3)}</tr><tr>{/if} {* tyam - let's avoid more template breaking *}
+{counter name="imgcount"}
+{/foreach}
+					</tr>
+				</table>
+{/if}
+
     <div class="postbody">
         <blockquote><p>
                 {assign value=$post.body|THtrunc:2000 var=bodey}

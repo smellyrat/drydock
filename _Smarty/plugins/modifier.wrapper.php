@@ -6,6 +6,9 @@ function smarty_modifier_wrapper($string,$maxwordlength=84)
 //after this many characters
 {
 $length = strlen($string);
+if(!isset($skip)) { $skip = ""; }
+if(!isset($wrap)) { $wrap = ""; }
+if(!isset($returnvar)) { $returnvar = ""; }
 
 for ($i=0; $i<=$length; $i=$i+1)
    {

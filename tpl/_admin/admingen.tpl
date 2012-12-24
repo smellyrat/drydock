@@ -33,7 +33,7 @@
 			</div>
 			<div class="indent">
 				<ul>
-					<li>reCAPTCHA requires an external library available from Google, as well as filling out the private and public keys below.
+					<li>reCAPTCHA requires an external library <a href="http://google.com/recaptcha/">available from Google</a>, as well as filling out the private and public keys below.
 					<li>Human test attempts to out smart most bots via hidden fields.
 				</ul>
 				Anti spam methods:
@@ -54,7 +54,7 @@
 				<i>If you don't want to use the same time as the web server, use this to offset the time. A positive number sets time forward; a negative number sets it back.
 				This will only affect future posts; the times of current posts will not be changed.</i><br />
 				Date formatting string: <input type="text" name="THdatetimestring" size="60" value="{$THdatetimestring}" /><br />
-				<i>This determines how dates are formatted. See <a href="http://us3.php.net/manual/en/function.strftime.php" target="_blank">this function documentation</a> for more information.<br />
+				<i>This determines how dates are formatted. See <a href="http://php.net/manual/en/function.strftime.php" target="_blank">this function documentation</a> for more information.<br />
 				The server says it's {$smarty.now|date_format:$THdatetimestring}. With the current time offset, it's {math equation="x+(y*60)" x=$smarty.now y=$THtimeoffset assign="whee"}
 				{$whee|date_format:$THdatetimestring}.</i>
 			</div>

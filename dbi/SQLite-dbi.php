@@ -15,7 +15,7 @@
 
 define("THdblitefn", sqlite_open(THpath . "unlinked/drydock.sqlite", 0666, $sqliteerror));
 require_once ("ABSTRACT-dbi.php"); // abstract interface
-	if(!isset($DDDEBUG)) { define("DDDEBUG",1); } // Could break things if enabled, use only for testing
+//	if(!isset($DDDEBUG)) { define("DDDEBUG",1); } // Could break things if enabled, use only for testing
 
 
 class ThornDBI implements absThornDBI
@@ -256,7 +256,7 @@ class ThornDBI implements absThornDBI
 		}
 		else
 		{
-			$q = "select id, name, about from " . THboards_table;
+			$q = "select id, name, about, hidden from " . THboards_table;
 		}
 
 		if ($p['sortmethod'] = "id")

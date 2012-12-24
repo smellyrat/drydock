@@ -139,7 +139,12 @@
 		{
 			$db = new ThornToolsDBI();
 			$page = trim($_GET['page']);
-			
+			//Let's put a hack in right here.
+			if($page=="profiles")
+			{
+				header("Location: ".THurl."profiles.php");
+				die();
+			}
 			$pagedata = $db->getstaticpage($page);
 			
 			if( $pagedata == null )
@@ -548,7 +553,6 @@
 			{
 				// Set some stuff up.
 				$board_id = $db->getboardnumber($board_folder);
-
 				// Make sure we retrieved a valid board folder
 				if ($board_folder == null)
 				{
@@ -571,7 +575,7 @@
 						
 						// Let's ban.  This is quicker mod, so we ban with default reason
 						$reason = "USER WAS BANNED FOR THIS POST";
-						$duration = 0; // perma
+						$duration = -1; // perma
 							
 						$isthread = ($postarray['thread'] == 0); // thread of 0 means it's a thread
 						

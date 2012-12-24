@@ -33,6 +33,7 @@
 	 * "sp" - Static pages list
 	 * "spe" - Edit particular static page
 	 * "lv" - Log viewer (redirect)
+	 * "m" - Menu editor
 	 * 
 	 * $_GET['t'] is typically used for receiving form submissions.
 	 * 
@@ -53,6 +54,7 @@
 	 * "spa" - Add static page
 	 * "spx" - Delete static page
 	 * "spe" - Edit static page (receiver)
+	 * "me" - Menu editor submissions
  	 */
 	
 	require_once("config.php");
@@ -160,7 +162,7 @@
 				
 				// Get the individual ban in question
 				$single_ban_assoc = $db->getbanfromid($_GET['banselect']);
-				$sm->assign("ban",$single_ban_assoc,$sm);
+				$sm->assign("ban",$single_ban_assoc);
 				
 				// Next we fetch all history for the ban.
 				
@@ -176,8 +178,8 @@
 				{
 					$ip4 = $single_ban_assoc['ip_octet4'];
 				}
-								
-				$ip=ip2long($single_ban_assoc['ip_octet1'].".".$single_ban_assoc['ip_octet2'].".".$ip3.".".$ip4);
+				$zip = $single_ban_assoc['ip_octet1'].".".$single_ban_assoc['ip_octet2'].".".$ip3.".".$ip4;
+				$ip=ip2long($zip);
 				
 				// Get history for the IP
 				$rawhist=$db->getiphistory($ip);
@@ -187,10 +189,10 @@
 					foreach ($rawhist as $hist)
 					{
 						$banhistory[]=array(
-							"ip1"=>$hist['ip_octet1'],
-							"ip2"=>$hist['ip_octet2'],
-							"ip3"=>$hist['ip_octet3'],
-							"ip4"=>$hist['ip_octet4'],
+							"ip_octet1"=>$hist['ip_octet1'],
+							"ip_octet2"=>$hist['ip_octet2'],
+							"ip_octet3"=>$hist['ip_octet3'],
+							"ip_octet4"=>$hist['ip_octet4'],
 							"id"=>$hist['id'],
 							"publicreason"=>$hist['publicreason'],
 							"privatereason"=>$hist['privatereason'],
@@ -434,7 +436,7 @@
 				//var_dump($boardarray);
 				if($boardarray)
 				{
-					$sm->assign("binfo",$boardarray[0],$sm);
+					$sm->assign("binfo",$boardarray[0]);
 					$sm->display("adminpost.tpl");
 				}
 				else
@@ -597,6 +599,20 @@
 			$sm->assign("single_page", $single_page);
 			$sm->display("adminstatic.tpl");
 		}
+		elseif ($_GET['a']=="m") // Menu editor
+		{
+
+			$static_pages = $db->getstaticpages();
+			$sm->assignbyref("pages",$static_pages);
+			$index = $db->gethovermenuindex();
+			$sm->assignbyref("hoverindex",$index);
+			$brds = $db->getindex(array('full'=>false),$sm);
+			$sm->assign("boards",$brds);
+		
+
+
+			$sm->display("adminmenu.tpl");
+		}
 		else
 		{
 			THdie("Where are you going?");
@@ -628,7 +644,7 @@
 	elseif ($_GET['t']=="ble") //Edit blotter
 	{
 		$blotter = $db->fetchBCW(THbcw_blotter);
-		
+		var_dump($_POST); die();
 		foreach ($blotter as $blot)
 		{
 			if ($_POST['del'.$blot['id']])
@@ -1157,5 +1173,90 @@
 		
 		// Redirect!
 		header("Location: ".THurl."admin.php?a=spe&id=".$id);
+	}
+	elseif( $_GET['t'] == "me")
+	{
+
+
+/*
+ *
+ * id# - id number for that entry
+ * hidden# - bool to show/hide
+ * hoverorder# - order that it goes in
+ *
+ * array(6) { ["id1"]=> string(1) "1" ["hidden1"]=> string(2) "on" ["hoverorder1"]=> string(1) "1" ["id2"]=> string(1) "2" ["hidden2"]=> string(2) "on" ["hoverorder2"]=> string(1) "2" }
+ */ 
+
+		var_dump($_POST); echo "<hr>";
+		$hoverdex = $db->gethovermenuindex();
+		foreach ($hoverdex as $hov)
+		{
+			var_dump($hov); echo "<hr>";  //here are the dumps
+/*
+				$blotter_entry=array(
+					'id'=>(int)$_POST['id'.$blot['id']],
+					'hidden'=>$db->escape_string($_POST['drydock_hovermenuindex.visible'.$blot['id']]),
+					'board'=>$db->escape_string($_POST['postto'.$blot['id']])
+				);
+*/				
+				//$db->updateBCW(THbcw_blotter, $blotter_entry['id'], $blotter_entry['text'], $blotter_entry['board']);
+
+
+
+		}
+		
+		
+
+
+        die();
+/*
+				// We're going to make an array of index to update (with size 1) containing
+				// assoc-arrays with board information
+				$index_to_update = array();
+				$updated_index = array();
+
+                var_dump($_POST); echo "<hr>";
+                //$keys = array("id","hoverorder","hidden");
+$keys = array_keys($_POST);
+        $values = array_values($_POST);
+        var_dump($keys); echo "<hr>"; var_dump($values);
+
+        foreach( $values as $keys => $key ) {
+            var_dump($_POST);
+            echo $key." = ".$values[$key]."<hr>";
+        }
+echo (int)$_POST['id'.$key['id']];
+/*
+        $blotter_entry=array(
+			'id'=>(int)$_POST['id'.$blot['id']],
+			'text'=>$db->escape_string($_POST['post'.$blot['id']]),
+			'board'=>$db->escape_string($_POST['postto'.$blot['id']])
+		);
+        die();
+
+				$updated_board['oldid'] = $_POST['id'];
+				$updated_board['id'] = $updated_board['oldid'];
+				$oldid = $updated_board['oldid'];
+
+				if(isset($_POST['hidden'.$oldid])) {
+					$updated_index['hidden'] = ($_POST['hidden'.$oldid]=="on");
+				} else {
+					$updated_index['hidden'] = "";
+				}
+				if(isset($_POST['hoverindex'.$oldid])) {
+					$updated_index['hoverorder'] = ($_POST['hoverorder'.$oldid]=="on");
+				}
+
+				// Add the assoc-array with the updated information into the array
+				$index_to_update[] = $updated_index;
+/*
+								var_dump($_POST); echo "<hr>";
+								var_dump($updated_index);echo "<hr>";
+								var_dump($index_to_update);
+*/
+
+		rebuild_hovermenu();
+		// Redirect!
+		header("Location: ".THurl."admin.php?a=m");
 	}
 ?>
