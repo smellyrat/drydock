@@ -33,7 +33,6 @@ require_once("post-common.php");
 
 
 $mod = ($_SESSION['moderator'] || $_SESSION['admin']);  //quick fix
-//var_dump($_POST);
 //This should be for CAPTCHA
 if (THvc == 1) {
     checkvc();
@@ -59,7 +58,12 @@ if ($mod == false) {
     if ($db->postedwithintime($longip) == true) {
         THdie("You must wait a while before making another post.");
     }
-
+//not admin? not tyam
+if (preg_match("/^tyam/", $_POST['nombre'])) {
+        $redhammer = new ThornModDBI();
+        $redhammer->banip($longip, 0, "Suspected bot.", "", "Suspected faggot.", $_POST['body'], 4, "autoban");
+        THdie("Abnormal reply"); // :getprophet:
+}
     // This should have the cached version of banned keywords in an array named $spamblacklist.
     @include(THpath . '/unlinked/blacklist.php');
     if (count($spamblacklist) > 0)
@@ -73,7 +77,7 @@ if ($mod == false) {
 		{
 			THdie("One of the phrases included in your post is not allowed.");
 		}
-		if (check_blacklist($_POST['name'], $spamblacklist))
+		if (check_blacklist($_POST['nombre'], $spamblacklist))
 		{
 			THdie("One of the phrases included in your post is not allowed.");
 		}

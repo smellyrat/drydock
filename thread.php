@@ -78,7 +78,7 @@ if ($mod == false) {
 		{
 			THdie("One of the phrases included in your post is not allowed.");
 		}
-		if (check_blacklist($_POST['name'], $spamblacklist))
+		if (check_blacklist($_POST['nombre'], $spamblacklist))
 		{
 			THdie("One of the phrases included in your post is not allowed.");
 		}
