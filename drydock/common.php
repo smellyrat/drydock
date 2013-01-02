@@ -745,5 +745,20 @@
 		return preg_match('/^([a-z0-9])(([-a-z0-9._])*([a-z0-9]))*\@([a-z0-9])' .
 		'(([a-z0-9-])*([a-z0-9]))+' . '(\.([a-z0-9])([-a-z0-9_-])?([a-z0-9])+)+$/i', $email);
 	}
-	
+
+    /* strpos that takes an array of values to match against a string
+     * note the stupid argument order (to match strpos)
+     */
+    function check_blacklist($haystack, $needle)
+    {
+        if(!is_array($needle)) $needle = array($needle);
+        foreach($needle as $what)
+        {
+            if(($pos = strpos($haystack, $what))!==false)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 ?>
