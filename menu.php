@@ -2,9 +2,8 @@
 <div id="idxmenuitem">
 <div class="idxmenutitle">
 Board Navigation<br />
-<a href="http://127.0.0.1/drydock/branches/0.3.2/drydock.php?b="></a><br />
-<a href="http://127.0.0.1/drydock/branches/0.3.2/drydock.php?b="></a><br />
-<a href="http://127.0.0.1/drydock/branches/0.3.2/drydock.php?b=tt">tt</a><br />
+<a href="http://127.0.0.1/~tyam/subversion/branches/0.3.2/drydock.php?b=ff">ff</a><br />
+<a href="http://127.0.0.1/~tyam/subversion/branches/0.3.2/drydock.php?b=tt">tt</a><br />
 <?php if(isset($_SESSION["admin"])){ echo "Administration Menu<br />"; } elseif(isset($_SESSION["moderator"])) { echo "Moderator Menu<br />"; } ?>
 <?php if(isset($_SESSION["admin"])){ echo "
 <a href=\"".THurl."admin.php?a=g\">Global Settings</a><br />
@@ -28,7 +27,7 @@ echo "
 <a href=\"".THurl."reports.php\">Reports</a><br />
 <a href=\"".THurl."lookups.php\">Lookup Tools</a><br /><br />";
 } ?>
-<a href="http://127.0.0.1/drydock/branches/0.3.2/">Site Index</a><br />
+<a href="http://127.0.0.1/~tyam/subversion/branches/0.3.2/">Site Index</a><br />
 <?php if(isset($_SESSION["username"])) {
 echo "<a href=\"".THurl."profiles.php?action=logout\">Log Out</a> / <a href=\"".THurl."profiles.php\">Profiles</a>";
  } else {
