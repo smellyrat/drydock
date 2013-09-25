@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Capcodes</title></head>
 <body>
     <div id="main">
@@ -63,4 +63,4 @@
                 </form>
             </div>
         </div>
-        {include file=admin-foot.tpl}
+        {include file='admin-foot.tpl'}

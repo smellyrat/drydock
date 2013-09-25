@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Static Pages</title></head>
 <body>
 <div id="main">
@@ -142,4 +142,4 @@
 {/if}
         
     </div> {* Close box *}
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

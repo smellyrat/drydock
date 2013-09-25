@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 <title>{$THname} &#8212; Removing {$username}</title>
 </head>
 <body>
@@ -8,4 +8,4 @@
                 The specified user has been successfully deleted.
                 <a href="{$THurl}profiles.php?action=memberlist">Return to member list</a>
             </div>
-            {include file=bottombar.tpl}
+            {include file='bottombar.tpl'}

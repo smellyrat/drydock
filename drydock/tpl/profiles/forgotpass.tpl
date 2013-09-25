@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 <title>{$THname} &#8212; Lost password</title>
 </head>
 <body>
@@ -23,4 +23,4 @@
                     </form>    
                 {/if}
                 [<a href="{$THurl}drydock.php">Board index</a>]</div>
-            {include file=bottombar.tpl}
+            {include file='bottombar.tpl'}

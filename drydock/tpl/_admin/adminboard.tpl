@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Board Settings</title></head>
 <body>
 {literal}
@@ -109,8 +109,8 @@ Edit this board now or continue to add more boards (and edit later)</td><td><inp
 <input type="checkbox" name="fileformat"{if $board.allowedformats &  2} checked="checked"{/if} onclick="CalcAllowed(this.form)"/> GIF 
 <input type="checkbox" name="fileformat"{if $board.allowedformats &  4} checked="checked"{/if} onclick="CalcAllowed(this.form)"/> PNG 
 <input type="checkbox" name="fileformat"{if $board.allowedformats &  8} checked="checked"{/if} {if !$THuseSVG}disabled {/if} onclick="CalcAllowed(this.form)"/> SVG 
-<input type="checkbox" name="fileformat"{if $board.allowedformats & 16} checked="checked"{/if} onclick="CalcAllowed(this.form)"/> SWF
-<input type="checkbox" name="fileformat"{if $board.allowedformats & 32} checked="checked"{/if} {if !$THusePDF}disabled {/if} onclick="CalcAllowed(this.form)"/> PDF
+<input type="checkbox" name="fileformat"{if $board.allowedformats & 16} checked="checked"{/if} onclick="CalcAllowed(this.form)"/> SWF 
+<input type="checkbox" name="fileformat"{if $board.allowedformats & 32} checked="checked"{/if} {if !$THusePDF}disabled {/if} onclick="CalcAllowed(this.form)"/> PDF 
 <br />Raw: <input type="text" name="allowedformats{$board.id}" size="3" value="{$board.allowedformats}" /></td></tr>
 <tr><td>Delete</td><td><input type="checkbox" name="delete{$board.id}" /></td></tr>
 </table>
@@ -122,4 +122,4 @@ Edit this board now or continue to add more boards (and edit later)</td><td><inp
         </div>
     </div>
 {if $boardselect}<a href="admin.php?a=b">Return to board list</a><br />{/if}
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

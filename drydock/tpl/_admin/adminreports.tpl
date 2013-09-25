@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Reports</title></head>
 <body>
 <div id="main">
@@ -193,4 +193,4 @@ Filter by board:
 	</div>
 
 </div>
-{include file=admin-foot.tpl}
+{include file='admin-foot.tpl'}

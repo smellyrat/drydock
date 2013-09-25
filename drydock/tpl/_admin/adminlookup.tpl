@@ -1,4 +1,4 @@
-{include file=admin-head.tpl}
+{include file='admin-head.tpl'}
 <title>{$THname} &#8212; Administration &#8212; Lookup Tool</title></head>
 <body>
 <div id="main">
@@ -298,4 +298,4 @@ IP:
 </div> {* box *}
 
 {* this closes up main div *}
-{include file=admin-foot.tpl} 
+{include file='admin-foot.tpl'} 

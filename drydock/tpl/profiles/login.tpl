@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 <title>{$THname} &#8212; Login</title>
 </head>
 <body>
@@ -34,4 +34,4 @@
                         <tr><td><input type="submit" value="Login"></td></tr>
                     </form></table>    
             {/if}
-            {include file=bottombar.tpl}
+            {include file='bottombar.tpl'}

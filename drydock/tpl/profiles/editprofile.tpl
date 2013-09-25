@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 <title>{$THname} &#8212; Editing profile of {$user.username}</title>
 </head>
 <body>
@@ -100,4 +100,4 @@
                             <input type="submit" value="Submit" id="subbtn" /></form><br />
                         [<a href="{$THurl}profiles.php?action=viewprofile&amp;user={$user.username}">User profile</a>]
                     </div>
-                    {include file=bottombar.tpl}
+                    {include file='bottombar.tpl'}

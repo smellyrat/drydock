@@ -10,6 +10,6 @@
 		http://www.opensource.org/licenses/artistic-license-2.0.php
 	*/
 
-	define("THversion", "0.3.1 SVN");
-	define("THcodename", "speedycake");
+	define("THversion", "0.3.2 SVN");
+	define("THcodename", "scubahorse");
 ?>

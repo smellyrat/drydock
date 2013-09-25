@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 <title>{$THname} &#8212; Profiles System</title>
 </head>
 <body>
@@ -19,4 +19,4 @@
                 {/if}
             </ul>
             [<a href="drydock.php">Board index</a>]
-            {include file=bottombar.tpl}
+            {include file='bottombar.tpl'}
