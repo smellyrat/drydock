@@ -125,6 +125,39 @@
 
     </div>
     <div class="postbody">
+{* So here's the deal.  In anonbbs mode, we don't show reply images in the main board view, but we will announce they exist *}
+{if $post.images}
+	{if $comingfrom=="thread"}
+				<table>
+					<tr>
+{counter name="imgcount" assign="imgcount" start="0"}
+{counter name="imganchor" assign="imganchor" start="1"}
+{foreach from=$post.images item=it} {* each image *}
+						<a name="img{$imganchor}" /></a>
+						<td style="text-align: center; vertical-align: top;">
+							<div class="filesize">File: <a href="{$THurl}images/{$post.imgidx}/{$it.name}" target="_blank">{$it.name|filetrunc}</a><br /></div>
+							<a class="info" href="{$THurl}images/{$post.imgidx}/{$it.name}" target="_blank">
+								<img src="{$THurl}images/{$post.imgidx}/{$it.tname}" width="{$it.twidth}" height="{$it.theight}" alt="{$it.name}" class="thumb" />
+								<span>{$it.fsize} K, {$it.width}x{$it.height}{if $it.anim}, animated{/if}<br />{$it.exif_text}</span>
+							</a>
+						</td>
+{if ($imgcount == 3)}</tr><tr>{/if} {* tyam - let's avoid more template breaking *}
+{counter name="imgcount"}
+{counter name="imganchor"}
+{assign var="images" value=$imgcount}
+{/foreach}
+					</tr>
+				</table>
+	{else}
+{counter name="imgcount" assign="imgcount" start="0"}
+{foreach from=$post.images item=it} 
+{counter name="imgcount"}
+{assign var="images" value=$imgcount}
+{/foreach}
+		Post includes {$images} images.  Click     <a href="{$THurl}{if $THuserewrite}{$binfo.folder}/thread/{else}drydock.php?b={$binfo.folder}&amp;i={/if}{$thread.globalid}">here</a> to view.
+	{/if}
+{/if}
+
         <blockquote><p>
                 {assign value=$post.body|THtrunc:2000 var=bodey}
 

@@ -39,7 +39,7 @@
 {* Show filtering links *}
 {if $showhidden == true}
 	{if $isthread == true}
-		- <a href="recentposts.php?type=posts&showhidden=1">Pull posts</a> + Pull threads + <a href="recentposts.php">Show all posts</a> - Filter by board: 
+		- <a href="recentposts.php?type=posts&showhidden=1">Pull replies</a> + Pull threads + <a href="recentposts.php">Show all posts</a> - Filter by board: 
 		<select name="board">
 		<option value="" onclick="window.location='recentposts.php?showhidden=1'">All boards</option>
 		{foreach from=$boards item=board}
@@ -49,7 +49,7 @@
 			</option>
 		{/foreach}
 	{else}
-		- Pull posts + <a href="recentposts.php?showhidden=1">Pull threads</a> + <a href="recentposts.php?type=posts">Show all posts</a> - Filter by board: 
+		- Pull replies + <a href="recentposts.php?showhidden=1">Pull threads</a> + <a href="recentposts.php?type=posts">Show all posts</a> - Filter by board: 
 		<select name="board">
 		<option value="" onclick="window.location='recentposts.php?type=posts&showhidden=1'">All boards</option>
 		{foreach from=$boards item=board}
@@ -61,7 +61,7 @@
 	{/if}
 {else}
 	{if $isthread == true}
-		- <a href="recentposts.php?type=posts">Pull posts</a> + Pull threads + <a href="recentposts.php?showhidden=1">Show only hidden</a> - Filter by board: 
+		- <a href="recentposts.php?type=posts">Pull replies</a> + Pull threads + <a href="recentposts.php?showhidden=1">Show only hidden</a> - Filter by board: 
 		<select name="board">
 		<option value="" onclick="window.location='recentposts.php'">All boards</option>
 		{foreach from=$boards item=board}
@@ -71,7 +71,7 @@
 			</option>
 		{/foreach}
 	{else}
-		- Pull posts + <a href="recentposts.php">Pull threads</a> + <a href="recentposts.php?type=posts&showhidden=1">Show only hidden</a> - Filter by board: 
+		- Pull replies + <a href="recentposts.php">Pull threads</a> + <a href="recentposts.php?type=posts&showhidden=1">Show only hidden</a> - Filter by board: 
 		<select name="board">
 		<option value="" onclick="window.location='recentposts.php?type=posts'">All boards</option>
 		{foreach from=$boards item=board}

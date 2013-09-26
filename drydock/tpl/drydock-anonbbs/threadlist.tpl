@@ -28,11 +28,11 @@
 		<div>
 
 [<a href="{$THurl}{if !$THuserewrite}drydock.php?b={/if}{$binfo.folder}">Return</a>]<br/>
-<table style="width: 50%;">
+<table style="width: 100%;">
 <thead>
 <tr>
 <th style="text-align: right;">Num</th>
-<th>Title</th>
+<th style="text-align: left;">Title</th>
 <th style="text-align: right;">Posts</th>
 <th>Last post</th>
 </tr>

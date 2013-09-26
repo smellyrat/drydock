@@ -1,4 +1,4 @@
-{include file=head.tpl}
+{include file='head.tpl'}
 {it->binfo assign="binfo"}
 {it->head assign="thread"}{* Workaround *}
 {it->getreplies assign="posts"}

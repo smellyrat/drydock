@@ -1,9 +1,9 @@
-{include file=head.tpl comingfrom=$comingfrom}
+{include file='head.tpl' comingfrom=$comingfrom}
 
 {it->binfo assign=binfo}
 {it->blotterentries assign=blotter}
 {* include_php file="linkbar.php" *} {* tyam - this way we have a list of boards to quicklink to - take the asterisks out if you want them*}
-{include file=pages.tpl}
+{include file='pages.tpl'}
 <br style="clear: both;" />
 		<div class="centered">{include_php file="banners.php"}
 		<div class="pgtitle">
@@ -18,7 +18,7 @@
 {counter name="upto" assign="upto" start="0"}
 {foreach from=$bthreads item=th}
 {counter name="upto"}
-<a href="#{$th.globalid}">{$th.globalid}: {if $th.title}{$th.title|escape:'html':'UTF-8'}{else}No Subject{/if} ({$th.rcount+1})</a>&nbsp;&nbsp;
+<span class="tiny"><a href="#{$th.globalid}">{$th.globalid}: {if $th.title}{$th.title|escape:'html':'UTF-8'}{else}No Subject{/if} ({$th.rcount+1})</a></span>&nbsp;&nbsp;
 {foreachelse}
 (no threads)
 {/foreach}
@@ -39,7 +39,7 @@
 {/foreach}{*For each thread*}
 <div class="box">
 <a name="newthread" />
-{include file=postblock.tpl comingfrom=$comingfrom}
+{include file='postblock.tpl' comingfrom=$comingfrom}
 </div>
 {literal}
 <script type="text/javascript" defer="defer">
