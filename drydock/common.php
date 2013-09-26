@@ -209,7 +209,7 @@
 	function sminit($tpl,$id=null,$template=THtplset,$admin=false,$modvar=false)
 	{
 		$smarty=smsimple();
-		$sm->cache_dir=THpath."cache/";
+		$smarty->cache_dir=THpath."cache/";
 		if ($admin)
 		{
 			//echo("ADMIM MODE ZOMG");
@@ -683,7 +683,7 @@
 	 */		
 	function checklogin() //look for cookies, set session variables if needed
 	{
-		if(isset($_COOKIE[THcookieid."-uname"]) && isset($_COOKIE[THcookieid."-id"]))
+		if(isset($_COOKIE['THcookieid'."-uname"]) && isset($_COOKIE['THcookieid'."-id"]))
 		{
 			// verify login information
 			$db=new ThornProfileDBI();

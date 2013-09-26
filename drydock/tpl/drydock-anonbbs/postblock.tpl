@@ -1,17 +1,17 @@
 {* Increment variable *}
 {counter assign="pb" name="postblock_increment"}
-<div>
+<div class="pgtitle">
     {if $comingfrom=="board"}
         {if $binfo.tlock}
-		<span class="medtitle">Board is locked, no more posts allowed.</span>
+		Board is locked, no more posts allowed.
         {else}
-		<span class="pgtitle">New thread</span>
+		New thread
         {/if}
     {elseif $comingfrom=="thread"}
         {if $thread.lawk||$binfo.rlock}
-		<span class="medtitle">Thread is locked, no more posts allowed.</span>
+		Thread is locked, no more posts allowed.
         {else}
-		<span class="pgtitle">Reply</span>
+		Reply
         {/if}
     {/if}
 </div>
